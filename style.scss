@@ -1,0 +1,143 @@
+$tile-size: 50px;
+$margin: 5px;
+$board-width: 5;
+$board-height: 10;
+
+$bg: #222;
+$light-yellow: #EFEA81;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: $bg;
+}
+
+.board,
+.board-bg, 
+.board-fg, {
+  width: ($tile-size + $margin*2)*$board-width;
+  height: ($tile-size + $margin*2)*$board-height;
+  background: lighten($bg, 5);
+  padding: $margin*2;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+}
+
+.board {
+  position: relative;
+  margin: 50px auto;
+}
+
+.board-bg {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.board-fg .tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.board-bg,
+.board-fg {
+  background: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tile {
+  display: block;
+  width: $tile-size;
+  height: $tile-size;
+  color: $light-yellow;
+  box-sizing: border-box;
+  font: normal normal 30px/1 "helvetica", sans-serif;
+  padding-top: 12px;
+  text-align: center;
+  border-radius: 5px;
+  margin: $margin;
+  cursor: pointer;
+  background: $bg;
+  transition: top .6s;
+
+  &.empty {
+    border: 1px solid darken($bg, 5);
+    background: lighten($bg, 5);
+    cursor: default;
+  }
+
+  &:not(.empty):hover {
+    color: $bg;
+    background-color: $light-yellow;
+  }
+
+  &.highlighted {
+    border: 1px solid $light-yellow;
+  }
+
+  &.enter-buffer {
+    background: transparent;
+    border: 1px solid $light-yellow;
+    color: $light-yellow;
+  }
+
+  &.loading {
+    color: lighten($bg, 10);
+  }
+}
+
+.entry-button {
+  position: absolute;
+  bottom: 50px;
+  $bw: ($tile-size + $margin*2)*$board-width;
+  left: calc(50% - #{ $bw/2 + $tile-size*1.4 });
+  z-index: 10;
+  outline: 0;
+  background-color: #EFEA81;
+  width: $tile-size/1.2;
+  height: $tile-size/1.2;
+  border-radius: 50%;
+  border: none;
+  line-height: 0;
+  cursor: pointer;
+  transition: bottom .6s .1s;
+
+  &.entering {
+    .plus-icon {
+      display: none;
+    }
+    .check-icon {
+      display: block;
+    }
+  }
+
+  .plus-icon {
+      font-size: 30px;
+      display: block;
+      font-weight: bold;
+      color: #222;
+      line-height: 0;
+      margin-top: -2px;
+  }
+
+  .check-icon {
+    display: none;
+    width: 28px;
+    position: relative;
+    top: 0px;
+  }
+}
+
+.reason {
+  position: absolute;
+  bottom: 50px;
+  $bw: ($tile-size + $margin*2)*$board-width;
+  left: calc(50% + #{ $bw/2 + $tile-size*0.8 });
+  z-index: 10;
+  color: #F33E58;
+  font: normal normal 16px/1 'Apercu', sans-serif;
+  padding-bottom: 10px;
+}

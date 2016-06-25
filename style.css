@@ -1,0 +1,141 @@
+/* line 9, style.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #222;
+}
+
+/* line 15, style.scss */
+.board,
+.board-bg,
+.board-fg {
+  width: 300px;
+  height: 600px;
+  background: #2f2f2f;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+}
+
+/* line 27, style.scss */
+.board {
+  position: relative;
+  margin: 50px auto;
+}
+
+/* line 32, style.scss */
+.board-bg {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+/* line 37, style.scss */
+.board-fg .tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 43, style.scss */
+.board-bg,
+.board-fg {
+  background: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 51, style.scss */
+.tile {
+  display: block;
+  width: 50px;
+  height: 50px;
+  color: #EFEA81;
+  box-sizing: border-box;
+  font: normal normal 30px/1 "helvetica", sans-serif;
+  padding-top: 12px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  background: #222;
+  transition: top .6s;
+}
+/* line 66, style.scss */
+.tile.empty {
+  border: 1px solid #151515;
+  background: #2f2f2f;
+  cursor: default;
+}
+/* line 72, style.scss */
+.tile:not(.empty):hover {
+  color: #222;
+  background-color: #EFEA81;
+}
+/* line 77, style.scss */
+.tile.highlighted {
+  border: 1px solid #EFEA81;
+}
+/* line 81, style.scss */
+.tile.enter-buffer {
+  background: transparent;
+  border: 1px solid #EFEA81;
+  color: #EFEA81;
+}
+/* line 87, style.scss */
+.tile.loading {
+  color: #3c3c3c;
+}
+
+/* line 92, style.scss */
+.entry-button {
+  position: absolute;
+  bottom: 50px;
+  left: calc(50% - 220px);
+  z-index: 10;
+  outline: 0;
+  background-color: #EFEA81;
+  width: 41.66667px;
+  height: 41.66667px;
+  border-radius: 50%;
+  border: none;
+  line-height: 0;
+  cursor: pointer;
+  transition: bottom .6s .1s;
+}
+/* line 109, style.scss */
+.entry-button.entering .plus-icon {
+  display: none;
+}
+/* line 112, style.scss */
+.entry-button.entering .check-icon {
+  display: block;
+}
+/* line 117, style.scss */
+.entry-button .plus-icon {
+  font-size: 30px;
+  display: block;
+  font-weight: bold;
+  color: #222;
+  line-height: 0;
+  margin-top: -2px;
+}
+/* line 126, style.scss */
+.entry-button .check-icon {
+  display: none;
+  width: 28px;
+  position: relative;
+  top: 0px;
+}
+
+/* line 134, style.scss */
+.reason {
+  position: absolute;
+  bottom: 50px;
+  left: calc(50% + 190px);
+  z-index: 10;
+  color: #F33E58;
+  font: normal normal 16px/1 'Apercu', sans-serif;
+  padding-bottom: 10px;
+}
