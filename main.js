@@ -3,18 +3,30 @@ var randomIn = function(arr) {
   return arr[ Math.floor(Math.random() * arr.length) ];
 }
 
+Array.prototype.concatUnique = function(arr) {
+  var newArray = this.slice(0); //clone
+  for(var i = 0; i < arr.length; i++) {
+    if (newArray.indexOf(arr[i]) === -1 ) {
+      newArray.push(arr[i]);
+    }
+  }
+  return newArray;
+}
+
 var tileSize = 50;
 var margin = 5;
 var fullTileSize = tileSize + margin*2;
 var boardWidth = 5;
 var boardHeight = 10;
 var minAllowedMatch = 3;
+var matchesForBonus = 4;
 
 var board = {
   background: $(".board-bg"),
   element: $(".board-fg"),
   grid: [],
-  words: []
+  words: [],
+  bonusColumn: 0
 }
 
 var dictionary;
@@ -32,8 +44,26 @@ function init() {
       var newSpan = $("<span>").addClass("tile empty");
       board.background.append( newSpan.clone() );
       if(j < numStartingWords) {
-        // newSpanFromRandom(newSpan, i, j);
-        newSpanFromStartingWords(newSpan, i, j);
+        newSpanFromRandom(newSpan, i, j);
+        // newSpanFromStartingWords(newSpan, i, j);
+      }
+    }
+  }
+  moveAddUI();
+}
+
+function restart() {
+  board.grid = [];
+  board.words = [];
+  board.element.empty();
+  for(var i = 0; i < boardWidth; i++) {
+    board.grid[i] = [];
+    for(var j = 0; j < boardHeight; j++) {
+      var newSpan = $("<span>").addClass("tile empty");
+      board.background.append( newSpan.clone() );
+      if(j < numStartingWords) {
+        newSpanFromRandom(newSpan, i, j);
+        // newSpanFromStartingWords(newSpan, i, j);
       }
     }
   }
@@ -59,6 +89,10 @@ function newSpanFromStartingWords(template, i, j) {
 function bindEvents() {
   $(document.body)
     .on('keydown', function (e) {
+      if( e.which == 48 ) {
+        //0, test key
+        newRowFromBottom();
+      }
       if( e.which == 27 ) {
         //Esc
         e.preventDefault();
@@ -85,10 +119,10 @@ function bindEvents() {
     })
   board.element
     .on('mouseover', '.tile:not(.empty)', function (e) {
-      highlightLetters( $(this).text() );
+      highlightLetters( this );
     })
     .on('mouseleave', '.tile:not(.empty)', function (e) {
-      $('.tile').removeClass('highlighted');
+      $('.tile').removeClass('highlighted selected');
     })
     .on('click', '.tile:not(.empty)', function (e) {
       clearTile(this, true);
@@ -108,19 +142,87 @@ function reposition(element, col, row) {
   var t = margin*2 + fullTileSize * (boardHeight - 1 - row);
   var l = margin*2 + fullTileSize * col;
   $(element).css({top: t, left: l});
+  $(element).data("c", col);
+  $(element).data("r", row);
 }
 
-function findMatchingLetters(ltr) {
+function findAllMatchingLetters(ltr) {
   return $('.tile').filter(function (index, element) {
     var l = $(element).text().toLowerCase();
     return l == ltr.toLowerCase();
   })
 }
 
+function findLetterBlob(tile) {
+  var queue = [tile];
+  var visited = [];
+  var bonus = [];
+  while(queue.length > 0) {
+    var t = queue.pop();
+    var contig = findContiguousMatchingLetters(t);
+    visited.push(t);
+    for(var i = 0; i < contig.length; i++) {
+      if(visited.indexOf(contig[i]) == -1 && queue.indexOf(contig[i]) == -1) {
+        queue.push(contig[i]);
+      }
+    }
+  }
+  if(visited.length >= matchesForBonus || $(tile).hasClass('special')) {
+    for(var i = 0; i < visited.length; i++) {
+      var contig = findContiguousLetters(visited[i], false, false);
+      for(var j = 0; j < contig.length; j++) {
+        if(visited.indexOf(contig[j]) == -1 && bonus.indexOf(contig[j]) == -1) {
+          bonus.push(contig[j]);
+        }
+      }
+    }
+    //not so many bonus tiles maybe?
+    bonus = bonus.filter((e, i) => i % 2);
+  }
+  return {blob: visited, bonus: bonus};
+}
+
+function findContiguousMatchingLetters(tile) {
+  return findContiguousLetters(tile, true, true);
+}
+
+function findContiguousLetters(tile, includeDiagonals, matchingOnly) {
+  var i = $(tile).data("c");
+  var j = $(tile).data("r");
+  var newSet = [tile];
+
+  //cardinals
+  if(i > 0)                { newSet.push( board.grid[i-1][j] ) };
+  if(i < boardWidth-1)     { newSet.push( board.grid[i+1][j] ) };
+  if(j > 0)                { newSet.push( board.grid[i][j-1] ) };
+  if(j < boardHeight-1)    { newSet.push( board.grid[i][j+1] ) };
+
+  if(includeDiagonals) {
+    if(i > 0 && j > 0)                            { newSet.push( board.grid[i-1][j-1] ) };
+    if(i < boardWidth-1 && j > 0)                 { newSet.push( board.grid[i+1][j-1] ) };
+    if(j < boardHeight-1 && i < boardWidth-1)     { newSet.push( board.grid[i+1][j+1] ) };
+    if(j < boardHeight-1 && i > 0)                { newSet.push( board.grid[i-1][j+1] ) };
+  }
+
+  if(matchingOnly) {
+    newSet = newSet.filter(function (element, index) {
+      var l = $(element).text().toLowerCase();
+      return l == $(tile).text().toLowerCase();
+    });
+  }
+
+  //get rid of undefined and null things
+  newSet = newSet.filter(function (element, index) {
+    return element;
+  });
+
+  return newSet;
+}
+
 function clearTile(tileElement, initiator) {
   var index = $(tileElement).index(),
       row, col,
-      allRemoved = findMatchingLetters($(tileElement).text());
+      allRemoved = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus);
   if(initiator && allRemoved.length < minAllowedMatch) { return; }
   for(var i = 0; i < boardWidth; i++) {
     for(var j = 0; j < boardHeight; j++) {
@@ -154,10 +256,20 @@ function enforceGravity(column) {
   moveAddUI();
 }
 
+function newRowFromBottom() {
+  for(var i = 0; i < boardWidth; i++) {
+    var ltr = randomIn("etoinshrdlu".split("")).toUpperCase();
+    var newSpan = $("<span>").addClass("tile").text(ltr);
+    board.grid[i].splice(0,0,newSpan[0]); //insert in front
+    board.element.append( newSpan );
+    enforceGravity(i);
+  }
+}
 
-function highlightLetters(ltr) {
-  var arr = findMatchingLetters(ltr);
-  $(arr).addClass('highlighted');
+function highlightLetters(tile) {
+  var b = findLetterBlob(tile);
+  $(b.blob).addClass('selected');
+  $(b.bonus).addClass('highlighted');
 }
 
 function lastFullRow() {
@@ -168,13 +280,20 @@ function lastFullRow() {
     }).length;
     lengths.push(realLength);
   }
-  return Math.max.apply(null, lengths);
+  var last = Math.max.apply(null, lengths);
+  if(last > boardHeight) {
+    alert("you lose");
+    restart();
+  } else {
+    return last;
+  }
 }
 
 function moveAddUI() {
-  var y = lastFullRow();
-  $('.entry-button').css('bottom', (y*fullTileSize)+28);
-  $('.reason').css('bottom', (y*fullTileSize)+28);
+  var y = boardHeight - lastFullRow();
+  $('.entry-button').css('top', (y*fullTileSize)+10);
+  $('.reason').css('top', (y*fullTileSize)+10);
+  $('.bonus-column-indicator').css('left', (board.bonusColumn)*fullTileSize+10);
 }
 
 function startEntry() {
@@ -190,26 +309,37 @@ function stopEntry(force) {
     $('.enter-buffer').removeClass('enter-buffer');
     $('.entry-button').removeClass('entering');
     entering = false;
+    if(!force) {
+      board.bonusColumn++;
+      if(board.bonusColumn >= boardWidth) {
+        board.bonusColumn = 0;
+        newRowFromBottom();
+      }
+      $('.bonus-column-indicator').css('left', (board.bonusColumn)*fullTileSize+10);
+    }
   }
-  var ro = isValidWord( entryBuffer.join("") );
+  var validity = isValidWord( entryBuffer.join("") );
   $('.reason').hide();
   if(force) {
     $('.enter-buffer').remove();
     closeEntry();
     return;
-  } else if(ro.bool) {
+  } else if(validity.bool) {
+    var newWord = "";
     $('.enter-buffer').each(function (i, elem) {
       var e = $(elem);
       var x = e.attr("data-x");
       var y = e.attr("data-y");
+      newWord += e.text();
       board.grid[x][y] = elem;
     })
+    board.words.push(newWord.toLowerCase());
     for(var i = 0; i < boardWidth; i++) {
       enforceGravity(i);
     }
     closeEntry();
   } else {
-    $('.reason').show().text(ro.reason);
+    $('.reason').show().text(validity.reason);
   }
 }
 
@@ -228,11 +358,15 @@ function updateEntryTiles() {
   $('.enter-buffer').remove();
   for(var i = 0; i < entryBuffer.length; i++) {
     var x = i % boardWidth;
-    var rows = Math.ceil(entryBuffer.length / boardWidth);
-    var y = startingY + rows - 1 - Math.floor(i / boardWidth);
+    var y = startingY + Math.floor(i / boardWidth);
     var newSpan = $("<span>").addClass("tile enter-buffer");
+    if(x == board.bonusColumn) {
+      newSpan.addClass("special");
+    }
     newSpan.attr("data-x", x);
     newSpan.attr("data-y", y);
+    newSpan.data("c", x);
+    newSpan.data("r", y);
     newSpan.text( entryBuffer[i] );
     newSpan.appendTo(board.element);
     reposition(newSpan[0], x, y);
@@ -251,6 +385,7 @@ function loadDictionary() {
       for(var i = 0; i < numStartingWords; i++) {
         var m = Math.floor(Math.random() * eligibleWords.length);
         startingWords.push(eligibleWords[m]);
+        board.words.push(eligibleWords[m]);
       }
       $('.tile.loading').each(function (i, e) {
         var allLetters = startingWords.reduce(function (p, c) {
@@ -286,7 +421,7 @@ function isValidWord(word) {
     ro.bool = false;
     ro.reason = "Contains invalid characters";
   } else
-  if(board.words.indexOf(word) !== -1) {
+  if(board.words.indexOf(word.toLowerCase()) !== -1) {
     ro.bool = false;
     ro.reason = "Already used";
   } else
