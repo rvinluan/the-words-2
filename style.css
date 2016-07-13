@@ -110,47 +110,23 @@ html, body {
 }
 
 /* line 115, style.scss */
-.entry-button {
+.entry-indicator {
   position: absolute;
   top: 50px;
-  left: calc(50% - 220px);
+  left: calc(50% - 200px);
   z-index: 10;
   outline: 0;
   background-color: #EFEA81;
-  width: 41.66667px;
-  height: 41.66667px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: none;
   line-height: 0;
   cursor: pointer;
   transition: top .6s .1s;
 }
-/* line 132, style.scss */
-.entry-button.entering .plus-icon {
-  display: none;
-}
-/* line 135, style.scss */
-.entry-button.entering .check-icon {
-  display: block;
-}
-/* line 140, style.scss */
-.entry-button .plus-icon {
-  font-size: 30px;
-  display: block;
-  font-weight: bold;
-  color: #222;
-  line-height: 0;
-  margin-top: -2px;
-}
-/* line 149, style.scss */
-.entry-button .check-icon {
-  display: none;
-  width: 28px;
-  position: relative;
-  top: 0px;
-}
 
-/* line 157, style.scss */
+/* line 132, style.scss */
 .bonus-column-indicator {
   position: absolute;
   width: 60px;
@@ -160,7 +136,7 @@ html, body {
   transition: left .6s .1s;
 }
 
-/* line 166, style.scss */
+/* line 141, style.scss */
 .reason {
   position: absolute;
   bottom: 50px;

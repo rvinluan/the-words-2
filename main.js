@@ -33,7 +33,6 @@ var dictionary;
 var numStartingWords = 3;
 var startingWords = [];
 
-var entering = false;
 var entryBuffer = [];
 
 function init() {
@@ -100,21 +99,17 @@ function bindEvents() {
       } else if( e.which == 8 ) {
         //Backspace
         e.preventDefault();
-        if(entering) {
+        if(entryBuffer.length > 0) {
           removeFromEntryBuffer();
         }
       } else if(e.which == 13) {
         //Enter key
-        if(!entering) {
-          startEntry();
-        } else {
+        if(entryBuffer.length > 0) {
           stopEntry();
         }
       } else if( e.which >= 65 && e.which <= 90 ) {
         //a-z
-        if(entering) {
-          addToEntryBuffer(String.fromCharCode(e.which));
-        }
+        addToEntryBuffer(String.fromCharCode(e.which));
       }
     })
   board.element
@@ -126,15 +121,6 @@ function bindEvents() {
     })
     .on('click', '.tile:not(.empty)', function (e) {
       clearTile(this, true);
-    })
-  $('.entry-button')
-    .on('click', function (e) {
-      $(this).blur();
-      if(!entering) {
-        startEntry();
-      } else {
-        stopEntry();
-      }
     })
 }
 
@@ -291,24 +277,15 @@ function lastFullRow() {
 
 function moveAddUI() {
   var y = boardHeight - lastFullRow();
-  $('.entry-button').css('top', (y*fullTileSize)+10);
+  $('.entry-indicator').css('top', (y*fullTileSize)+fullTileSize/2-6);
   $('.reason').css('top', (y*fullTileSize)+10);
   $('.bonus-column-indicator').css('left', (board.bonusColumn)*fullTileSize+10);
-}
-
-function startEntry() {
-  entering = true;
-  $(document.body).addClass('entering');
-  $('.entry-button').addClass('entering');
 }
 
 function stopEntry(force) {
   function closeEntry() {
     entryBuffer = [];
-    $(document.body).removeClass('entering');
     $('.enter-buffer').removeClass('enter-buffer');
-    $('.entry-button').removeClass('entering');
-    entering = false;
     if(!force) {
       board.bonusColumn++;
       if(board.bonusColumn >= boardWidth) {

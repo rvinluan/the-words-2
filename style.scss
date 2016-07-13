@@ -112,46 +112,21 @@ html, body {
   }
 }
 
-.entry-button {
+.entry-indicator {
   position: absolute;
   top: 50px;
   $bw: ($tile-size + $margin*2)*$board-width;
-  left: calc(50% - #{ $bw/2 + $tile-size*1.4 });
+  left: calc(50% - #{ $bw/2 + $tile-size });
   z-index: 10;
   outline: 0;
   background-color: #EFEA81;
-  width: $tile-size/1.2;
-  height: $tile-size/1.2;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: none;
   line-height: 0;
   cursor: pointer;
   transition: top .6s .1s;
-
-  &.entering {
-    .plus-icon {
-      display: none;
-    }
-    .check-icon {
-      display: block;
-    }
-  }
-
-  .plus-icon {
-      font-size: 30px;
-      display: block;
-      font-weight: bold;
-      color: #222;
-      line-height: 0;
-      margin-top: -2px;
-  }
-
-  .check-icon {
-    display: none;
-    width: 28px;
-    position: relative;
-    top: 0px;
-  }
 }
 
 .bonus-column-indicator {
