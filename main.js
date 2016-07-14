@@ -26,6 +26,8 @@ var board = {
   element: $(".board-fg"),
   grid: [],
   words: [],
+  uncollected: "abcdefghijklmnopqrstuvwxyz".split(""),
+  collected: [],
   bonusColumn: 0
 }
 
@@ -48,6 +50,7 @@ function init() {
       }
     }
   }
+  initCollection();
   moveAddUI();
 }
 
@@ -66,11 +69,12 @@ function restart() {
       }
     }
   }
+  initCollection();
   moveAddUI();
 }
 
 function newSpanFromRandom(template, i, j) {
-  var ltr = randomIn("etoinshrdlu".split("")).toUpperCase();
+  var ltr = randomIn("abcdefghijklmnopqrstuvwxyz".split("")).toUpperCase();
   template.removeClass("empty").text( ltr );
   reposition(template, i, j);
   board.grid[i][j] = template[0];
@@ -153,7 +157,7 @@ function findLetterBlob(tile) {
       }
     }
   }
-  if(visited.length >= matchesForBonus || $(tile).hasClass('special')) {
+  if(visited.length >= matchesForBonus) {
     for(var i = 0; i < visited.length; i++) {
       var contig = findContiguousLetters(visited[i], false, false);
       for(var j = 0; j < contig.length; j++) {
@@ -210,6 +214,11 @@ function clearTile(tileElement, initiator) {
       row, col,
       allRemoved = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus);
   if(initiator && allRemoved.length < minAllowedMatch) { return; }
+  for(var h = 0; h < allRemoved.length; h++) {
+    if($(allRemoved[h]).hasClass("special")) {
+      collect(allRemoved[h]);
+    }
+  }
   for(var i = 0; i < boardWidth; i++) {
     for(var j = 0; j < boardHeight; j++) {
       if( board.grid[i][j] == tileElement ) {
@@ -244,11 +253,21 @@ function enforceGravity(column) {
 
 function newRowFromBottom() {
   for(var i = 0; i < boardWidth; i++) {
-    var ltr = randomIn("etoinshrdlu".split("")).toUpperCase();
+    var ltr = randomIn("abcdefghijklmnopqrstuvwxyz".split("")).toUpperCase();
     var newSpan = $("<span>").addClass("tile").text(ltr);
     board.grid[i].splice(0,0,newSpan[0]); //insert in front
     board.element.append( newSpan );
     enforceGravity(i);
+  }
+}
+
+function collect(tile) {
+  var t = $(tile).text().toLowerCase();
+  var i = board.uncollected.indexOf(t);
+  if(i !== -1) {
+    board.uncollected.splice(i, 1);
+    board.collected.push(t);
+    $('.uncollected-text').find(".collected_"+t).addClass("collected");
   }
 }
 
@@ -347,6 +366,15 @@ function updateEntryTiles() {
     newSpan.text( entryBuffer[i] );
     newSpan.appendTo(board.element);
     reposition(newSpan[0], x, y);
+  }
+}
+
+function initCollection() {
+  var parent = $(".uncollected-text");
+  for(var i = 0; i < board.uncollected.length; i++) {
+    var ltr = board.uncollected[i];
+    var span = $("<span>").text(ltr).addClass("collected_"+ltr);
+    parent.append(span);
   }
 }
 

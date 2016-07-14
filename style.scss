@@ -148,3 +148,21 @@ html, body {
   font: normal normal 16px/1 'Apercu', sans-serif;
   padding-bottom: 10px;
 }
+
+.uncollected-text {
+  position: absolute;
+  top: 50px;
+  $bw: ($tile-size + $margin*2)*$board-width;
+  right: calc(50% + #{ $bw/2 + $tile-size });
+  color: lighten($bg, 10);
+  font: normal normal 40px/1 'Apercu', sans-serif;
+  width: 4em;
+
+  span {
+    display: inline-block;
+  }
+
+  .collected {
+    color: $special-color;
+  }
+}

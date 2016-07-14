@@ -146,3 +146,21 @@ html, body {
   font: normal normal 16px/1 'Apercu', sans-serif;
   padding-bottom: 10px;
 }
+
+/* line 152, style.scss */
+.uncollected-text {
+  position: absolute;
+  top: 50px;
+  right: calc(50% + 200px);
+  color: #3c3c3c;
+  font: normal normal 40px/1 'Apercu', sans-serif;
+  width: 4em;
+}
+/* line 161, style.scss */
+.uncollected-text span {
+  display: inline-block;
+}
+/* line 165, style.scss */
+.uncollected-text .collected {
+  color: lavender;
+}
