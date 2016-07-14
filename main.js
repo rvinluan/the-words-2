@@ -239,7 +239,10 @@ function clearTile(tileElement, initiator) {
     }
   }
   if(!initiator) {
-    $(tileElement).remove();
+    $(tileElement).addClass("removed");
+    $(tileElement).on("transitionend", function(){
+      $(this).remove();
+    })
   }
   if(initiator) {
     for(let k = 0; k < allRemoved.length; k++) {
@@ -248,7 +251,7 @@ function clearTile(tileElement, initiator) {
         if(k == allRemoved.length - 1) {
           enforceGravityAll();
         }
-      }, 200*k)
+      }, 100*k)
     }
   }
 }

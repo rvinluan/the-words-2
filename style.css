@@ -60,56 +60,61 @@ html, body {
   margin: 5px;
   cursor: pointer;
   background: #222;
-  transition: top .6s;
+  transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99);
 }
 /* line 67, style.scss */
+.tile.removed {
+  opacity: 0;
+  transform: translateY(-40px) rotate(20deg);
+}
+/* line 72, style.scss */
 .tile.empty {
   border: 1px solid #151515;
   background: #2f2f2f;
   cursor: default;
 }
-/* line 73, style.scss */
+/* line 78, style.scss */
 .tile:not(.empty):hover {
   color: #222;
   background-color: #EFEA81;
 }
-/* line 78, style.scss */
+/* line 83, style.scss */
 .tile.selected {
   color: #222;
   background-color: #EFEA81;
 }
-/* line 83, style.scss */
+/* line 88, style.scss */
 .tile.highlighted {
   border: 1px solid #EFEA81;
 }
-/* line 87, style.scss */
+/* line 92, style.scss */
 .tile.enter-buffer {
   background: transparent;
   border: 1px solid #EFEA81;
   color: #EFEA81;
 }
-/* line 94, style.scss */
+/* line 99, style.scss */
 .tile.special {
   color: lavender;
   background-color: #9191e9;
 }
-/* line 99, style.scss */
+/* line 104, style.scss */
 .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid lavender;
   color: lavender;
 }
-/* line 105, style.scss */
+/* line 110, style.scss */
 .tile.special.selected {
   color: #222;
   background-color: lavender;
 }
-/* line 110, style.scss */
+/* line 115, style.scss */
 .tile.loading {
   color: #3c3c3c;
 }
 
-/* line 115, style.scss */
+/* line 120, style.scss */
 .entry-indicator {
   position: absolute;
   top: 50px;
@@ -126,7 +131,7 @@ html, body {
   transition: top .6s .1s;
 }
 
-/* line 132, style.scss */
+/* line 137, style.scss */
 .bonus-column-indicator {
   position: absolute;
   width: 60px;
@@ -136,7 +141,7 @@ html, body {
   transition: left .6s .1s;
 }
 
-/* line 141, style.scss */
+/* line 146, style.scss */
 .reason {
   position: absolute;
   bottom: 50px;
@@ -147,7 +152,7 @@ html, body {
   padding-bottom: 10px;
 }
 
-/* line 152, style.scss */
+/* line 157, style.scss */
 .uncollected-text {
   position: absolute;
   top: 50px;
@@ -156,11 +161,11 @@ html, body {
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 }
-/* line 161, style.scss */
+/* line 166, style.scss */
 .uncollected-text span {
   display: inline-block;
 }
-/* line 165, style.scss */
+/* line 170, style.scss */
 .uncollected-text .collected {
   color: lavender;
 }

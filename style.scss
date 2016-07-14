@@ -62,7 +62,12 @@ html, body {
   margin: $margin;
   cursor: pointer;
   background: $bg;
-  transition: top .6s;
+  transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99);
+
+  &.removed {
+    opacity: 0;
+    transform: translateY((- $margin*8)) rotate(20deg);
+  }
 
   &.empty {
     border: 1px solid darken($bg, 5);
