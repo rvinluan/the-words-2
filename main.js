@@ -21,6 +21,8 @@ var boardHeight = 10;
 var minAllowedMatch = 3;
 var matchesForBonus = 4;
 
+var tilesClearing = false;
+
 var board = {
   background: $(".board-bg"),
   element: $(".board-fg"),
@@ -214,6 +216,14 @@ function clearTile(tileElement, initiator) {
       row, col,
       allRemoved = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus);
   if(initiator && allRemoved.length < minAllowedMatch) { return; }
+  //sort by y for effect
+  allRemoved = allRemoved.sort(function (a, b) {
+    if($(a).data("r") == $(b).data("r")) {
+      return $(a).data("c") - $(b).data("c");
+    } else {
+      return -($(a).data("r") - $(b).data("r"));
+    }
+  })
   for(var h = 0; h < allRemoved.length; h++) {
     if($(allRemoved[h]).hasClass("special")) {
       collect(allRemoved[h]);
@@ -228,13 +238,17 @@ function clearTile(tileElement, initiator) {
       }
     }
   }
-  $(tileElement).remove();
-  if(col !== undefined) {
-    enforceGravity(col);
+  if(!initiator) {
+    $(tileElement).remove();
   }
   if(initiator) {
-    for(var k = 0; k < allRemoved.length; k++) {
-      clearTile( allRemoved[k] , false);
+    for(let k = 0; k < allRemoved.length; k++) {
+      setTimeout(function () {
+        clearTile( allRemoved[k] , false);
+        if(k == allRemoved.length - 1) {
+          enforceGravityAll();
+        }
+      }, 200*k)
     }
   }
 }
@@ -249,6 +263,12 @@ function enforceGravity(column) {
   }
   board.grid[column] = newColumn;
   moveAddUI();
+}
+
+function enforceGravityAll() {
+  for(var i = 0; i < boardWidth; i++) {
+    enforceGravity(i);
+  }
 }
 
 function newRowFromBottom() {
