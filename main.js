@@ -59,18 +59,21 @@ function restart() {
   board.grid = [];
   board.words = [];
   board.element.empty();
+  board.uncollected = "abcdefghijklmnopqrstuvwxyz".split("");
+  board.collected = [];
+  $('.uncollected-text span').removeClass("collected");
+  board.bonusColumn = 0;
   for(var i = 0; i < boardWidth; i++) {
     board.grid[i] = [];
     for(var j = 0; j < boardHeight; j++) {
       var newSpan = $("<span>").addClass("tile empty");
-      board.background.append( newSpan.clone() );
+      
       if(j < numStartingWords) {
         newSpanFromRandom(newSpan, i, j);
         // newSpanFromStartingWords(newSpan, i, j);
       }
     }
   }
-  initCollection();
   moveAddUI();
 }
 
