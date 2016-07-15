@@ -17,12 +17,11 @@ var tileSize = 50;
 var margin = 5;
 var fullTileSize = tileSize + margin*2;
 var boardWidth = 5;
-var boardHeight = 10;
+var boardHeight = 8;
 var minAllowedMatch = 3;
 var matchesForBonus = 4;
 
 var tilesClearing = false;
-
 var board = {
   background: $(".board-bg"),
   element: $(".board-fg"),
@@ -138,11 +137,12 @@ function reposition(element, col, row) {
   $(element).data("r", row);
 }
 
-function findAllMatchingLetters(ltr) {
+function findAllMatchingLetters(tileElement) {
+  var ltr = $(tileElement).text().toLowerCase();
   return $('.tile').filter(function (index, element) {
     var l = $(element).text().toLowerCase();
     return l == ltr.toLowerCase();
-  })
+  }).toArray();
 }
 
 function findLetterBlob(tile) {
@@ -214,7 +214,8 @@ function findContiguousLetters(tile, includeDiagonals, matchingOnly) {
 function clearTile(tileElement, initiator) {
   var index = $(tileElement).index(),
       row, col,
-      allRemoved = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus);
+      // allRemovedB = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus),
+      allRemoved = findAllMatchingLetters(tileElement);
   if(initiator && allRemoved.length < minAllowedMatch) { return; }
   //sort by y for effect
   allRemoved = allRemoved.sort(function (a, b) {
@@ -295,9 +296,10 @@ function collect(tile) {
 }
 
 function highlightLetters(tile) {
-  var b = findLetterBlob(tile);
-  $(b.blob).addClass('selected');
-  $(b.bonus).addClass('highlighted');
+  // var b = findLetterBlob(tile);
+  // $(b.blob).addClass('selected');
+  // $(b.bonus).addClass('highlighted');
+  $(findAllMatchingLetters(tile)).addClass('selected');
 }
 
 function lastFullRow() {

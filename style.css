@@ -10,7 +10,7 @@ html, body {
 .board-bg,
 .board-fg {
   width: 300px;
-  height: 600px;
+  height: 480px;
   background: #2f2f2f;
   padding: 10px;
   display: flex;
