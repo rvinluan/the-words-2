@@ -229,6 +229,9 @@ function clearTile(tileElement, initiator) {
     }
   })
   for(var h = 0; h < allRemoved.length; h++) {
+    if($(allRemoved[h]).hasClass("enter-buffer")) {
+      return;
+    }
     if($(allRemoved[h]).hasClass("special")) {
       collect(allRemoved[h]);
     }
