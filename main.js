@@ -47,7 +47,6 @@ function init() {
       board.background.append( newSpan.clone() );
       if(j < numStartingWords) {
         newSpanFromRandom(newSpan, i, j);
-        // newSpanFromStartingWords(newSpan, i, j);
       }
     }
   }
@@ -70,7 +69,6 @@ function restart() {
       
       if(j < numStartingWords) {
         newSpanFromRandom(newSpan, i, j);
-        // newSpanFromStartingWords(newSpan, i, j);
       }
     }
   }
