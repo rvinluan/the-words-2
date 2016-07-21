@@ -29,9 +29,17 @@ var startingWords = [];
 var entryBuffer = [];
 
 var gameState = "";
+var difficulty = "";
 
-function init() {
+function init(diff) {
   loadDictionary();
+  difficulty = diff;
+  if(difficulty == "hard") {
+    boardHeight = 10;
+  } else {
+    boardHeight = 8;
+  }
+  $(".board, .board-bg, .board-fg").height( (tileSize + margin*2) * boardHeight );
   for(var i = 0; i < boardWidth; i++) {
     board.grid[i] = [];
     for(var j = 0; j < boardHeight; j++) {
@@ -131,10 +139,12 @@ function bindEvents() {
       clearTile(this, true);
     })
   $("#menu .difficulty-select").on('click', function (e) {
+    var d = $(this).text();
     e.preventDefault();
     $(this).blur();
     changeScreens("gameplay");
     gameState = "playing";
+    init(d);
   })
   $("#gameover .restart").on('click', function (e) {
     e.preventDefault();
@@ -229,8 +239,12 @@ function findContiguousLetters(tile, includeDiagonals, matchingOnly) {
 function clearTile(tileElement, initiator) {
   var index = $(tileElement).index(),
       row, col,
-      // allRemovedB = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus),
-      allRemoved = findAllMatchingLetters(tileElement);
+      allRemoved;
+  if(difficulty == "hard") {
+    allRemoved = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus);
+  } else {
+    allRemoved = findAllMatchingLetters(tileElement);
+  }
   if(initiator && allRemoved.length < minAllowedMatch) { return; }
   //sort by y for effect
   allRemoved = allRemoved.sort(function (a, b) {
@@ -317,10 +331,13 @@ function collect(tile) {
 }
 
 function highlightLetters(tile) {
-  // var b = findLetterBlob(tile);
-  // $(b.blob).addClass('selected');
-  // $(b.bonus).addClass('highlighted');
-  $(findAllMatchingLetters(tile)).addClass('selected');
+  if(difficulty == "hard") {
+    var b = findLetterBlob(tile);
+    $(b.blob).addClass('selected');
+    $(b.bonus).addClass('highlighted');
+  } else {
+    $(findAllMatchingLetters(tile)).addClass('selected');
+  }
 }
 
 function lastFullRow() {
@@ -510,4 +527,3 @@ function winGame() {
 }
 
 bindEvents();
-init();
