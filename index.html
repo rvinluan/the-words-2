@@ -11,14 +11,31 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="reason"></div>
-        <div class="entry-indicator"></div>
-        <div class="board">
-            <div class="board-bg"></div>
-            <div class="board-fg"></div>
-            <div class="bonus-column-indicator"></div>
-        </div>
-        <div class="uncollected-text"></div>
+        <section id="menu" class="screen active">
+            <main>
+                <h1>hello</h1>
+                <p>choose difficulty</p>
+                <a href="" class="difficulty-select">normal</a>
+                <a href="" class="difficulty-select">hard</a>
+            </main>
+        </section>
+        <section id="gameplay" class="screen">
+            <div class="reason"></div>
+            <div class="entry-indicator"></div>
+            <div class="board">
+                <div class="board-bg"></div>
+                <div class="board-fg"></div>
+                <div class="bonus-column-indicator"></div>
+            </div>
+            <div class="uncollected-text"></div>
+        </section>
+        <section id="gameover" class="screen">
+            <main>
+                <h2>so close.</h2>
+                <p>your words:</p>
+                <ul class="game-end-word-list"></ul>
+            </main>
+        </section>
         <script src="main.js"></script>
     </body>
 </html>

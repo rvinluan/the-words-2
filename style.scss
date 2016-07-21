@@ -7,11 +7,60 @@ $bg: #222;
 $light-yellow: #EFEA81;
 $special-color: lavender;
 
-html, body {
+html, body, .screen {
   margin: 0;
   padding: 0;
   background: $bg;
 }
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  background: $bg;
+  width: 100vw;
+  height: 100vh;
+  left: -100vw;
+  color: $light-yellow;
+  transition: left .6s;
+  font: normal normal 30px/1 "helvetica", sans-serif;
+
+  &.active {
+    left: 0;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+  }
+
+  a {
+    color: $light-yellow;
+    border: 1px solid $light-yellow;
+    padding: 10px 15px;
+    display: block;
+    max-width: 10em;
+    margin: 10px auto;
+    text-decoration: none;
+    border-radius: 4px;
+
+    &:hover {
+      color: $bg;
+      background: $light-yellow;
+    }
+  }
+}
+
+#gameplay.active ~ #menu { left: -100vw; }
+#gameover.active ~ #menu { left: -200vw; }
+#menu.active ~ #gameplay { left: 100vw; }
+#gameover.active ~ #gameplay { left: -100vw; }
+#gameplay.active ~ #gameover { left: 100vw; }
+#menu.active ~ #gameover { left: 200vw; }
 
 .board,
 .board-bg, 
@@ -170,4 +219,9 @@ html, body {
   .collected {
     color: $special-color;
   }
+}
+
+.game-end-word-list {
+  list-style-type: none;
+  padding: 0;
 }

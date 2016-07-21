@@ -3,16 +3,6 @@ var randomIn = function(arr) {
   return arr[ Math.floor(Math.random() * arr.length) ];
 }
 
-Array.prototype.concatUnique = function(arr) {
-  var newArray = this.slice(0); //clone
-  for(var i = 0; i < arr.length; i++) {
-    if (newArray.indexOf(arr[i]) === -1 ) {
-      newArray.push(arr[i]);
-    }
-  }
-  return newArray;
-}
-
 var tileSize = 50;
 var margin = 5;
 var fullTileSize = tileSize + margin*2;
@@ -38,6 +28,8 @@ var startingWords = [];
 
 var entryBuffer = [];
 
+var gameState = "";
+
 function init() {
   loadDictionary();
   for(var i = 0; i < boardWidth; i++) {
@@ -55,6 +47,7 @@ function init() {
 }
 
 function restart() {
+  gameState = "playing";
   board.grid = [];
   board.words = [];
   board.element.empty();
@@ -73,6 +66,11 @@ function restart() {
     }
   }
   moveAddUI();
+}
+
+function changeScreens(screenID) {
+  $('section.screen').removeClass("active");
+  $("#" + screenID).addClass("active");
 }
 
 function newSpanFromRandom(template, i, j) {
@@ -94,6 +92,9 @@ function newSpanFromStartingWords(template, i, j) {
 function bindEvents() {
   $(document.body)
     .on('keydown', function (e) {
+      if(!$("#gameplay").hasClass("active")) {
+        return;
+      }
       if( e.which == 48 ) {
         //0, test key
         newRowFromBottom();
@@ -128,6 +129,12 @@ function bindEvents() {
     .on('click', '.tile:not(.empty)', function (e) {
       clearTile(this, true);
     })
+  $("#menu .difficulty-select").on('click', function (e) {
+    e.preventDefault();
+    $(this).blur();
+    changeScreens("gameplay");
+    gameState = "playing";
+  })
 }
 
 function reposition(element, col, row) {
@@ -316,8 +323,8 @@ function lastFullRow() {
   }
   var last = Math.max.apply(null, lengths);
   if(last > boardHeight) {
-    alert("you lose");
-    restart();
+    loseGame();
+    return -1;
   } else {
     return last;
   }
@@ -419,7 +426,7 @@ function loadDictionary() {
       for(var i = 0; i < numStartingWords; i++) {
         var m = Math.floor(Math.random() * eligibleWords.length);
         startingWords.push(eligibleWords[m]);
-        board.words.push(eligibleWords[m]);
+        // board.words.push(eligibleWords[m]);
       }
       $('.tile.loading').each(function (i, e) {
         var allLetters = startingWords.reduce(function (p, c) {
@@ -464,6 +471,18 @@ function isValidWord(word) {
     ro.reason = "Not a word";
   }
   return ro;
+}
+
+function loseGame() {
+  if(gameState == "playing") {
+    changeScreens("gameover");
+    var wordlist = $("#gameover .game-end-word-list");
+    for(var i in board.words) {
+      let item = $("<li>").text(board.words[i]);
+      wordlist.append(item.clone());
+    }
+    gameState = "lost"
+  }
 }
 
 bindEvents();

@@ -1,11 +1,85 @@
 /* line 10, style.scss */
-html, body {
+html, body, .screen {
   margin: 0;
   padding: 0;
   background: #222;
 }
 
 /* line 16, style.scss */
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* line 21, style.scss */
+.screen {
+  position: absolute;
+  background: #222;
+  width: 100vw;
+  height: 100vh;
+  left: -100vw;
+  color: #EFEA81;
+  transition: left .6s;
+  font: normal normal 30px/1 "helvetica", sans-serif;
+}
+/* line 31, style.scss */
+.screen.active {
+  left: 0;
+}
+/* line 35, style.scss */
+.screen main {
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+}
+/* line 41, style.scss */
+.screen a {
+  color: #EFEA81;
+  border: 1px solid #EFEA81;
+  padding: 10px 15px;
+  display: block;
+  max-width: 10em;
+  margin: 10px auto;
+  text-decoration: none;
+  border-radius: 4px;
+}
+/* line 51, style.scss */
+.screen a:hover {
+  color: #222;
+  background: #EFEA81;
+}
+
+/* line 58, style.scss */
+#gameplay.active ~ #menu {
+  left: -100vw;
+}
+
+/* line 59, style.scss */
+#gameover.active ~ #menu {
+  left: -200vw;
+}
+
+/* line 60, style.scss */
+#menu.active ~ #gameplay {
+  left: 100vw;
+}
+
+/* line 61, style.scss */
+#gameover.active ~ #gameplay {
+  left: -100vw;
+}
+
+/* line 62, style.scss */
+#gameplay.active ~ #gameover {
+  left: 100vw;
+}
+
+/* line 63, style.scss */
+#menu.active ~ #gameover {
+  left: 200vw;
+}
+
+/* line 65, style.scss */
 .board,
 .board-bg,
 .board-fg {
@@ -18,26 +92,26 @@ html, body {
   flex-direction: row;
 }
 
-/* line 28, style.scss */
+/* line 77, style.scss */
 .board {
   position: relative;
   margin: 50px auto;
 }
 
-/* line 33, style.scss */
+/* line 82, style.scss */
 .board-bg {
   align-items: flex-start;
   align-content: flex-start;
 }
 
-/* line 38, style.scss */
+/* line 87, style.scss */
 .board-fg .tile {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* line 44, style.scss */
+/* line 93, style.scss */
 .board-bg,
 .board-fg {
   background: none;
@@ -46,7 +120,7 @@ html, body {
   left: 0;
 }
 
-/* line 52, style.scss */
+/* line 101, style.scss */
 .tile {
   display: block;
   width: 50px;
@@ -62,59 +136,59 @@ html, body {
   background: #222;
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99);
 }
-/* line 67, style.scss */
+/* line 116, style.scss */
 .tile.removed {
   opacity: 0;
   transform: translateY(-40px) rotate(20deg);
 }
-/* line 72, style.scss */
+/* line 121, style.scss */
 .tile.empty {
   border: 1px solid #151515;
   background: #2f2f2f;
   cursor: default;
 }
-/* line 78, style.scss */
+/* line 127, style.scss */
 .tile:not(.empty):hover {
   color: #222;
   background-color: #EFEA81;
 }
-/* line 83, style.scss */
+/* line 132, style.scss */
 .tile.selected {
   color: #222;
   background-color: #EFEA81;
 }
-/* line 88, style.scss */
+/* line 137, style.scss */
 .tile.highlighted {
   border: 1px solid #EFEA81;
 }
-/* line 92, style.scss */
+/* line 141, style.scss */
 .tile.enter-buffer {
   background: transparent;
   border: 1px solid #EFEA81;
   color: #EFEA81;
 }
-/* line 99, style.scss */
+/* line 148, style.scss */
 .tile.special {
   color: lavender;
   background-color: #9191e9;
 }
-/* line 104, style.scss */
+/* line 153, style.scss */
 .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid lavender;
   color: lavender;
 }
-/* line 110, style.scss */
+/* line 159, style.scss */
 .tile.special.selected {
   color: #222;
   background-color: lavender;
 }
-/* line 115, style.scss */
+/* line 164, style.scss */
 .tile.loading {
   color: #3c3c3c;
 }
 
-/* line 120, style.scss */
+/* line 169, style.scss */
 .entry-indicator {
   position: absolute;
   top: 50px;
@@ -131,7 +205,7 @@ html, body {
   transition: top .6s .1s;
 }
 
-/* line 137, style.scss */
+/* line 186, style.scss */
 .bonus-column-indicator {
   position: absolute;
   width: 60px;
@@ -141,7 +215,7 @@ html, body {
   transition: left .6s .1s;
 }
 
-/* line 146, style.scss */
+/* line 195, style.scss */
 .reason {
   position: absolute;
   bottom: 50px;
@@ -152,7 +226,7 @@ html, body {
   padding-bottom: 10px;
 }
 
-/* line 157, style.scss */
+/* line 206, style.scss */
 .uncollected-text {
   position: absolute;
   top: 50px;
@@ -161,11 +235,17 @@ html, body {
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 }
-/* line 166, style.scss */
+/* line 215, style.scss */
 .uncollected-text span {
   display: inline-block;
 }
-/* line 170, style.scss */
+/* line 219, style.scss */
 .uncollected-text .collected {
   color: lavender;
+}
+
+/* line 224, style.scss */
+.game-end-word-list {
+  list-style-type: none;
+  padding: 0;
 }
