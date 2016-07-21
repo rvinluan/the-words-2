@@ -50,6 +50,7 @@ function restart() {
   gameState = "playing";
   board.grid = [];
   board.words = [];
+  $("#gameover .game-end-word-list").empty();
   board.element.empty();
   board.uncollected = "abcdefghijklmnopqrstuvwxyz".split("");
   board.collected = [];
@@ -134,6 +135,12 @@ function bindEvents() {
     $(this).blur();
     changeScreens("gameplay");
     gameState = "playing";
+  })
+  $("#gameover .restart").on('click', function (e) {
+    e.preventDefault();
+    $(this).blur();
+    changeScreens("gameplay");
+    restart();
   })
 }
 
@@ -303,6 +310,9 @@ function collect(tile) {
     board.uncollected.splice(i, 1);
     board.collected.push(t);
     $('.uncollected-text').find(".collected_"+t).addClass("collected");
+  }
+  if(board.uncollected.length == 0) {
+    winGame();
   }
 }
 
@@ -476,12 +486,26 @@ function isValidWord(word) {
 function loseGame() {
   if(gameState == "playing") {
     changeScreens("gameover");
+    $("#gameover h2").text("so close.");
     var wordlist = $("#gameover .game-end-word-list");
     for(var i in board.words) {
       let item = $("<li>").text(board.words[i]);
       wordlist.append(item.clone());
     }
     gameState = "lost"
+  }
+}
+
+function winGame() {
+  if(gameState == "playing") {
+    changeScreens("gameover");
+    $("#gameover h2").text("you did it!");
+    var wordlist = $("#gameover .game-end-word-list");
+    for(var i in board.words) {
+      let item = $("<li>").text(board.words[i]);
+      wordlist.append(item.clone());
+    }
+    gameState = "won"
   }
 }
 
