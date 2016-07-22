@@ -3,15 +3,16 @@ html, body, .screen {
   margin: 0;
   padding: 0;
   background: #222;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* line 16, style.scss */
+/* line 17, style.scss */
 body {
   width: 100vw;
   overflow: hidden;
 }
 
-/* line 21, style.scss */
+/* line 22, style.scss */
 .screen {
   position: absolute;
   background: #222;
@@ -22,64 +23,78 @@ body {
   transition: left .6s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 }
-/* line 31, style.scss */
+/* line 32, style.scss */
 .screen.active {
   left: 0;
 }
-/* line 35, style.scss */
+/* line 36, style.scss */
 .screen main {
   max-width: 900px;
-  margin: 50px auto;
-  text-align: center;
+  margin: 250px auto;
 }
-/* line 41, style.scss */
+/* line 40, style.scss */
+.screen main h1, .screen main h2 {
+  font-size: 65px;
+  width: 8em;
+}
+/* line 45, style.scss */
+.screen main p {
+  font-weight: normal;
+  font-size: 18px;
+  margin-bottom: 3em;
+}
+/* line 51, style.scss */
+.screen main ul {
+  margin-bottom: 3em;
+}
+/* line 56, style.scss */
 .screen a {
   color: #EFEA81;
   border: 1px solid #EFEA81;
   padding: 10px 15px;
   display: block;
   max-width: 10em;
-  margin: 10px auto;
+  margin: 10px 10px 10px 0;
   text-decoration: none;
   border-radius: 4px;
 }
-/* line 51, style.scss */
+/* line 66, style.scss */
 .screen a:hover {
   color: #222;
   background: #EFEA81;
 }
 
-/* line 58, style.scss */
+/* line 73, style.scss */
 #gameplay.active ~ #menu {
   left: -100vw;
 }
 
-/* line 59, style.scss */
+/* line 74, style.scss */
 #gameover.active ~ #menu {
   left: -200vw;
 }
 
-/* line 60, style.scss */
+/* line 75, style.scss */
 #menu.active ~ #gameplay {
   left: 100vw;
 }
 
-/* line 61, style.scss */
+/* line 76, style.scss */
 #gameover.active ~ #gameplay {
   left: -100vw;
 }
 
-/* line 62, style.scss */
+/* line 77, style.scss */
 #gameplay.active ~ #gameover {
   left: 100vw;
 }
 
-/* line 63, style.scss */
+/* line 78, style.scss */
 #menu.active ~ #gameover {
   left: 200vw;
 }
 
-/* line 65, style.scss */
+/* line 80, style.scss */
 .board,
 .board-bg,
 .board-fg {
@@ -92,26 +107,26 @@ body {
   flex-direction: row;
 }
 
-/* line 77, style.scss */
+/* line 92, style.scss */
 .board {
   position: relative;
   margin: 50px auto;
 }
 
-/* line 82, style.scss */
+/* line 97, style.scss */
 .board-bg {
   align-items: flex-start;
   align-content: flex-start;
 }
 
-/* line 87, style.scss */
+/* line 102, style.scss */
 .board-fg .tile {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* line 93, style.scss */
+/* line 108, style.scss */
 .board-bg,
 .board-fg {
   background: none;
@@ -120,7 +135,7 @@ body {
   left: 0;
 }
 
-/* line 101, style.scss */
+/* line 116, style.scss */
 .tile {
   display: block;
   width: 50px;
@@ -136,59 +151,59 @@ body {
   background: #222;
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99);
 }
-/* line 116, style.scss */
+/* line 131, style.scss */
 .tile.removed {
   opacity: 0;
   transform: translateY(-40px) rotate(20deg);
 }
-/* line 121, style.scss */
+/* line 136, style.scss */
 .tile.empty {
   border: 1px solid #151515;
   background: #2f2f2f;
   cursor: default;
 }
-/* line 127, style.scss */
+/* line 142, style.scss */
 .tile:not(.empty):hover {
   color: #222;
   background-color: #EFEA81;
 }
-/* line 132, style.scss */
+/* line 147, style.scss */
 .tile.selected {
   color: #222;
   background-color: #EFEA81;
 }
-/* line 137, style.scss */
+/* line 152, style.scss */
 .tile.highlighted {
   border: 1px solid #EFEA81;
 }
-/* line 141, style.scss */
+/* line 156, style.scss */
 .tile.enter-buffer {
   background: transparent;
   border: 1px solid #EFEA81;
   color: #EFEA81;
 }
-/* line 148, style.scss */
+/* line 163, style.scss */
 .tile.special {
   color: lavender;
   background-color: #9191e9;
 }
-/* line 153, style.scss */
+/* line 168, style.scss */
 .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid lavender;
   color: lavender;
 }
-/* line 159, style.scss */
+/* line 174, style.scss */
 .tile.special.selected {
   color: #222;
   background-color: lavender;
 }
-/* line 164, style.scss */
+/* line 179, style.scss */
 .tile.loading {
   color: #3c3c3c;
 }
 
-/* line 169, style.scss */
+/* line 184, style.scss */
 .entry-indicator {
   position: absolute;
   top: 50px;
@@ -205,7 +220,7 @@ body {
   transition: top .6s .1s;
 }
 
-/* line 186, style.scss */
+/* line 201, style.scss */
 .bonus-column-indicator {
   position: absolute;
   width: 60px;
@@ -215,7 +230,7 @@ body {
   transition: left .6s .1s;
 }
 
-/* line 195, style.scss */
+/* line 210, style.scss */
 .reason {
   position: absolute;
   bottom: 50px;
@@ -226,7 +241,7 @@ body {
   padding-bottom: 10px;
 }
 
-/* line 206, style.scss */
+/* line 221, style.scss */
 .uncollected-text {
   position: absolute;
   top: 50px;
@@ -235,16 +250,16 @@ body {
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 }
-/* line 215, style.scss */
+/* line 230, style.scss */
 .uncollected-text span {
   display: inline-block;
 }
-/* line 219, style.scss */
+/* line 234, style.scss */
 .uncollected-text .collected {
   color: lavender;
 }
 
-/* line 224, style.scss */
+/* line 239, style.scss */
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
