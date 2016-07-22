@@ -146,6 +146,9 @@ function bindEvents() {
     gameState = "playing";
     init(d);
   })
+  $("#gameplay .help").on('click', function (e) {
+    $(".instructions#"+difficulty).toggle();
+  })
   $("#gameover .restart").on('click', function (e) {
     e.preventDefault();
     $(this).blur();

@@ -240,3 +240,56 @@ body {
   list-style-type: none;
   padding: 0;
 }
+
+.help {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+  font: normal bold 40px/1 'Helvetica Neue', sans-serif;
+  background: lighten($bg, 10);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:after {
+    content: "?";
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+.instructions {
+  display: none;
+  position: absolute;
+  width: 450px;
+  height: auto;
+  margin: 0 50px;
+  padding: 50px;
+  top: 50px;
+  right: 100px;
+  background-color: lighten($bg, 20);
+  border-radius: 5px;
+  box-shadow: 0 3px 20px rgba(0,0,0,0.6);
+
+  h2 {
+    margin-top: 0;
+  }
+
+  strong {
+    color: $light-yellow;
+  }
+
+  strong.purple {
+    color: $special-color;
+  }
+
+  p {
+    color: black;
+    font-size: 18px;
+    line-height: 1.3;
+    max-width: 20em;
+  }
+}
