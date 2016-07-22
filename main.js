@@ -388,7 +388,7 @@ function stopEntry(force) {
         board.bonusColumn = 0;
         newRowFromBottom();
       }
-      $('.bonus-column-indicator').css('left', (board.bonusColumn)*fullTileSize+10);
+      $('.bonus-indicator').css('left', (board.bonusColumn)*fullTileSize+10+margin+1);
     }
   }
   var validity = isValidWord( entryBuffer.join("") );
