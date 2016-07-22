@@ -20,7 +20,7 @@ body {
   height: 100vh;
   left: -100vw;
   color: #EFEA81;
-  transition: left .6s;
+  transition: left .6s .1s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 }
 /* line 32, style.scss */
@@ -30,7 +30,7 @@ body {
 /* line 36, style.scss */
 .screen main {
   max-width: 900px;
-  margin: 250px auto;
+  margin: 150px auto;
 }
 /* line 40, style.scss */
 .screen main h1, .screen main h2 {
@@ -217,7 +217,7 @@ body {
   border: none;
   line-height: 0;
   cursor: pointer;
-  transition: top .6s .1s;
+  transition: top .6s;
 }
 
 /* line 201, style.scss */
@@ -263,9 +263,19 @@ body {
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  max-height: 300px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-start;
+  overflow-x: scroll;
+}
+/* line 249, style.scss */
+.game-end-word-list li {
+  margin: 5px 40px 5px 0;
 }
 
-/* line 244, style.scss */
+/* line 254, style.scss */
 .help {
   position: absolute;
   top: 50px;
@@ -279,14 +289,14 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 257, style.scss */
+/* line 267, style.scss */
 .help:after {
   content: "?";
   display: block;
   margin-top: 5px;
 }
 
-/* line 264, style.scss */
+/* line 274, style.scss */
 .instructions {
   display: none;
   position: absolute;
@@ -300,19 +310,19 @@ body {
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
 }
-/* line 277, style.scss */
+/* line 287, style.scss */
 .instructions h2 {
   margin-top: 0;
 }
-/* line 281, style.scss */
+/* line 291, style.scss */
 .instructions strong {
   color: #EFEA81;
 }
-/* line 285, style.scss */
+/* line 295, style.scss */
 .instructions strong.purple {
   color: lavender;
 }
-/* line 289, style.scss */
+/* line 299, style.scss */
 .instructions p {
   color: black;
   font-size: 18px;

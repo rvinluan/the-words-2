@@ -26,7 +26,7 @@ body {
   height: 100vh;
   left: -100vw;
   color: $light-yellow;
-  transition: left .6s;
+  transition: left .6s .1s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 
   &.active {
@@ -35,7 +35,7 @@ body {
 
   main {
     max-width: 900px;
-    margin: 250px auto;
+    margin: 150px auto;
 
     h1, h2 {
       font-size: 65px;
@@ -195,7 +195,7 @@ body {
   border: none;
   line-height: 0;
   cursor: pointer;
-  transition: top .6s .1s;
+  transition: top .6s;
 }
 
 .bonus-column-indicator {
@@ -239,6 +239,16 @@ body {
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  max-height: 300px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-start;
+  overflow-x: scroll;
+
+  li {
+    margin: 5px 40px 5px 0;
+  }
 }
 
 .help {
