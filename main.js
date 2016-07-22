@@ -197,7 +197,9 @@ function findLetterBlob(tile) {
       }
     }
     //not so many bonus tiles maybe?
-    bonus = bonus.filter((e, i) => i % 2);
+    bonus = bonus.filter(function (e, i) {
+      return i % 2;
+    });
   }
   return {blob: visited, bonus: bonus};
 }
