@@ -124,6 +124,10 @@ function bindEvents() {
           stopEntry();
         }
       } else if( e.which >= 65 && e.which <= 90 ) {
+        //no modifiers
+        if(e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
+          return;
+        }
         //a-z
         addToEntryBuffer(String.fromCharCode(e.which));
       }
