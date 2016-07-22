@@ -287,7 +287,7 @@ function clearTile(tileElement, initiator) {
     })
   }
   if(initiator) {
-    for(let k = 0; k < allRemoved.length; k++) {
+    for(var k = 0; k < allRemoved.length; k++) {
       setTimeout(function () {
         clearTile( allRemoved[k] , false);
         if(k == allRemoved.length - 1) {
@@ -515,7 +515,7 @@ function loseGame() {
     $("#gameover h2").text("so close.");
     var wordlist = $("#gameover .game-end-word-list");
     for(var i in board.words) {
-      let item = $("<li>").text(board.words[i]);
+      var item = $("<li>").text(board.words[i]);
       wordlist.append(item.clone());
     }
     gameState = "lost"
@@ -528,7 +528,7 @@ function winGame() {
     $("#gameover h2").text("you did it!");
     var wordlist = $("#gameover .game-end-word-list");
     for(var i in board.words) {
-      let item = $("<li>").text(board.words[i]);
+      var item = $("<li>").text(board.words[i]);
       wordlist.append(item.clone());
     }
     gameState = "won"
