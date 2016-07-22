@@ -181,30 +181,38 @@ body {
   }
 }
 
-.entry-indicator {
+// .entry-indicator {
+//   position: absolute;
+//   top: 50px;
+//   $bw: ($tile-size + $margin*2)*$board-width;
+//   left: calc(50% - #{ $bw/2 + $tile-size });
+//   z-index: 10;
+//   outline: 0;
+//   background-color: #EFEA81;
+//   width: 12px;
+//   height: 12px;
+//   border-radius: 50%;
+//   border: none;
+//   line-height: 0;
+//   cursor: pointer;
+//   transition: top .6s;
+// }
+
+.bonus-indicator {
   position: absolute;
-  top: 50px;
-  $bw: ($tile-size + $margin*2)*$board-width;
-  left: calc(50% - #{ $bw/2 + $tile-size });
-  z-index: 10;
-  outline: 0;
-  background-color: #EFEA81;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  line-height: 0;
-  cursor: pointer;
-  transition: top .6s;
+  width: ($tile-size - 2);
+  height: ($tile-size - 2);
+  bottom: -15px;
+  background: linear-gradient(rgba(48,35,174,0), rgba(216,153,226,1));
+  opacity: .4;
+  border-radius: 4px;
+  transition: left .6s .1s, top .6s .1s;
+  animation: pulse 1.2s infinite alternate;
 }
 
-.bonus-column-indicator {
-  position: absolute;
-  width: ($tile-size + $margin*2);
-  height: 5px;
-  bottom: -15px;
-  background-color: $special-color;
-  transition: left .6s .1s;
+@-webkit-keyframes pulse {
+  from { opacity: .1 }
+  to { opacity: .2 }
 }
 
 .reason {

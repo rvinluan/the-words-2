@@ -203,34 +203,28 @@ body {
   color: #3c3c3c;
 }
 
-/* line 184, style.scss */
-.entry-indicator {
-  position: absolute;
-  top: 50px;
-  left: calc(50% - 200px);
-  z-index: 10;
-  outline: 0;
-  background-color: #EFEA81;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  line-height: 0;
-  cursor: pointer;
-  transition: top .6s;
-}
-
 /* line 201, style.scss */
-.bonus-column-indicator {
+.bonus-indicator {
   position: absolute;
-  width: 60px;
-  height: 5px;
+  width: 48px;
+  height: 48px;
   bottom: -15px;
-  background-color: lavender;
-  transition: left .6s .1s;
+  background: linear-gradient(rgba(48, 35, 174, 0), #d899e2);
+  opacity: .4;
+  border-radius: 4px;
+  transition: left .6s .1s, top .6s .1s;
+  animation: pulse 1.2s infinite alternate;
 }
 
-/* line 210, style.scss */
+@-webkit-keyframes pulse {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+/* line 218, style.scss */
 .reason {
   position: absolute;
   bottom: 50px;
@@ -241,7 +235,7 @@ body {
   padding-bottom: 10px;
 }
 
-/* line 221, style.scss */
+/* line 229, style.scss */
 .uncollected-text {
   position: absolute;
   top: 50px;
@@ -250,16 +244,16 @@ body {
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 }
-/* line 230, style.scss */
+/* line 238, style.scss */
 .uncollected-text span {
   display: inline-block;
 }
-/* line 234, style.scss */
+/* line 242, style.scss */
 .uncollected-text .collected {
   color: lavender;
 }
 
-/* line 239, style.scss */
+/* line 247, style.scss */
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
@@ -270,12 +264,12 @@ body {
   align-content: flex-start;
   overflow-x: scroll;
 }
-/* line 249, style.scss */
+/* line 257, style.scss */
 .game-end-word-list li {
   margin: 5px 40px 5px 0;
 }
 
-/* line 254, style.scss */
+/* line 262, style.scss */
 .help {
   position: absolute;
   top: 50px;
@@ -289,14 +283,14 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 267, style.scss */
+/* line 275, style.scss */
 .help:after {
   content: "?";
   display: block;
   margin-top: 5px;
 }
 
-/* line 274, style.scss */
+/* line 282, style.scss */
 .instructions {
   display: none;
   position: absolute;
@@ -310,20 +304,20 @@ body {
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
 }
-/* line 287, style.scss */
+/* line 295, style.scss */
 .instructions h2 {
   margin-top: 0;
   font-size: 25px;
 }
-/* line 292, style.scss */
+/* line 300, style.scss */
 .instructions strong {
   color: #EFEA81;
 }
-/* line 296, style.scss */
+/* line 304, style.scss */
 .instructions strong.purple {
   color: lavender;
 }
-/* line 300, style.scss */
+/* line 308, style.scss */
 .instructions p {
   color: black;
   font-size: 16px;
