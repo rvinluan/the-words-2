@@ -287,13 +287,18 @@ function clearTile(tileElement, initiator) {
     })
   }
   if(initiator) {
-    for(let k = 0; k < allRemoved.length; k++) {
+    //this is so much simpler with ES6's 'let' keyword
+    //but that doesn't work in safari
+    var removeLetterClojure = function(ltr) {
       setTimeout(function () {
-        clearTile( allRemoved[k] , false);
-        if(k == allRemoved.length - 1) {
+        clearTile( allRemoved[ltr] , false);
+        if(ltr == allRemoved.length - 1) {
           enforceGravityAll();
         }
-      }, 100*k)
+      }, 100*ltr);
+    }
+    for(var k = 0; k < allRemoved.length; k++) {
+      removeLetterClojure(k);
     }
   }
 }
@@ -515,7 +520,7 @@ function loseGame() {
     $("#gameover h2").text("so close.");
     var wordlist = $("#gameover .game-end-word-list");
     for(var i in board.words) {
-      let item = $("<li>").text(board.words[i]);
+      var item = $("<li>").text(board.words[i]);
       wordlist.append(item.clone());
     }
     gameState = "lost"
@@ -528,7 +533,7 @@ function winGame() {
     $("#gameover h2").text("you did it!");
     var wordlist = $("#gameover .game-end-word-list");
     for(var i in board.words) {
-      let item = $("<li>").text(board.words[i]);
+      var item = $("<li>").text(board.words[i]);
       wordlist.append(item.clone());
     }
     gameState = "won"
