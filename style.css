@@ -19,7 +19,7 @@ body {
   width: 100vw;
   height: 100vh;
   left: -100vw;
-  color: #EFEA81;
+  color: #00FF00;
   transition: left .6s .1s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 }
@@ -49,8 +49,8 @@ body {
 }
 /* line 56, style.scss */
 .screen a {
-  color: #EFEA81;
-  border: 1px solid #EFEA81;
+  color: #00FF00;
+  border: 1px solid #00FF00;
   padding: 10px 15px;
   display: block;
   max-width: 10em;
@@ -61,7 +61,7 @@ body {
 /* line 66, style.scss */
 .screen a:hover {
   color: #222;
-  background: #EFEA81;
+  background: #00FF00;
 }
 
 /* line 73, style.scss */
@@ -140,7 +140,7 @@ body {
   display: block;
   width: 50px;
   height: 50px;
-  color: #EFEA81;
+  color: #00FF00;
   box-sizing: border-box;
   font: normal normal 30px/1 "helvetica", sans-serif;
   padding-top: 12px;
@@ -165,38 +165,38 @@ body {
 /* line 142, style.scss */
 .tile:not(.empty):hover {
   color: #222;
-  background-color: #EFEA81;
+  background-color: #00FF00;
 }
 /* line 147, style.scss */
 .tile.selected {
   color: #222;
-  background-color: #EFEA81;
+  background-color: #00FF00;
 }
 /* line 152, style.scss */
 .tile.highlighted {
-  border: 1px solid #EFEA81;
+  border: 1px solid #00FF00;
 }
 /* line 156, style.scss */
 .tile.enter-buffer {
   background: transparent;
-  border: 1px solid #EFEA81;
-  color: #EFEA81;
+  border: 1px solid #00FF00;
+  color: #00FF00;
 }
 /* line 163, style.scss */
 .tile.special {
-  color: lavender;
-  background-color: #9191e9;
+  color: #FF00FF;
+  background-color: #990099;
 }
 /* line 168, style.scss */
 .tile.special.enter-buffer {
   background: transparent;
-  border: 1px solid lavender;
-  color: lavender;
+  border: 1px solid #FF00FF;
+  color: #FF00FF;
 }
 /* line 174, style.scss */
 .tile.special.selected {
   color: #222;
-  background-color: lavender;
+  background-color: #FF00FF;
 }
 /* line 179, style.scss */
 .tile.loading {
@@ -210,7 +210,7 @@ body {
   left: calc(50% - 200px);
   z-index: 10;
   outline: 0;
-  background-color: #EFEA81;
+  background-color: #00FF00;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -226,7 +226,7 @@ body {
   width: 60px;
   height: 5px;
   bottom: -15px;
-  background-color: lavender;
+  background-color: #FF00FF;
   transition: left .6s .1s;
 }
 
@@ -256,7 +256,7 @@ body {
 }
 /* line 234, style.scss */
 .uncollected-text .collected {
-  color: lavender;
+  color: #FF00FF;
 }
 
 /* line 239, style.scss */
@@ -317,11 +317,11 @@ body {
 }
 /* line 292, style.scss */
 .instructions strong {
-  color: #EFEA81;
+  color: #00FF00;
 }
 /* line 296, style.scss */
 .instructions strong.purple {
-  color: lavender;
+  color: #FF00FF;
 }
 /* line 300, style.scss */
 .instructions p {
