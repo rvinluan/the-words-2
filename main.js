@@ -272,7 +272,7 @@ function clearTile(tileElement, initiator) {
     if($(allRemoved[h]).hasClass("enter-buffer")) {
       return;
     }
-    if($(allRemoved[h]).hasClass("special")) {
+    if($(allRemoved[h]).hasClass("special") && initiator) {
       collect(allRemoved[h]);
     }
   }
@@ -342,7 +342,9 @@ function collect(tile) {
   if(i !== -1) {
     board.uncollected.splice(i, 1);
     board.collected.push(t);
-    $('.uncollected-text').find(".collected_"+t).first().addClass("collected");
+    var u = $('.uncollected-text').find(".collected_"+t).not(".collected");
+    u.first().addClass("collected");
+    console.log(u);
   }
   if(board.uncollected.length == 0) {
     winGame();
