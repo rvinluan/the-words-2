@@ -19,7 +19,7 @@ body {
   width: 100vw;
   height: 100vh;
   left: -100vw;
-  color: #00FF00;
+  color: #FFFFFF;
   transition: left .6s .1s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 }
@@ -49,8 +49,8 @@ body {
 }
 /* line 56, style.scss */
 .screen a {
-  color: #00FF00;
-  border: 1px solid #00FF00;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
   padding: 10px 15px;
   display: block;
   max-width: 10em;
@@ -61,7 +61,7 @@ body {
 /* line 66, style.scss */
 .screen a:hover {
   color: #222;
-  background: #00FF00;
+  background: #FFFFFF;
 }
 
 /* line 73, style.scss */
@@ -140,7 +140,7 @@ body {
   display: block;
   width: 50px;
   height: 50px;
-  color: #00FF00;
+  color: #FFFFFF;
   box-sizing: border-box;
   font: normal normal 30px/1 "helvetica", sans-serif;
   padding-top: 12px;
@@ -164,38 +164,38 @@ body {
 /* line 141, style.scss */
 .tile:not(.empty):hover {
   color: #222;
-  background-color: #00FF00;
+  background-color: #FFFFFF;
 }
 /* line 146, style.scss */
 .tile.selected {
   color: #222;
-  background-color: #00FF00;
+  background-color: #FFFFFF;
 }
 /* line 151, style.scss */
 .tile.highlighted {
-  border: 1px solid #00FF00;
+  border: 1px solid #FFFFFF;
 }
 /* line 155, style.scss */
 .tile.enter-buffer {
   background: transparent;
-  border: 1px solid #00FF00;
-  color: #00FF00;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
 }
 /* line 162, style.scss */
 .tile.special {
-  color: #FF00FF;
-  background-color: #990099;
+  color: #30B873;
+  background-color: #1b6740;
 }
 /* line 167, style.scss */
 .tile.special.enter-buffer {
   background: transparent;
-  border: 1px solid #FF00FF;
-  color: #FF00FF;
+  border: 1px solid #30B873;
+  color: #30B873;
 }
 /* line 173, style.scss */
 .tile.special.selected {
   color: #222;
-  background-color: #FF00FF;
+  background-color: #30B873;
 }
 /* line 178, style.scss */
 .tile.loading {
@@ -209,7 +209,7 @@ body {
   left: calc(50% - 200px);
   z-index: 10;
   outline: 0;
-  background-color: #00FF00;
+  background-color: #FFFFFF;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -225,7 +225,7 @@ body {
   width: 60px;
   height: 5px;
   bottom: -15px;
-  background-color: #FF00FF;
+  background-color: #30B873;
   transition: left .6s .1s;
 }
 
@@ -255,7 +255,7 @@ body {
 }
 /* line 233, style.scss */
 .uncollected-text .collected {
-  color: #FF00FF;
+  color: #30B873;
 }
 
 /* line 238, style.scss */
@@ -316,11 +316,11 @@ body {
 }
 /* line 291, style.scss */
 .instructions strong {
-  color: #00FF00;
+  color: #FFFFFF;
 }
 /* line 295, style.scss */
 .instructions strong.purple {
-  color: #FF00FF;
+  color: #30B873;
 }
 /* line 299, style.scss */
 .instructions p {
