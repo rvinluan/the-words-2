@@ -148,6 +148,7 @@ body {
   margin: 5px;
   cursor: pointer;
   background: #222;
+  transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99);
 }
 /* line 130, style.scss */
 .tile.removed {

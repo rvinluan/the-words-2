@@ -39,6 +39,11 @@ function init(diff) {
   } else {
     boardHeight = 8;
   }
+  if(location.search.length > 0) {
+    //get rid of non alpha characters
+    var newSearch = location.search.replace(/[^a-zA-Z]/g, "");
+    board.uncollected = newSearch.toLowerCase().split("");
+  }
   $(".board, .board-bg, .board-fg").height( (tileSize + margin*2) * boardHeight );
   for(var i = 0; i < boardWidth; i++) {
     board.grid[i] = [];
@@ -337,7 +342,7 @@ function collect(tile) {
   if(i !== -1) {
     board.uncollected.splice(i, 1);
     board.collected.push(t);
-    $('.uncollected-text').find(".collected_"+t).addClass("collected");
+    $('.uncollected-text').find(".collected_"+t).first().addClass("collected");
   }
   if(board.uncollected.length == 0) {
     winGame();
