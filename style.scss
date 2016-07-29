@@ -128,7 +128,7 @@ body {
   margin: $margin;
   cursor: pointer;
   background: $bg;
-  transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99), color 1s, background-color 1s;
+  transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99);
 
   &.removed {
     opacity: 0;
