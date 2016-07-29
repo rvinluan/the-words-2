@@ -4,7 +4,7 @@ var randomIn = function(arr) {
 }
 
 var tileSize = 50;
-var margin = 5;
+var margin = browserIsMobile ? 0 : 5;
 var fullTileSize = tileSize + margin*2;
 var boardWidth = 5;
 var boardHeight = 8;
@@ -379,10 +379,11 @@ function lastFullRow() {
 }
 
 function moveAddUI() {
+  var boardPadding = browserIsMobile ? 0 : 10;
   var y = boardHeight - lastFullRow();
-  $('.reason').css('top', (y*fullTileSize)+10);
-  $('.bonus-indicator').css('top', (y-1)*(fullTileSize)+10+margin+1);
-  $('.bonus-indicator').css('left', (board.bonusColumn)*fullTileSize+10+margin+1);
+  $('.reason').css('top', (y*fullTileSize)+boardPadding);
+  $('.bonus-indicator').css('top', (y-1)*(fullTileSize)+boardPadding+margin+1);
+  $('.bonus-indicator').css('left', (board.bonusColumn)*fullTileSize+boardPadding+margin+1);
 }
 
 function stopEntry(force) {
@@ -395,7 +396,7 @@ function stopEntry(force) {
         board.bonusColumn = 0;
         newRowFromBottom();
       }
-      $('.bonus-indicator').css('left', (board.bonusColumn)*fullTileSize+10+margin+1);
+      moveAddUI();
     }
   }
   var validity = isValidWord( entryBuffer.join("") );
@@ -548,3 +549,4 @@ function winGame() {
 }
 
 bindEvents();
+// init("normal");

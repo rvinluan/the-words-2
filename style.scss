@@ -22,6 +22,7 @@ body {
 }
 
 .screen {
+  box-sizing: border-box;
   position: absolute;
   background: $bg;
   width: 100vw;
@@ -313,3 +314,9 @@ body {
     max-width: 20em;
   }
 }
+
+#mobile-keyboard {
+  display: none;
+}
+
+@import 'responsive';

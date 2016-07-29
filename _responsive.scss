@@ -1,0 +1,76 @@
+$tile-size: 50px;
+$margin-resp: 0;
+$board-width: 5;
+$board-height: 8;
+
+body.mobile {
+
+.screen {
+  padding: 5px;
+
+  main {
+    text-align: center;
+
+    h1, h2 {
+      font-size: 30px;
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.board,
+.board-bg,
+.board-fg {
+  width: ($tile-size + $margin-resp*2)*$board-width;
+  height: ($tile-size + $margin-resp*2)*$board-height;
+  padding: $margin-resp*2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+.tile {
+  margin: $margin-resp;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.help {
+  display: none;
+}
+
+#mobile-keyboard {
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #aaa; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px 10px 5px 10px;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+    max-width: 320px;
+  }
+
+  .key {
+    box-sizing: border-box;
+    background-color: white;
+    color: #555;
+    border-radius: 2px;
+    padding: 4px;
+    margin: 1px;
+    min-width: 30px;
+    min-height: 45px;
+    text-align: center;
+  }
+}
+
+}//end mobile mq
