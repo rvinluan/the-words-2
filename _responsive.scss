@@ -46,10 +46,13 @@ body.mobile {
   margin: $margin-resp;
   padding-top: 20px;
   font-size: 20px;
-  transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99), color 1s, background-color 1s;
 
   &.selected {
       transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99), color 0s, background-color 0s;
+  }
+
+  &.glow {
+    transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99), color 1s, background-color 1s;
   }
 }
 

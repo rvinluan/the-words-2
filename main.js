@@ -373,9 +373,9 @@ function glowMatchingTiles(tile) {
       $(b.bonus).removeClass('highlighted');
     }, 300)
   } else {
-    $(findAllMatchingLetters(tile)).addClass('selected');
+    $(findAllMatchingLetters(tile)).addClass('selected').removeClass('glow');
     setTimeout(function () {
-      $(findAllMatchingLetters(tile)).removeClass('selected');
+      $(findAllMatchingLetters(tile)).removeClass('selected').addClass('glow');
     }, 300)
   }
 }
