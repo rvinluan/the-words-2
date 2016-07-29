@@ -330,25 +330,34 @@ body {
   display: none;
 }
 
-/* line 8, _responsive.scss */
+/* line 6, _responsive.scss */
+body.mobile {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* line 14, _responsive.scss */
 body.mobile .screen {
   padding: 5px;
 }
-/* line 11, _responsive.scss */
+/* line 17, _responsive.scss */
 body.mobile .screen main {
   text-align: center;
 }
-/* line 14, _responsive.scss */
+/* line 20, _responsive.scss */
 body.mobile .screen main h1, body.mobile .screen main h2 {
   font-size: 30px;
   width: 80%;
   margin: 0 auto;
 }
-/* line 20, _responsive.scss */
+/* line 26, _responsive.scss */
 body.mobile .screen main a {
   margin: 10px auto;
 }
-/* line 26, _responsive.scss */
+/* line 32, _responsive.scss */
 body.mobile .board,
 body.mobile .board-bg,
 body.mobile .board-fg {
@@ -360,17 +369,17 @@ body.mobile .board-fg {
   right: 0;
   margin: 0;
 }
-/* line 38, _responsive.scss */
+/* line 44, _responsive.scss */
 body.mobile .tile {
   margin: 0;
   padding-top: 20px;
   font-size: 20px;
 }
-/* line 44, _responsive.scss */
+/* line 50, _responsive.scss */
 body.mobile .help {
   display: none;
 }
-/* line 48, _responsive.scss */
+/* line 54, _responsive.scss */
 body.mobile #mobile-keyboard {
   box-sizing: border-box;
   width: 100%;
@@ -382,12 +391,6 @@ body.mobile #mobile-keyboard {
   flex-wrap: wrap;
   justify-content: center;
   padding: 5px 10px 5px 10px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 /* line 66, _responsive.scss */
 body.mobile #mobile-keyboard .row {
