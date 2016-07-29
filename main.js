@@ -380,9 +380,9 @@ function lastFullRow() {
 
 function moveAddUI() {
   var y = boardHeight - lastFullRow();
-  $('.entry-indicator').css('top', (y*fullTileSize)+fullTileSize/2-6);
   $('.reason').css('top', (y*fullTileSize)+10);
-  $('.bonus-column-indicator').css('left', (board.bonusColumn)*fullTileSize+10);
+  $('.bonus-indicator').css('top', (y-1)*(fullTileSize)+10+margin+1);
+  $('.bonus-indicator').css('left', (board.bonusColumn)*fullTileSize+10+margin+1);
 }
 
 function stopEntry(force) {
@@ -395,7 +395,7 @@ function stopEntry(force) {
         board.bonusColumn = 0;
         newRowFromBottom();
       }
-      $('.bonus-column-indicator').css('left', (board.bonusColumn)*fullTileSize+10);
+      $('.bonus-indicator').css('left', (board.bonusColumn)*fullTileSize+10+margin+1);
     }
   }
   var validity = isValidWord( entryBuffer.join("") );
