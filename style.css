@@ -1,4 +1,4 @@
-/* line 10, style.scss */
+/* line 12, style.scss */
 html, body, .screen {
   margin: 0;
   padding: 0;
@@ -6,13 +6,13 @@ html, body, .screen {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 17, style.scss */
+/* line 19, style.scss */
 body {
   width: 100vw;
   overflow: hidden;
 }
 
-/* line 22, style.scss */
+/* line 24, style.scss */
 .screen {
   position: absolute;
   background: #222;
@@ -23,31 +23,31 @@ body {
   transition: left .6s .1s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 }
-/* line 32, style.scss */
+/* line 34, style.scss */
 .screen.active {
   left: 0;
 }
-/* line 36, style.scss */
+/* line 38, style.scss */
 .screen main {
   max-width: 900px;
   margin: 150px auto;
 }
-/* line 40, style.scss */
+/* line 42, style.scss */
 .screen main h1, .screen main h2 {
   font-size: 65px;
   width: 8em;
 }
-/* line 45, style.scss */
+/* line 47, style.scss */
 .screen main p {
   font-weight: normal;
   font-size: 18px;
   margin-bottom: 3em;
 }
-/* line 51, style.scss */
+/* line 53, style.scss */
 .screen main ul {
   margin-bottom: 3em;
 }
-/* line 56, style.scss */
+/* line 58, style.scss */
 .screen a {
   color: #FFFFFF;
   border: 1px solid #FFFFFF;
@@ -58,43 +58,43 @@ body {
   text-decoration: none;
   border-radius: 4px;
 }
-/* line 66, style.scss */
+/* line 68, style.scss */
 .screen a:hover {
   color: #222;
   background: #FFFFFF;
 }
 
-/* line 73, style.scss */
+/* line 75, style.scss */
 #gameplay.active ~ #menu {
   left: -100vw;
 }
 
-/* line 74, style.scss */
+/* line 76, style.scss */
 #gameover.active ~ #menu {
   left: -200vw;
 }
 
-/* line 75, style.scss */
+/* line 77, style.scss */
 #menu.active ~ #gameplay {
   left: 100vw;
 }
 
-/* line 76, style.scss */
+/* line 78, style.scss */
 #gameover.active ~ #gameplay {
   left: -100vw;
 }
 
-/* line 77, style.scss */
+/* line 79, style.scss */
 #gameplay.active ~ #gameover {
   left: 100vw;
 }
 
-/* line 78, style.scss */
+/* line 80, style.scss */
 #menu.active ~ #gameover {
   left: 200vw;
 }
 
-/* line 80, style.scss */
+/* line 82, style.scss */
 .board,
 .board-bg,
 .board-fg {
@@ -107,26 +107,26 @@ body {
   flex-direction: row;
 }
 
-/* line 92, style.scss */
+/* line 94, style.scss */
 .board {
   position: relative;
   margin: 50px auto;
 }
 
-/* line 97, style.scss */
+/* line 99, style.scss */
 .board-bg {
   align-items: flex-start;
   align-content: flex-start;
 }
 
-/* line 102, style.scss */
+/* line 104, style.scss */
 .board-fg .tile {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* line 108, style.scss */
+/* line 110, style.scss */
 .board-bg,
 .board-fg {
   background: none;
@@ -135,7 +135,7 @@ body {
   left: 0;
 }
 
-/* line 116, style.scss */
+/* line 118, style.scss */
 .tile {
   display: block;
   width: 50px;
@@ -150,59 +150,59 @@ body {
   background: #222;
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99);
 }
-/* line 130, style.scss */
+/* line 132, style.scss */
 .tile.removed {
   opacity: 0;
   transform: translateY(-40px) rotate(20deg);
 }
-/* line 135, style.scss */
+/* line 137, style.scss */
 .tile.empty {
   border: 1px solid #151515;
   background: #2f2f2f;
   cursor: default;
 }
-/* line 141, style.scss */
+/* line 143, style.scss */
 .tile:not(.empty):hover {
   color: #222;
   background-color: #FFFFFF;
 }
-/* line 146, style.scss */
+/* line 148, style.scss */
 .tile.selected {
   color: #222;
   background-color: #FFFFFF;
 }
-/* line 151, style.scss */
+/* line 153, style.scss */
 .tile.highlighted {
   border: 1px solid #FFFFFF;
 }
-/* line 155, style.scss */
+/* line 157, style.scss */
 .tile.enter-buffer {
   background: transparent;
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
 }
-/* line 162, style.scss */
+/* line 164, style.scss */
 .tile.special {
   color: #30B873;
   background-color: #1b6740;
 }
-/* line 167, style.scss */
+/* line 169, style.scss */
 .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid #30B873;
   color: #30B873;
 }
-/* line 173, style.scss */
+/* line 175, style.scss */
 .tile.special.selected {
   color: #222;
   background-color: #30B873;
 }
-/* line 178, style.scss */
+/* line 180, style.scss */
 .tile.loading {
   color: #3c3c3c;
 }
 
-/* line 200, style.scss */
+/* line 202, style.scss */
 .bonus-indicator {
   position: absolute;
   width: 48px;
@@ -223,7 +223,7 @@ body {
     opacity: 0.2;
   }
 }
-/* line 217, style.scss */
+/* line 219, style.scss */
 .reason {
   position: absolute;
   bottom: 50px;
@@ -234,7 +234,7 @@ body {
   padding-bottom: 10px;
 }
 
-/* line 228, style.scss */
+/* line 230, style.scss */
 .uncollected-text {
   position: absolute;
   top: 50px;
@@ -243,16 +243,16 @@ body {
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 }
-/* line 237, style.scss */
+/* line 239, style.scss */
 .uncollected-text span {
   display: inline-block;
 }
-/* line 241, style.scss */
+/* line 243, style.scss */
 .uncollected-text .collected {
   color: #30B873;
 }
 
-/* line 246, style.scss */
+/* line 248, style.scss */
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
@@ -263,12 +263,12 @@ body {
   align-content: flex-start;
   overflow-x: scroll;
 }
-/* line 256, style.scss */
+/* line 258, style.scss */
 .game-end-word-list li {
   margin: 5px 40px 5px 0;
 }
 
-/* line 261, style.scss */
+/* line 263, style.scss */
 .help {
   position: absolute;
   top: 50px;
@@ -282,14 +282,14 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 274, style.scss */
+/* line 276, style.scss */
 .help:after {
   content: "?";
   display: block;
   margin-top: 5px;
 }
 
-/* line 281, style.scss */
+/* line 283, style.scss */
 .instructions {
   display: none;
   position: absolute;
@@ -303,20 +303,20 @@ body {
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
 }
-/* line 294, style.scss */
+/* line 296, style.scss */
 .instructions h2 {
   margin-top: 0;
   font-size: 25px;
 }
-/* line 299, style.scss */
+/* line 301, style.scss */
 .instructions strong {
   color: #FFFFFF;
 }
-/* line 303, style.scss */
+/* line 305, style.scss */
 .instructions strong.purple {
   color: #30B873;
 }
-/* line 307, style.scss */
+/* line 309, style.scss */
 .instructions p {
   color: black;
   font-size: 16px;
