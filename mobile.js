@@ -22,15 +22,36 @@ function populateKeyboard() {
       var newSpan = $("<span>").addClass("key");
       currentRow.append(newSpan.clone().text(keyText));
     }
+    // if(i == 1) {
+    //   currentRow.append($("<span>").addClass("key").text("×"));
+    // }
+    // if(i == 2) {
+    //   currentRow.append($("<span>").addClass("key").text("<"));
+    // }
   }
-  k.on("touchend", function (e) {
+  k.on("click", function (e) {
     if(!$(e.target).hasClass("key")) { return; }
+    var keytext = $(e.target).text();
     var press = $.Event('keydown');
-    press.which = $(e.target).text().toUpperCase().charCodeAt(0);
+    press.which = keytext.toUpperCase().charCodeAt(0);
     console.log(press.which);
     $(document.body).trigger(press);
   })
 }
+
+//touch gestures
+var keyboardGestureListener = new Hammer(k.get(0));
+keyboardGestureListener.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+keyboardGestureListener.on('swipedown', function(ev) {
+  var press = $.Event('keydown');
+  press.which = 13;
+  $(document.body).trigger(press);
+});
+keyboardGestureListener.on('swipeleft', function(ev) {
+  var press = $.Event('keydown');
+  press.which = 27;
+  $(document.body).trigger(press);
+});
 
 detectMobile();
 populateKeyboard();
