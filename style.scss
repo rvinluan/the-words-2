@@ -149,7 +149,6 @@ body {
   &.selected {
     color: $bg;
     background-color: $light-yellow;
-    transition: color 0s, background-color 0s;
   }
 
   &.highlighted {

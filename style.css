@@ -166,41 +166,40 @@ body {
 .tile.selected {
   color: #222;
   background-color: #FFFFFF;
-  transition: color 0s, background-color 0s;
 }
-/* line 155, style.scss */
+/* line 154, style.scss */
 .tile.highlighted {
   border: 1px solid #FFFFFF;
   transition: border 1s;
 }
-/* line 160, style.scss */
+/* line 159, style.scss */
 .tile.enter-buffer {
   background: transparent;
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
 }
-/* line 167, style.scss */
+/* line 166, style.scss */
 .tile.special {
   color: #30B873;
   background-color: #1b6740;
 }
-/* line 172, style.scss */
+/* line 171, style.scss */
 .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid #30B873;
   color: #30B873;
 }
-/* line 178, style.scss */
+/* line 177, style.scss */
 .tile.special.selected {
   color: #222;
   background-color: #30B873;
 }
-/* line 183, style.scss */
+/* line 182, style.scss */
 .tile.loading {
   color: #3c3c3c;
 }
 
-/* line 205, style.scss */
+/* line 204, style.scss */
 .bonus-indicator {
   position: absolute;
   width: 48px;
@@ -221,7 +220,7 @@ body {
     opacity: 0.2;
   }
 }
-/* line 222, style.scss */
+/* line 221, style.scss */
 .reason {
   position: absolute;
   bottom: 50px;
@@ -232,7 +231,7 @@ body {
   padding-bottom: 10px;
 }
 
-/* line 233, style.scss */
+/* line 232, style.scss */
 .uncollected-text {
   position: absolute;
   top: 50px;
@@ -241,16 +240,16 @@ body {
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 }
-/* line 242, style.scss */
+/* line 241, style.scss */
 .uncollected-text span {
   display: inline-block;
 }
-/* line 246, style.scss */
+/* line 245, style.scss */
 .uncollected-text .collected {
   color: #30B873;
 }
 
-/* line 251, style.scss */
+/* line 250, style.scss */
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
@@ -261,12 +260,12 @@ body {
   align-content: flex-start;
   overflow-x: scroll;
 }
-/* line 261, style.scss */
+/* line 260, style.scss */
 .game-end-word-list li {
   margin: 5px 40px 5px 0;
 }
 
-/* line 266, style.scss */
+/* line 265, style.scss */
 .help {
   position: absolute;
   top: 50px;
@@ -280,14 +279,14 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 279, style.scss */
+/* line 278, style.scss */
 .help:after {
   content: "?";
   display: block;
   margin-top: 5px;
 }
 
-/* line 286, style.scss */
+/* line 285, style.scss */
 .instructions {
   display: none;
   position: absolute;
@@ -301,20 +300,20 @@ body {
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
 }
-/* line 299, style.scss */
+/* line 298, style.scss */
 .instructions h2 {
   margin-top: 0;
   font-size: 25px;
 }
-/* line 304, style.scss */
+/* line 303, style.scss */
 .instructions strong {
   color: #FFFFFF;
 }
-/* line 308, style.scss */
+/* line 307, style.scss */
 .instructions strong.purple {
   color: #30B873;
 }
-/* line 312, style.scss */
+/* line 311, style.scss */
 .instructions p {
   color: black;
   font-size: 16px;
@@ -322,7 +321,7 @@ body {
   max-width: 20em;
 }
 
-/* line 320, style.scss */
+/* line 319, style.scss */
 #mobile-keyboard {
   display: none;
 }
