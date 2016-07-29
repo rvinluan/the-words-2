@@ -32,12 +32,13 @@ body.mobile {
 .board,
 .board-bg,
 .board-fg {
-  width: ($tile-size + $margin-resp*2)*$board-width;
+  $bw: ($tile-size + $margin-resp*2)*$board-width;
+  width: $bw;
   height: ($tile-size + $margin-resp*2)*$board-height;
   padding: $margin-resp*2;
   position: absolute;
   top: 0;
-  right: 0;
+  left: calc(50% - #{ $bw/2 });
   margin: 0;
 }
 
@@ -54,6 +55,7 @@ body.mobile {
 #mobile-keyboard {
   box-sizing: border-box;
   width: 100%;
+  max-width: 480px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -67,7 +69,6 @@ body.mobile {
     display: flex;
     justify-content: center;
     margin-bottom: 3px;
-    max-width: 320px;
   }
 
   .key {

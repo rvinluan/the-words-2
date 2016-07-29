@@ -137,16 +137,18 @@ function bindEvents() {
         addToEntryBuffer(String.fromCharCode(e.which));
       }
     })
-  board.element
-    .on('mouseover', '.tile:not(.empty)', function (e) {
-      highlightLetters( this );
-    })
-    .on('mouseleave', '.tile:not(.empty)', function (e) {
-      $('.tile').removeClass('highlighted selected');
-    })
-    .on('click', '.tile:not(.empty)', function (e) {
-      clearTile(this, true);
-    })
+  if(!browserIsMobile) {
+    board.element
+      .on('mouseover', '.tile:not(.empty)', function (e) {
+        highlightLetters( this );
+      })
+      .on('mouseleave', '.tile:not(.empty)', function (e) {
+        $('.tile').removeClass('highlighted selected');
+      })
+      .on('click', '.tile:not(.empty)', function (e) {
+        clearTile(this, true);
+      })
+  }
   $("#menu .difficulty-select").on('click', function (e) {
     var d = $(this).text();
     e.preventDefault();
@@ -549,4 +551,4 @@ function winGame() {
 }
 
 bindEvents();
-// init("normal");
+init("normal");

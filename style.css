@@ -162,11 +162,6 @@ body {
   background: #2f2f2f;
   cursor: default;
 }
-/* line 144, style.scss */
-.tile:not(.empty):hover {
-  color: #222;
-  background-color: #FFFFFF;
-}
 /* line 149, style.scss */
 .tile.selected {
   color: #222;
@@ -366,23 +361,24 @@ body.mobile .board-fg {
   padding: 0;
   position: absolute;
   top: 0;
-  right: 0;
+  left: calc(50% - 125px);
   margin: 0;
 }
-/* line 44, _responsive.scss */
+/* line 45, _responsive.scss */
 body.mobile .tile {
   margin: 0;
   padding-top: 20px;
   font-size: 20px;
 }
-/* line 50, _responsive.scss */
+/* line 51, _responsive.scss */
 body.mobile .help {
   display: none;
 }
-/* line 54, _responsive.scss */
+/* line 55, _responsive.scss */
 body.mobile #mobile-keyboard {
   box-sizing: border-box;
   width: 100%;
+  max-width: 480px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -392,14 +388,13 @@ body.mobile #mobile-keyboard {
   justify-content: center;
   padding: 5px 10px 5px 10px;
 }
-/* line 66, _responsive.scss */
+/* line 68, _responsive.scss */
 body.mobile #mobile-keyboard .row {
   display: flex;
   justify-content: center;
   margin-bottom: 3px;
-  max-width: 320px;
 }
-/* line 73, _responsive.scss */
+/* line 74, _responsive.scss */
 body.mobile #mobile-keyboard .key {
   box-sizing: border-box;
   background-color: white;

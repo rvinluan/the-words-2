@@ -141,10 +141,10 @@ body {
     cursor: default;
   }
 
-  &:not(.empty):hover {
-    color: $bg;
-    background-color: $light-yellow;
-  }
+  // &:not(.empty):hover {
+  //   color: $bg;
+  //   background-color: $light-yellow;
+  // }
 
   &.selected {
     color: $bg;

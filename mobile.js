@@ -53,5 +53,10 @@ keyboardGestureListener.on("tap", function (e) {
   $(document.body).trigger(press);
 })
 
+var boardGestureListener = new Hammer($(".board").get(0));
+boardGestureListener.on('tap', function(e) {
+  clearTile(e.target, true);
+})
+
 detectMobile();
 populateKeyboard();
