@@ -29,14 +29,6 @@ function populateKeyboard() {
     //   currentRow.append($("<span>").addClass("key").text("<"));
     // }
   }
-  k.on("click", function (e) {
-    if(!$(e.target).hasClass("key")) { return; }
-    var keytext = $(e.target).text();
-    var press = $.Event('keydown');
-    press.which = keytext.toUpperCase().charCodeAt(0);
-    console.log(press.which);
-    $(document.body).trigger(press);
-  })
 }
 
 //touch gestures
@@ -52,6 +44,14 @@ keyboardGestureListener.on('swipeleft', function(ev) {
   press.which = 27;
   $(document.body).trigger(press);
 });
+keyboardGestureListener.on("tap", function (e) {
+  if(!$(e.target).hasClass("key")) { return; }
+  var keytext = $(e.target).text();
+  var press = $.Event('keydown');
+  press.which = keytext.toUpperCase().charCodeAt(0);
+  console.log(press.which);
+  $(document.body).trigger(press);
+})
 
 detectMobile();
 populateKeyboard();
