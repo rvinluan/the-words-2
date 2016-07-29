@@ -52,6 +52,9 @@ keyboardGestureListener.on("tap", function (e) {
   press.which = keytext.toUpperCase().charCodeAt(0);
   console.log(press.which);
   $(document.body).trigger(press);
+  if(navigator.vibrate) {
+    navigator.vibrate(100);
+  }
 })
 
 detectMobile();
