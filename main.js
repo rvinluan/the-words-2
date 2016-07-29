@@ -363,6 +363,24 @@ function highlightLetters(tile) {
   }
 }
 
+function glowMatchingTiles(tile) {
+  if(difficulty == "hard") {
+    var b = findLetterBlob(tile);
+    $(b.blob).addClass('selected');
+    $(b.bonus).addClass('highlighted');
+    setTimeout(function () {
+      $(b.blob).removeClass('selected');
+      $(b.bonus).removeClass('highlighted');
+    }, 300)
+  } else {
+    $(findAllMatchingLetters(tile)).addClass('selected');
+    setTimeout(function () {
+      $(findAllMatchingLetters(tile)).removeClass('selected');
+    }, 300)
+  }
+}
+
+
 function lastFullRow() {
   var lengths = [];
   for(var i = 0; i < boardWidth; i++) {

@@ -1,5 +1,7 @@
 var k = $('#mobile-keyboard');
 
+var browserIsMobile = false;
+
 function detectMobile() {
   //from http://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
   var check = false;
@@ -8,7 +10,6 @@ function detectMobile() {
     browserIsMobile = true;
     $(document.body).addClass("mobile");
   } else {
-    browserIsMobile = false;
     $(document.body).addClass("desktop");
   }
 }
@@ -53,10 +54,14 @@ keyboardGestureListener.on("tap", function (e) {
   $(document.body).trigger(press);
 })
 
-var boardGestureListener = new Hammer($(".board").get(0));
-boardGestureListener.on('tap', function(e) {
-  clearTile(e.target, true);
-})
-
 detectMobile();
-populateKeyboard();
+
+if(browserIsMobile) {
+  populateKeyboard();
+
+  var boardGestureListener = new Hammer($(".board").get(0));
+  boardGestureListener.on('tap', function(e) {
+    glowMatchingTiles(e.target);
+    clearTile(e.target, true);
+  })
+}
