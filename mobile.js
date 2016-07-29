@@ -53,7 +53,7 @@ keyboardGestureListener.on("tap", function (e) {
   console.log(press.which);
   $(document.body).trigger(press);
   if(navigator.vibrate) {
-    navigator.vibrate(100);
+    navigator.vibrate(50);
   }
 })
 
