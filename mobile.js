@@ -35,7 +35,7 @@ function populateKeyboard() {
 //touch gestures
 var keyboardGestureListener = new Hammer.Manager(k.get(0));
 keyboardGestureListener.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_ALL }) );
-keyboardGestureListener.add( new Hammer.Tap({ time: 100 }) );
+keyboardGestureListener.add( new Hammer.Tap({ time: 250 }) );
 keyboardGestureListener.on('swipedown', function(ev) {
   var press = $.Event('keydown');
   press.which = 13;
