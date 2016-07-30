@@ -569,4 +569,4 @@ function winGame() {
 }
 
 bindEvents();
-init("normal");
+// init("normal");
