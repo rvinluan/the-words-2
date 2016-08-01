@@ -345,7 +345,7 @@ body.mobile .screen main {
 }
 /* line 20, _responsive.scss */
 body.mobile .screen main h1, body.mobile .screen main h2 {
-  font-size: 30px;
+  font-size: 29px;
   width: 80%;
   margin: 0 auto;
 }
