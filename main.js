@@ -65,12 +65,15 @@ function init(diff) {
 function resizeBoard() {
   //for different screens
   tileSize = (($(window).height() - 40 - $("#mobile-keyboard").height()) / boardHeight) - 2;
+  if(tileSize > 60) { tileSize = 60; }
   fullTileSize = tileSize + margin*2;
   $(".board, .board-bg, .board-fg").css( {
     "height": (tileSize + margin*2) * boardHeight,
     "width": (tileSize + margin*2) * boardWidth,
   });
-  $(".board").css("left", "calc(50% - "+(fullTileSize * boardWidth)/2+"px)");
+  $(".board").css("left", "calc(58% - "+(fullTileSize * boardWidth)/2+"px)");
+  $(".reason").css("width", fullTileSize * boardWidth);
+  $(".uncollected-text").css("left", 10);
   var sheet = document.createElement('style')
   var sheetText = "body.mobile .tile { width: "+tileSize+"px; height: "+tileSize+"px; padding-top: "+tileSize/3+"px; }\n";
   sheetText += " body.mobile .bonus-indicator { width: "+(tileSize-2)+"px; height: "+(tileSize-2)+"px; }"
@@ -420,7 +423,7 @@ function lastFullRow() {
 function moveAddUI() {
   var boardPadding = browserIsMobile ? 0 : 10;
   var y = boardHeight - lastFullRow();
-  $('.reason').css('top', (y*fullTileSize)+boardPadding);
+  $('.reason').css('top', (y*fullTileSize)+boardPadding-(fullTileSize/2)-5);
   $('.bonus-indicator').css('top', (y-1)*(fullTileSize)+boardPadding+margin+1);
   $('.bonus-indicator').css('left', (board.bonusColumn)*fullTileSize+boardPadding+margin+1);
 }
@@ -439,7 +442,7 @@ function stopEntry(force) {
     }
   }
   var validity = isValidWord( entryBuffer.join("") );
-  $('.reason').hide();
+  $('.reason').removeClass("shown");
   if(force) {
     $('.enter-buffer').remove();
     closeEntry();
@@ -459,7 +462,10 @@ function stopEntry(force) {
     }
     closeEntry();
   } else {
-    $('.reason').show().text(validity.reason);
+    $('.reason').addClass("shown").find("span").text(validity.reason);
+    setTimeout(function () {
+      $('.reason').removeClass("shown");
+    },500)
   }
 }
 

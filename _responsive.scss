@@ -63,9 +63,32 @@ body.mobile {
   }
 }
 
+.reason {
+  left: 0;
+  right: 0;
+  transition: all .3s;
+
+  &.shown {
+    opacity: 1;
+    transition: all 0s;
+  }
+
+  span {
+    padding: 5px;
+    border-radius: 2px;
+    background-color: rgba(0,0,0,0.5);
+  }
+}
+
 .bonus-indicator {
   width: ($tile-size - 2);
   height: ($tile-size - 2);
+}
+
+.uncollected-text {
+  top: 40px;
+  width: 50px;
+  font-size: 25px;
 }
 
 .help {

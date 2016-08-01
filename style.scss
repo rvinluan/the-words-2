@@ -219,13 +219,21 @@ body {
 
 .reason {
   position: absolute;
-  bottom: 50px;
   $bw: ($tile-size + $margin*2)*$board-width;
   left: calc(50% + #{ $bw/2 + $tile-size*0.8 });
   z-index: 10;
   color: #F33E58;
   font: normal normal 16px/1 'Apercu', sans-serif;
   padding-bottom: 10px;
+  pointer-events: none;
+  text-align: center;
+  opacity: 0;
+  min-width: 5em;
+  transition: all .3s;
+
+  &.shown {
+    opacity: 1;
+  }
 }
 
 .uncollected-text {
