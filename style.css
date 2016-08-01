@@ -429,7 +429,8 @@ body.mobile #mobile-keyboard .keypress-indicator {
   position: absolute;
   top: -45px;
   left: 50%;
-  padding: 10px;
+  padding: 14px;
+  font-size: 1.2em;
   background-color: #E4EAEF;
   border: 1px solid #c4d1dc;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
