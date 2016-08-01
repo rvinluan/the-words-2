@@ -74,9 +74,9 @@ body.mobile {
   }
 
   span {
-    padding: 5px;
+    padding: 8px 12px;
     border-radius: 2px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: black;
   }
 }
 
@@ -93,6 +93,14 @@ body.mobile {
 
 .help {
   display: none;
+}
+
+.game-end-word-list {
+  max-height: 230px;
+
+  li {
+    font-size: 18px;
+  }
 }
 
 #mobile-keyboard {

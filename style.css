@@ -405,9 +405,9 @@ body.mobile .reason.shown {
 }
 /* line 76, _responsive.scss */
 body.mobile .reason span {
-  padding: 5px;
+  padding: 8px 12px;
   border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: black;
 }
 /* line 83, _responsive.scss */
 body.mobile .bonus-indicator {
@@ -425,6 +425,14 @@ body.mobile .help {
   display: none;
 }
 /* line 98, _responsive.scss */
+body.mobile .game-end-word-list {
+  max-height: 230px;
+}
+/* line 101, _responsive.scss */
+body.mobile .game-end-word-list li {
+  font-size: 18px;
+}
+/* line 106, _responsive.scss */
 body.mobile #mobile-keyboard {
   box-sizing: border-box;
   width: 100%;
@@ -437,13 +445,13 @@ body.mobile #mobile-keyboard {
   flex-wrap: wrap;
   justify-content: center;
 }
-/* line 110, _responsive.scss */
+/* line 118, _responsive.scss */
 body.mobile #mobile-keyboard .row {
   display: flex;
   justify-content: center;
   margin-bottom: 3px;
 }
-/* line 116, _responsive.scss */
+/* line 124, _responsive.scss */
 body.mobile #mobile-keyboard .key,
 body.mobile #mobile-keyboard .keypress-indicator {
   box-sizing: border-box;
@@ -454,7 +462,7 @@ body.mobile #mobile-keyboard .keypress-indicator {
   min-height: 45px;
   text-align: center;
 }
-/* line 127, _responsive.scss */
+/* line 135, _responsive.scss */
 body.mobile #mobile-keyboard .keypress-indicator {
   display: none;
   position: absolute;
