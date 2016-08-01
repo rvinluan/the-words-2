@@ -72,8 +72,8 @@ function resizeBoard() {
   });
   $(".board").css("left", "calc(50% - "+(fullTileSize * boardWidth)/2+"px)");
   var sheet = document.createElement('style')
-  var sheetText = "body.mobile .tile { width: "+tileSize+"px; height: "+tileSize+"px; padding-top: "+tileSize/3+"px; }";
-  sheetText += "\n .bonus-indicator { width: "+tileSize+"px; height: "+tileSize+"px; }"
+  var sheetText = "body.mobile .tile { width: "+tileSize+"px; height: "+tileSize+"px; padding-top: "+tileSize/3+"px; }\n";
+  sheetText += " body.mobile .bonus-indicator { width: "+(tileSize-2)+"px; height: "+(tileSize-2)+"px; }"
   sheet.innerHTML = sheetText;
   document.body.appendChild(sheet);
 }

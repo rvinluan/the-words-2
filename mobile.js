@@ -65,7 +65,7 @@ if(browserIsMobile) {
   boardGestureListener.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_ALL }) );
   boardGestureListener.add( new Hammer.Tap({ time: 250 }) );
   boardGestureListener.on('tap', function(e) {
-    if($(e.target).hasClass('empty')) { return; };
+    if($(e.target).hasClass('empty') || $(e.target).hasClass('bonus-indicator')) { return; };
     glowMatchingTiles(e.target);
     clearTile(e.target, true);
   })
