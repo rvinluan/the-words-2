@@ -17,7 +17,7 @@ function detectMobile() {
 function populateKeyboard() {
   var rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
   for(var i = 0; i < rows.length; i++) {
-    var currentRow = k.children().eq(i);
+    var currentRow = k.children(".row").eq(i);
     for(var j = 0; j < rows[i].length; j++) {
       var keyText = rows[i].charAt(j);
       var newSpan = $("<span>").addClass("key");
@@ -41,11 +41,19 @@ k.on("touchstart", function (e) {
   var keytext = $(e.target).text();
   var press = $.Event('keydown');
   press.which = keytext.toUpperCase().charCodeAt(0);
+  console.log(e);
+  $('.keypress-indicator').css({
+    'top': e.target.offsetTop - 45,
+    'left': e.target.offsetLeft
+  }).text(keytext).show();
   console.log(press.which);
   $(document.body).trigger(press);
   if(navigator.vibrate) {
     navigator.vibrate(50);
   }
+})
+k.on("touchend", function (e) {
+  $('.keypress-indicator').hide();
 })
 
 detectMobile();

@@ -402,27 +402,36 @@ body.mobile #mobile-keyboard {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #aaa;
+  background-color: #E4EAEF;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 5px 10px 5px 10px;
 }
-/* line 87, _responsive.scss */
+/* line 86, _responsive.scss */
 body.mobile #mobile-keyboard .row {
   display: flex;
   justify-content: center;
   margin-bottom: 3px;
 }
-/* line 93, _responsive.scss */
-body.mobile #mobile-keyboard .key {
+/* line 92, _responsive.scss */
+body.mobile #mobile-keyboard .key,
+body.mobile #mobile-keyboard .keypress-indicator {
   box-sizing: border-box;
-  background-color: white;
-  color: #555;
+  color: #333;
   border-radius: 2px;
-  padding: 4px;
-  margin: 1px;
+  padding: 7px;
   min-width: 30px;
   min-height: 45px;
   text-align: center;
+}
+/* line 103, _responsive.scss */
+body.mobile #mobile-keyboard .keypress-indicator {
+  display: none;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  padding: 10px;
+  background-color: #E4EAEF;
+  border: 1px solid #c4d1dc;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
