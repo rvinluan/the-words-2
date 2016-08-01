@@ -36,17 +36,7 @@ function populateKeyboard() {
 var keyboardGestureListener = new Hammer.Manager(k.get(0));
 keyboardGestureListener.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_ALL }) );
 keyboardGestureListener.add( new Hammer.Tap({ time: 250 }) );
-keyboardGestureListener.on('swipedown', function(ev) {
-  var press = $.Event('keydown');
-  press.which = 13;
-  $(document.body).trigger(press);
-});
-keyboardGestureListener.on('swipeleft', function(ev) {
-  var press = $.Event('keydown');
-  press.which = 27;
-  $(document.body).trigger(press);
-});
-keyboardGestureListener.on("tap", function (e) {
+k.on("touchstart", function (e) {
   if(!$(e.target).hasClass("key")) { return; }
   var keytext = $(e.target).text();
   var press = $.Event('keydown');
@@ -63,9 +53,22 @@ detectMobile();
 if(browserIsMobile) {
   populateKeyboard();
 
-  var boardGestureListener = new Hammer($(".board").get(0));
+  var boardGestureListener = new Hammer.Manager($(".board").get(0));
+  boardGestureListener.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_ALL }) );
+  boardGestureListener.add( new Hammer.Tap({ time: 250 }) );
   boardGestureListener.on('tap', function(e) {
+    if($(e.target).hasClass('empty')) { return; };
     glowMatchingTiles(e.target);
     clearTile(e.target, true);
   })
+  boardGestureListener.on('swipedown', function(ev) {
+    var press = $.Event('keydown');
+    press.which = 13;
+    $(document.body).trigger(press);
+  });
+  boardGestureListener.on('swipeleft', function(ev) {
+    var press = $.Event('keydown');
+    press.which = 27;
+    $(document.body).trigger(press);
+  });
 }

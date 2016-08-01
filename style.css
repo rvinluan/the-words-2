@@ -357,33 +357,44 @@ body.mobile .screen main a {
 body.mobile .board,
 body.mobile .board-bg,
 body.mobile .board-fg {
-  width: 250px;
-  height: 400px;
+  width: 220px;
+  height: 352px;
   padding: 0;
   position: absolute;
   top: 0;
-  left: calc(50% - 125px);
+  left: calc(50% - 110px);
   margin: 0;
 }
 /* line 45, _responsive.scss */
+body.mobile .board {
+  top: 40px;
+}
+/* line 49, _responsive.scss */
 body.mobile .tile {
+  width: 44px;
+  height: 44px;
   margin: 0;
-  padding-top: 20px;
+  padding-top: 15px;
   font-size: 20px;
 }
-/* line 50, _responsive.scss */
+/* line 56, _responsive.scss */
 body.mobile .tile.selected {
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99), color 0s, background-color 0s;
 }
-/* line 54, _responsive.scss */
+/* line 60, _responsive.scss */
 body.mobile .tile.glow {
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99), color 1s, background-color 1s;
 }
-/* line 59, _responsive.scss */
+/* line 65, _responsive.scss */
+body.mobile .bonus-indicator {
+  width: 42px;
+  height: 42px;
+}
+/* line 70, _responsive.scss */
 body.mobile .help {
   display: none;
 }
-/* line 63, _responsive.scss */
+/* line 74, _responsive.scss */
 body.mobile #mobile-keyboard {
   box-sizing: border-box;
   width: 100%;
@@ -397,13 +408,13 @@ body.mobile #mobile-keyboard {
   justify-content: center;
   padding: 5px 10px 5px 10px;
 }
-/* line 76, _responsive.scss */
+/* line 87, _responsive.scss */
 body.mobile #mobile-keyboard .row {
   display: flex;
   justify-content: center;
   margin-bottom: 3px;
 }
-/* line 82, _responsive.scss */
+/* line 93, _responsive.scss */
 body.mobile #mobile-keyboard .key {
   box-sizing: border-box;
   background-color: white;

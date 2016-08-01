@@ -3,7 +3,7 @@ var randomIn = function(arr) {
   return arr[ Math.floor(Math.random() * arr.length) ];
 }
 
-var tileSize = 50;
+var tileSize = browserIsMobile ? 44 : 50;
 var margin = browserIsMobile ? 0 : 5;
 var fullTileSize = tileSize + margin*2;
 var boardWidth = 5;

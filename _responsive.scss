@@ -1,4 +1,4 @@
-$tile-size: 50px;
+$tile-size: 44px;
 $margin-resp: 0;
 $board-width: 5;
 $board-height: 8;
@@ -42,9 +42,15 @@ body.mobile {
   margin: 0;
 }
 
+.board {
+  top: 40px;
+}
+
 .tile {
+  width: $tile-size;
+  height: $tile-size;
   margin: $margin-resp;
-  padding-top: 20px;
+  padding-top: 15px;
   font-size: 20px;
 
   &.selected {
@@ -54,6 +60,11 @@ body.mobile {
   &.glow {
     transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99), color 1s, background-color 1s;
   }
+}
+
+.bonus-indicator {
+  width: ($tile-size - 2);
+  height: ($tile-size - 2);
 }
 
 .help {
