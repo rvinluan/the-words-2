@@ -43,8 +43,8 @@ k.on("touchstart", function (e) {
   press.which = keytext.toUpperCase().charCodeAt(0);
   console.log(e);
   $('.keypress-indicator').css({
-    'top': e.target.offsetTop - 60,
-    'left': e.target.offsetLeft
+    'top': e.target.offsetTop - 100,
+    'left': e.target.offsetLeft - 12
   }).text(keytext).show();
   console.log(press.which);
   $(document.body).trigger(press);
