@@ -38,12 +38,13 @@ body.mobile {
   padding: $margin-resp*2;
   position: absolute;
   top: 0;
-  left: calc(50% - #{ $bw/2 });
   margin: 0;
 }
 
 .board {
   top: 40px;
+  $bw: ($tile-size + $margin-resp*2)*$board-width;
+  left: calc(50% - #{ $bw/2 });
 }
 
 .tile {

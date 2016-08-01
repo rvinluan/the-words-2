@@ -3,11 +3,12 @@ var randomIn = function(arr) {
   return arr[ Math.floor(Math.random() * arr.length) ];
 }
 
-var tileSize = browserIsMobile ? 44 : 50;
-var margin = browserIsMobile ? 0 : 5;
-var fullTileSize = tileSize + margin*2;
+
 var boardWidth = 5;
 var boardHeight = 8;
+var tileSize = 50;
+var margin = browserIsMobile ? 0 : 5;
+var fullTileSize = tileSize + margin*2;
 var minAllowedMatch = 3;
 var matchesForBonus = 4;
 
@@ -39,12 +40,14 @@ function init(diff) {
   } else {
     boardHeight = 8;
   }
+  if(browserIsMobile) {
+    resizeBoard();
+  }
   if(location.search.length > 0) {
     //get rid of non alpha characters
     var newSearch = location.search.replace(/[^a-zA-Z]/g, "");
     board.uncollected = newSearch.toLowerCase().split("");
   }
-  $(".board, .board-bg, .board-fg").height( (tileSize + margin*2) * boardHeight );
   for(var i = 0; i < boardWidth; i++) {
     board.grid[i] = [];
     for(var j = 0; j < boardHeight; j++) {
@@ -57,6 +60,22 @@ function init(diff) {
   }
   initCollection();
   moveAddUI();
+}
+
+function resizeBoard() {
+  //for different screens
+  tileSize = (($(window).height() - 40 - $("#mobile-keyboard").height()) / boardHeight) - 2;
+  fullTileSize = tileSize + margin*2;
+  $(".board, .board-bg, .board-fg").css( {
+    "height": (tileSize + margin*2) * boardHeight,
+    "width": (tileSize + margin*2) * boardWidth,
+  });
+  $(".board").css("left", "calc(50% - "+(fullTileSize * boardWidth)/2+"px)");
+  var sheet = document.createElement('style')
+  var sheetText = "body.mobile .tile { width: "+tileSize+"px; height: "+tileSize+"px; padding-top: "+tileSize/3+"px; }";
+  sheetText += "\n .bonus-indicator { width: "+tileSize+"px; height: "+tileSize+"px; }"
+  sheet.innerHTML = sheetText;
+  document.body.appendChild(sheet);
 }
 
 function restart() {
