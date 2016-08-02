@@ -24,8 +24,8 @@ var board = {
 }
 
 var dictionary;
-var numStartingWords = 3;
-var startingWords = [];
+var numStartingWords = 1;
+var startingWords = ["tarot"];
 
 var entryBuffer = [];
 
@@ -59,10 +59,20 @@ function init(diff) {
       var newSpan = $("<span>").addClass("tile empty");
       board.background.append( newSpan.clone() );
       if(j < numStartingWords) {
-        newSpanFromRandom(newSpan, i, j);
+        // newSpanFromRandom(newSpan, i, j);
+        newSpanFromStartingWords(newSpan, i, j);
       }
     }
   }
+  $('.tile.loading').each(function (i, e) {
+    var allLetters = startingWords.reduce(function (p, c) {
+      return p += c;
+    }, "")
+    //reconcile the fact that the linear order of the letters
+    //does not match the linear order of the tiles
+    console.log(i);
+    $(e).removeClass('loading').text(allLetters[i].toUpperCase());
+  })
   initCollection();
   moveAddUI();
 }
@@ -101,9 +111,9 @@ function restart() {
     board.grid[i] = [];
     for(var j = 0; j < boardHeight; j++) {
       var newSpan = $("<span>").addClass("tile empty");
-      
       if(j < numStartingWords) {
-        newSpanFromRandom(newSpan, i, j);
+        // newSpanFromRandom(newSpan, i, j);
+        newSpanFromStartingWords(newSpan, i, j);
       }
     }
   }
@@ -525,7 +535,7 @@ function loadDictionary() {
       });
       for(var i = 0; i < numStartingWords; i++) {
         var m = Math.floor(Math.random() * eligibleWords.length);
-        startingWords.push(eligibleWords[m]);
+        // startingWords.push(eligibleWords[m]);
         // board.words.push(eligibleWords[m]);
       }
       $('.tile.loading').each(function (i, e) {
