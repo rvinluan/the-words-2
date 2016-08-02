@@ -27,6 +27,8 @@ var dictionary;
 var numStartingWords = 1;
 var startingWords = ["tarot"];
 
+var wordbank = ["tatt","at","tar","taro","roo", "or"];
+
 var entryBuffer = [];
 
 var gameState = "";
@@ -70,16 +72,15 @@ function init(diff) {
     }, "")
     //reconcile the fact that the linear order of the letters
     //does not match the linear order of the tiles
-    console.log(i);
     $(e).removeClass('loading').text(allLetters[i].toUpperCase());
   })
   initCollection();
+  initWordBank();
   moveAddUI();
 }
 
 function resizeBoard() {
   //for different screens
-  console.log(boardHeight);
   tileSize = (($(window).height() - 40 - $("#mobile-keyboard").height()) / boardHeight) - 2;
   if(tileSize > 60) { tileSize = 60; }
   fullTileSize = tileSize + margin*2;
@@ -185,7 +186,16 @@ function bindEvents() {
       })
       .on('click', '.tile:not(.empty)', function (e) {
         clearTile(this, true);
-      })
+      });
+    $(".word-bank-text").on('click', 'span', function (e) {
+      if($(this).hasClass("used")) {
+        return;
+      }
+      $(this).removeClass("unused").addClass("used");
+      wordbank.splice(wordbank.indexOf($(this).text()), 1);
+      console.log(wordbank);
+      manuallyDropWord($(this).text());
+    });
   }
   $("#menu .difficulty-select").on('click', function (e) {
     var d = $(this).text();
@@ -384,7 +394,6 @@ function collect(tile) {
     board.collected.push(t);
     var u = $('.uncollected-text').find(".collected_"+t).not(".collected");
     u.first().addClass("collected");
-    console.log(u);
   }
   if(board.uncollected.length == 0) {
     winGame();
@@ -515,11 +524,28 @@ function updateEntryTiles() {
   }
 }
 
+function manuallyDropWord(word) {
+  $('.enter-buffer').remove();
+  entryBuffer = word.toUpperCase().split("");
+  updateEntryTiles();
+  setTimeout(function () {
+    stopEntry();
+  }, 200)
+}
+
 function initCollection() {
   var parent = $(".uncollected-text");
   for(var i = 0; i < board.uncollected.length; i++) {
     var ltr = board.uncollected[i];
     var span = $("<span>").text(ltr).addClass("collected_"+ltr);
+    parent.append(span);
+  }
+}
+
+function initWordBank() {
+  var parent = $(".word-bank-text");
+  for(var i = 0; i < wordbank.length; i++) {
+    var span = $("<span>").text(wordbank[i]).addClass("unused");
     parent.append(span);
   }
 }

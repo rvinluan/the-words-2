@@ -257,6 +257,31 @@ body {
 }
 
 /* line 257, style.scss */
+.word-bank-text {
+  position: absolute;
+  top: 250px;
+  right: calc(50% + 200px);
+  color: #FFFFFF;
+  font: normal normal 20px/1 'Apercu', sans-serif;
+  width: 160px;
+}
+/* line 266, style.scss */
+.word-bank-text span {
+  display: block;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+/* line 272, style.scss */
+.word-bank-text .unused:hover {
+  color: #888888;
+  cursor: pointer;
+}
+/* line 277, style.scss */
+.word-bank-text .used {
+  color: #555555;
+}
+
+/* line 282, style.scss */
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
@@ -267,12 +292,12 @@ body {
   align-content: flex-start;
   overflow-x: scroll;
 }
-/* line 267, style.scss */
+/* line 292, style.scss */
 .game-end-word-list li {
   margin: 5px 40px 5px 0;
 }
 
-/* line 272, style.scss */
+/* line 297, style.scss */
 .help {
   position: absolute;
   top: 50px;
@@ -286,14 +311,14 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 285, style.scss */
+/* line 310, style.scss */
 .help:after {
   content: "?";
   display: block;
   margin-top: 5px;
 }
 
-/* line 292, style.scss */
+/* line 317, style.scss */
 .instructions {
   display: none;
   position: absolute;
@@ -307,20 +332,20 @@ body {
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
 }
-/* line 305, style.scss */
+/* line 330, style.scss */
 .instructions h2 {
   margin-top: 0;
   font-size: 25px;
 }
-/* line 310, style.scss */
+/* line 335, style.scss */
 .instructions strong {
   color: #FFFFFF;
 }
-/* line 314, style.scss */
+/* line 339, style.scss */
 .instructions strong.purple {
   color: #30B873;
 }
-/* line 318, style.scss */
+/* line 343, style.scss */
 .instructions p {
   color: black;
   font-size: 16px;
@@ -328,7 +353,7 @@ body {
   max-width: 20em;
 }
 
-/* line 326, style.scss */
+/* line 351, style.scss */
 #mobile-keyboard {
   display: none;
 }

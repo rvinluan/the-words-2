@@ -254,6 +254,31 @@ body {
   }
 }
 
+.word-bank-text {
+  position: absolute;
+  top: 250px;
+  $bw: ($tile-size + $margin*2)*$board-width;
+  right: calc(50% + #{ $bw/2 + $tile-size });
+  color: $light-yellow;
+  font: normal normal 20px/1 'Apercu', sans-serif;
+  width: 160px;
+
+  span {
+    display: block;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .unused:hover {
+    color: lighten($bg, 40);
+    cursor: pointer;
+  }
+
+  .used {
+    color: lighten($bg, 20);
+  }
+}
+
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
