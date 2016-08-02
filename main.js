@@ -260,7 +260,9 @@ function findLetterBlob(tile) {
       return i % 2;
     });
   }
-  return {blob: visited, bonus: bonus};
+  // return {blob: visited, bonus: bonus};
+  // puzzle mode has no bonus tiles
+  return {blob: visited, bonus: []};
 }
 
 function findContiguousMatchingLetters(tile) {
@@ -461,7 +463,8 @@ function stopEntry(force) {
       board.bonusColumn++;
       if(board.bonusColumn >= boardWidth) {
         board.bonusColumn = 0;
-        newRowFromBottom();
+        // puzzle mode doesn't add new rows
+        // newRowFromBottom();
       }
       moveAddUI();
     }
