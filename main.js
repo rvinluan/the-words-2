@@ -42,6 +42,11 @@ function init(diff) {
   }
   if(browserIsMobile) {
     resizeBoard();
+  } else {
+    $(".board, .board-bg, .board-fg").css( {
+      "height": (tileSize + margin*2) * boardHeight,
+      "width": (tileSize + margin*2) * boardWidth,
+    });
   }
   if(location.search.length > 0) {
     //get rid of non alpha characters
@@ -64,6 +69,7 @@ function init(diff) {
 
 function resizeBoard() {
   //for different screens
+  console.log(boardHeight);
   tileSize = (($(window).height() - 40 - $("#mobile-keyboard").height()) / boardHeight) - 2;
   if(tileSize > 60) { tileSize = 60; }
   fullTileSize = tileSize + margin*2;
