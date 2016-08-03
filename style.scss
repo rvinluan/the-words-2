@@ -269,7 +269,7 @@ body {
     line-height: 1.4;
   }
 
-  .unused:hover {
+  :not(.used):hover {
     color: lighten($bg, 40);
     cursor: pointer;
   }

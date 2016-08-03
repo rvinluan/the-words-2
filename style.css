@@ -272,7 +272,7 @@ body {
   line-height: 1.4;
 }
 /* line 272, style.scss */
-.word-bank-text .unused:hover {
+.word-bank-text :not(.used):hover {
   color: #888888;
   cursor: pointer;
 }

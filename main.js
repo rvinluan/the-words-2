@@ -25,23 +25,19 @@ var board = {
 
 var dictionary;
 var numStartingWords = 1;
-var startingWords = ["tarot"];
+var startingWords = [];
 
-var wordbank = ["tatt","at","tar","taro","roo", "or"];
+var wordBank;
 
 var entryBuffer = [];
 
 var gameState = "";
-var difficulty = "";
+var mode = "";
 
-function init(diff) {
+function init(md) {
   loadDictionary();
-  difficulty = diff;
-  if(difficulty == "hard") {
-    boardHeight = 10;
-  } else {
-    boardHeight = 8;
-  }
+  mode = md;
+  changeModeSettings(mode);
   if(browserIsMobile) {
     resizeBoard();
   } else {
@@ -49,11 +45,6 @@ function init(diff) {
       "height": (tileSize + margin*2) * boardHeight,
       "width": (tileSize + margin*2) * boardWidth,
     });
-  }
-  if(location.search.length > 0) {
-    //get rid of non alpha characters
-    var newSearch = location.search.replace(/[^a-zA-Z]/g, "");
-    board.uncollected = newSearch.toLowerCase().split("");
   }
   for(var i = 0; i < boardWidth; i++) {
     board.grid[i] = [];
@@ -74,9 +65,43 @@ function init(diff) {
     //does not match the linear order of the tiles
     $(e).removeClass('loading').text(allLetters[i].toUpperCase());
   })
-  initCollection();
-  initWordBank();
+  if(mode == "puzzle") {
+    initWordBank();
+    initCollection();
+  } else if(mode == "clear") {
+    initWordBank();
+  } else {
+    initCollection();
+  }
   moveAddUI();
+}
+
+function changeModeSettings(md) {
+  var settings = modesData[md];
+
+  boardHeight = settings.boardHeight;
+  numStartingWords = settings.numStartingWords;
+  wordBank = settings.wordBank;
+
+  if(settings.startingWords.length == 0) {
+    for(var i = 0; i < numStartingWords; i++) {
+      startingWords.push("");
+      for(var j = 0; j < boardWidth; j++) {
+        var ltr = randomIn("abcdefghijklmnopqrstuvwxyz".split("")).toUpperCase();
+        startingWords[i] += ltr;
+      }
+    }
+  } else {
+    startingWords = settings.startingWords;
+  }
+
+  if(location.search.length > 0) {
+    //get rid of non alpha characters
+    var newSearch = location.search.replace(/[^a-zA-Z]/g, "");
+    board.uncollected = newSearch.toLowerCase().split("");
+  } else {
+    board.uncollected = settings.uncollected.split("");
+  }
 }
 
 function resizeBoard() {
@@ -99,24 +124,39 @@ function resizeBoard() {
 }
 
 function restart() {
+  changeModeSettings(mode);
   gameState = "playing";
   board.grid = [];
   board.words = [];
   $("#gameover .game-end-word-list").empty();
   board.element.empty();
-  board.uncollected = "abcdefghijklmnopqrstuvwxyz".split("");
   board.collected = [];
+  wordBank = [];
   $('.uncollected-text span').removeClass("collected");
+  $('.word-bank-text span').removeClass("used");
   board.bonusColumn = 0;
   for(var i = 0; i < boardWidth; i++) {
     board.grid[i] = [];
     for(var j = 0; j < boardHeight; j++) {
       var newSpan = $("<span>").addClass("tile empty");
       if(j < numStartingWords) {
-        // newSpanFromRandom(newSpan, i, j);
         newSpanFromStartingWords(newSpan, i, j);
       }
     }
+  }
+  $('.tile.loading').each(function (i, e) {
+    var allLetters = startingWords.reduce(function (p, c) {
+      return p += c;
+    }, "")
+    $(e).removeClass('loading').text(allLetters[i].toUpperCase());
+  })
+  if(mode == "puzzle") {
+    initWordBank();
+    initCollection();
+  } else if(mode == "clear") {
+    initWordBank();
+  } else {
+    initCollection();
   }
   moveAddUI();
 }
@@ -146,6 +186,9 @@ function bindEvents() {
   $(document.body)
     .on('keydown', function (e) {
       if(!$("#gameplay").hasClass("active")) {
+        return;
+      }
+      if(mode == "puzzle" || mode == "clear") {
         return;
       }
       if( e.which == 48 ) {
@@ -192,12 +235,11 @@ function bindEvents() {
         return;
       }
       $(this).removeClass("unused").addClass("used");
-      wordbank.splice(wordbank.indexOf($(this).text()), 1);
-      console.log(wordbank);
+      wordBank.splice(wordBank.indexOf($(this).text()), 1);
       manuallyDropWord($(this).text());
     });
   }
-  $("#menu .difficulty-select").on('click', function (e) {
+  $("#menu .mode-select").on('click', function (e) {
     var d = $(this).text();
     e.preventDefault();
     $(this).blur();
@@ -206,7 +248,7 @@ function bindEvents() {
     init(d);
   })
   $("#gameplay .help").on('click', function (e) {
-    $(".instructions#"+difficulty).toggle();
+    $(".instructions#"+mode).toggle();
   })
   $("#gameover .restart").on('click', function (e) {
     e.preventDefault();
@@ -260,9 +302,11 @@ function findLetterBlob(tile) {
       return i % 2;
     });
   }
-  // return {blob: visited, bonus: bonus};
-  // puzzle mode has no bonus tiles
-  return {blob: visited, bonus: []};
+  if(mode == "hard" ) {
+    return {blob: visited, bonus: bonus};
+  } else {
+    return {blob: visited, bonus: []};
+  }
 }
 
 function findContiguousMatchingLetters(tile) {
@@ -306,7 +350,7 @@ function clearTile(tileElement, initiator) {
   var index = $(tileElement).index(),
       row, col,
       allRemoved;
-  if(difficulty == "hard") {
+  if(mode !== "normal") {
     allRemoved = findLetterBlob(tileElement).blob.concat(findLetterBlob(tileElement).bonus);
   } else {
     allRemoved = findAllMatchingLetters(tileElement);
@@ -341,6 +385,10 @@ function clearTile(tileElement, initiator) {
     $(tileElement).addClass("removed");
     $(tileElement).on("transitionend", function(){
       $(this).remove();
+      //win check for clear mode
+      if(mode == "clear" && $(".board-fg").children().length == 0) {
+        winGame();
+      }
     })
   }
   if(initiator) {
@@ -397,13 +445,13 @@ function collect(tile) {
     var u = $('.uncollected-text').find(".collected_"+t).not(".collected");
     u.first().addClass("collected");
   }
-  if(board.uncollected.length == 0) {
+  if(mode !== "clear" && board.uncollected.length == 0) {
     winGame();
   }
 }
 
 function highlightLetters(tile) {
-  if(difficulty == "hard") {
+  if(mode !== "normal") {
     var b = findLetterBlob(tile);
     $(b.blob).addClass('selected');
     $(b.bonus).addClass('highlighted');
@@ -413,7 +461,7 @@ function highlightLetters(tile) {
 }
 
 function glowMatchingTiles(tile) {
-  if(difficulty == "hard") {
+  if(mode !== "normal") {
     var b = findLetterBlob(tile);
     $(b.blob).addClass('selected');
     $(b.bonus).addClass('highlighted');
@@ -463,8 +511,9 @@ function stopEntry(force) {
       board.bonusColumn++;
       if(board.bonusColumn >= boardWidth) {
         board.bonusColumn = 0;
-        // puzzle mode doesn't add new rows
-        // newRowFromBottom();
+        if(mode == "normal" || mode == "hard") {
+          newRowFromBottom();
+        }
       }
       moveAddUI();
     }
@@ -547,8 +596,8 @@ function initCollection() {
 
 function initWordBank() {
   var parent = $(".word-bank-text");
-  for(var i = 0; i < wordbank.length; i++) {
-    var span = $("<span>").text(wordbank[i]).addClass("unused");
+  for(var i = 0; i < wordBank.length; i++) {
+    var span = $("<span>").text(wordBank[i]);
     parent.append(span);
   }
 }
