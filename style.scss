@@ -12,7 +12,6 @@ $special-color: #30B873;
 html, body, .screen {
   margin: 0;
   padding: 0;
-  background: $bg;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -24,11 +23,9 @@ body {
 .screen {
   box-sizing: border-box;
   position: absolute;
-  background: $bg;
   width: 100vw;
   height: 100vh;
   left: -100vw;
-  color: $light-yellow;
   transition: left .6s .1s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 
@@ -57,8 +54,6 @@ body {
   }
 
   a {
-    color: $light-yellow;
-    border: 1px solid $light-yellow;
     padding: 10px 15px;
     display: block;
     max-width: 10em;
@@ -82,10 +77,9 @@ body {
 
 .board,
 .board-bg, 
-.board-fg, {
+.board-fg {
   width: ($tile-size + $margin*2)*$board-width;
   height: ($tile-size + $margin*2)*$board-height;
-  background: lighten($bg, 5);
   padding: $margin*2;
   display: flex;
   flex-wrap: wrap-reverse;
@@ -120,14 +114,12 @@ body {
   display: block;
   width: $tile-size;
   height: $tile-size;
-  color: $light-yellow;
   box-sizing: border-box;
   font: normal normal 30px/1 "helvetica", sans-serif;
   padding-top: 12px;
   text-align: center;
   margin: $margin;
   cursor: pointer;
-  background: $bg;
   transition: top .6s, opacity .2s, transform .2s cubic-bezier(.19,.83,.48,.99);
 
   &.removed {
@@ -146,41 +138,8 @@ body {
   //   background-color: $light-yellow;
   // }
 
-  &.selected {
-    color: $bg;
-    background-color: $light-yellow;
-  }
-
   &.highlighted {
-    border: 1px solid $light-yellow;
     transition: border 1s;
-  }
-
-  &.enter-buffer {
-    background: transparent;
-    border: 1px solid $light-yellow;
-    color: $light-yellow;
-  }
-
-  //special
-  &.special {
-    color: $special-color;
-    background-color: darken($special-color, 20);
-  }
-
-  &.special.enter-buffer {
-    background: transparent;
-    border: 1px solid $special-color;
-    color: $special-color;
-  }
-
-  &.special.selected {
-    color: $bg;
-    background-color: $special-color;
-  }
-
-  &.loading {
-    color: lighten($bg, 10);
   }
 }
 
@@ -206,15 +165,13 @@ body {
   width: ($tile-size - 2);
   height: ($tile-size - 2);
   bottom: -15px;
-  background: linear-gradient(rgba(48,35,174,0), $special-color);
-  opacity: .4;
   transition: left .6s .1s, top .6s .1s;
   animation: pulse 1.2s infinite alternate;
 }
 
 @-webkit-keyframes pulse {
-  from { opacity: .1 }
-  to { opacity: .2 }
+  from { opacity: .4 }
+  to { opacity: .3 }
 }
 
 .reason {
@@ -241,16 +198,11 @@ body {
   top: 50px;
   $bw: ($tile-size + $margin*2)*$board-width;
   right: calc(50% + #{ $bw/2 + $tile-size });
-  color: lighten($bg, 10);
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 
   span {
     display: inline-block;
-  }
-
-  .collected {
-    color: $special-color;
   }
 }
 
@@ -259,7 +211,6 @@ body {
   top: 250px;
   $bw: ($tile-size + $margin*2)*$board-width;
   right: calc(50% + #{ $bw/2 + $tile-size });
-  color: $light-yellow;
   font: normal normal 20px/1 'Apercu', sans-serif;
   width: 160px;
 
@@ -353,3 +304,4 @@ body {
 }
 
 @import 'responsive';
+@import 'themes';

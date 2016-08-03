@@ -1,0 +1,131 @@
+$themes: (
+  mint: (
+    isLight: false,
+    body-bg: #222,
+    board-bg: lighten(#222, 5),
+    text-color: #777,
+    tile-body: #222,
+    tile-highlight: #fff,
+    special-color: #30B873,
+    special-color-text: #fff,
+    entering-color: #fff
+  ),
+  times: (
+    isLight: true,
+    body-bg: #D6DEE5,
+    board-bg: #eee,
+    text-color: #3B3B3B,
+    tile-body: #fff,
+    tile-highlight: #4F85E5,
+    special-color: #FFDA00,
+    special-color-text: #000,
+    entering-color: #92AFD0
+  ),
+  threes: (
+    isLight: true,
+    body-bg: #F9F9F9,
+    board-bg: #CFE6DE,
+    text-color: #454248,
+    tile-body: #fff,
+    tile-highlight: #FCCC64,
+    special-color: #FF6780,
+    special-color-text: #fff,
+    entering-color: #66CBFF
+  )
+);
+
+@each $theme, $map in $themes {
+  html.#{$theme} {
+    background: map-get($map, body-bg);
+
+    body, .screen {
+      background: map-get($map, body-bg);
+      color: map-get($map, text-color);
+    }
+
+    .screen main a {
+      color: map-get($map, tile-highlight);
+      border: 1px solid map-get($map, tile-highlight);
+
+      &:hover {
+        background: map-get($map, tile-highlight);
+        color: map-get($map, body-bg);
+      }
+    }
+
+    .board {
+      background: map-get($map, board-bg);
+    }
+
+    .tile {
+      color: map-get($map, tile-highlight);
+      background: map-get($map, tile-body);
+
+      &.empty {
+        background: transparent;
+        border: 1px solid darken(map-get($map, board-bg), 10);
+      }
+
+      &.selected {
+        color: map-get($map, tile-body);
+        background-color: map-get($map, tile-highlight);
+      }
+
+      &.highlighted {
+        border: 1px solid map-get($map, tile-highlight);
+      }
+
+      &.enter-buffer {
+        background: transparent;
+        border: 1px solid map-get($map, entering-color);
+        color: map-get($map, entering-color);
+      }
+
+      //special
+      &.special {
+        color: map-get($map, special-color-text);
+        background-color: map-get($map, special-color);
+      }
+
+      &.special.enter-buffer {
+        background: transparent;
+        border: 1px solid map-get($map, special-color);
+        color: map-get($map, special-color);
+      }
+
+      &.special.selected {
+        color: map-get($map, special-color-text);
+        background-color: lighten(map-get($map, special-color), 10);
+      }
+
+      &.loading {
+        color: lighten(map-get($map, tile-body), 10);
+      }
+    }//end tile styles
+
+    .bonus-indicator {
+      background: linear-gradient(rgba(48,35,174,0), map-get($map, special-color));
+    }
+
+    .uncollected-text {
+      color: map-get($map, text-color);
+
+      .collected {
+        color: map-get($map, special-color);
+      }
+    }
+
+    .word-bank-text {
+      color: map-get($map, text-color);
+
+      :not(.used):hover {
+        color: lighten(map-get($map, text-color), 40);
+      }
+
+      .used {
+        color: lighten(map-get($map, text-color), 20);
+      }
+    }
+
+  }//end theme
+}//end each loop

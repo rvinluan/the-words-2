@@ -2,56 +2,51 @@
 html, body, .screen {
   margin: 0;
   padding: 0;
-  background: #222;
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 19, style.scss */
+/* line 18, style.scss */
 body {
   width: 100vw;
   overflow: hidden;
 }
 
-/* line 24, style.scss */
+/* line 23, style.scss */
 .screen {
   box-sizing: border-box;
   position: absolute;
-  background: #222;
   width: 100vw;
   height: 100vh;
   left: -100vw;
-  color: #FFFFFF;
   transition: left .6s .1s;
   font: normal normal 30px/1 "helvetica", sans-serif;
 }
-/* line 35, style.scss */
+/* line 32, style.scss */
 .screen.active {
   left: 0;
 }
-/* line 39, style.scss */
+/* line 36, style.scss */
 .screen main {
   max-width: 900px;
   margin: 150px auto;
 }
-/* line 43, style.scss */
+/* line 40, style.scss */
 .screen main h1, .screen main h2 {
   font-size: 65px;
   width: 8em;
 }
-/* line 48, style.scss */
+/* line 45, style.scss */
 .screen main p {
   font-weight: normal;
   font-size: 18px;
   margin-bottom: 3em;
 }
-/* line 54, style.scss */
+/* line 51, style.scss */
 .screen main ul {
   margin-bottom: 3em;
 }
-/* line 59, style.scss */
+/* line 56, style.scss */
 .screen a {
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
   padding: 10px 15px;
   display: block;
   max-width: 10em;
@@ -59,75 +54,74 @@ body {
   text-decoration: none;
   border-radius: 4px;
 }
-/* line 69, style.scss */
+/* line 64, style.scss */
 .screen a:hover {
   color: #222;
   background: #FFFFFF;
 }
 
-/* line 76, style.scss */
+/* line 71, style.scss */
 #gameplay.active ~ #menu {
   left: -100vw;
 }
 
-/* line 77, style.scss */
+/* line 72, style.scss */
 #gameover.active ~ #menu {
   left: -200vw;
 }
 
-/* line 78, style.scss */
+/* line 73, style.scss */
 #menu.active ~ #gameplay {
   left: 100vw;
 }
 
-/* line 79, style.scss */
+/* line 74, style.scss */
 #gameover.active ~ #gameplay {
   left: -100vw;
 }
 
-/* line 80, style.scss */
+/* line 75, style.scss */
 #gameplay.active ~ #gameover {
   left: 100vw;
 }
 
-/* line 81, style.scss */
+/* line 76, style.scss */
 #menu.active ~ #gameover {
   left: 200vw;
 }
 
-/* line 83, style.scss */
+/* line 78, style.scss */
 .board,
 .board-bg,
 .board-fg {
   width: 300px;
   height: 480px;
-  background: #2f2f2f;
   padding: 10px;
   display: flex;
   flex-wrap: wrap-reverse;
   flex-direction: row;
 }
 
-/* line 95, style.scss */
+/* line 89, style.scss */
 .board {
   position: relative;
   margin: 50px auto;
 }
 
-/* line 100, style.scss */
+/* line 94, style.scss */
 .board-bg {
   align-items: flex-start;
   align-content: flex-start;
 }
 
-/* line 105, style.scss */
+/* line 99, style.scss */
 .board-fg .tile {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* line 111, style.scss */
+/* line 105, style.scss */
 .board-bg,
 .board-fg {
   background: none;
@@ -136,90 +130,54 @@ body {
   left: 0;
 }
 
-/* line 119, style.scss */
+/* line 113, style.scss */
 .tile {
   display: block;
   width: 50px;
   height: 50px;
-  color: #FFFFFF;
   box-sizing: border-box;
   font: normal normal 30px/1 "helvetica", sans-serif;
   padding-top: 12px;
   text-align: center;
   margin: 5px;
   cursor: pointer;
-  background: #222;
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99);
 }
-/* line 133, style.scss */
+/* line 125, style.scss */
 .tile.removed {
   opacity: 0;
   transform: translateY(-40px) rotate(20deg);
 }
-/* line 138, style.scss */
+/* line 130, style.scss */
 .tile.empty {
   border: 1px solid #151515;
   background: #2f2f2f;
   cursor: default;
 }
-/* line 149, style.scss */
-.tile.selected {
-  color: #222;
-  background-color: #FFFFFF;
-}
-/* line 154, style.scss */
+/* line 141, style.scss */
 .tile.highlighted {
-  border: 1px solid #FFFFFF;
   transition: border 1s;
 }
-/* line 159, style.scss */
-.tile.enter-buffer {
-  background: transparent;
-  border: 1px solid #FFFFFF;
-  color: #FFFFFF;
-}
-/* line 166, style.scss */
-.tile.special {
-  color: #30B873;
-  background-color: #1b6740;
-}
-/* line 171, style.scss */
-.tile.special.enter-buffer {
-  background: transparent;
-  border: 1px solid #30B873;
-  color: #30B873;
-}
-/* line 177, style.scss */
-.tile.special.selected {
-  color: #222;
-  background-color: #30B873;
-}
-/* line 182, style.scss */
-.tile.loading {
-  color: #3c3c3c;
-}
 
-/* line 204, style.scss */
+/* line 163, style.scss */
 .bonus-indicator {
   position: absolute;
   width: 48px;
   height: 48px;
   bottom: -15px;
-  background: linear-gradient(rgba(48, 35, 174, 0), #30B873);
-  opacity: .4;
   transition: left .6s .1s, top .6s .1s;
   animation: pulse 1.2s infinite alternate;
 }
 
 @-webkit-keyframes pulse {
   from {
-    opacity: 0.1;
+    opacity: 0.4;
   }
   to {
-    opacity: 0.2;
+    opacity: 0.3;
   }
 }
-/* line 220, style.scss */
+/* line 177, style.scss */
 .reason {
   position: absolute;
   left: calc(50% + 190px);
@@ -233,55 +191,49 @@ body {
   min-width: 5em;
   transition: all .3s;
 }
-/* line 234, style.scss */
+/* line 191, style.scss */
 .reason.shown {
   opacity: 1;
 }
 
-/* line 239, style.scss */
+/* line 196, style.scss */
 .uncollected-text {
   position: absolute;
   top: 50px;
   right: calc(50% + 200px);
-  color: #3c3c3c;
   font: normal normal 40px/1 'Apercu', sans-serif;
   width: 4em;
 }
-/* line 248, style.scss */
+/* line 204, style.scss */
 .uncollected-text span {
   display: inline-block;
 }
-/* line 252, style.scss */
-.uncollected-text .collected {
-  color: #30B873;
-}
 
-/* line 257, style.scss */
+/* line 209, style.scss */
 .word-bank-text {
   position: absolute;
   top: 250px;
   right: calc(50% + 200px);
-  color: #FFFFFF;
   font: normal normal 20px/1 'Apercu', sans-serif;
   width: 160px;
 }
-/* line 266, style.scss */
+/* line 217, style.scss */
 .word-bank-text span {
   display: block;
   text-transform: uppercase;
   line-height: 1.4;
 }
-/* line 272, style.scss */
+/* line 223, style.scss */
 .word-bank-text :not(.used):hover {
   color: #888888;
   cursor: pointer;
 }
-/* line 277, style.scss */
+/* line 228, style.scss */
 .word-bank-text .used {
   color: #555555;
 }
 
-/* line 282, style.scss */
+/* line 233, style.scss */
 .game-end-word-list {
   list-style-type: none;
   padding: 0;
@@ -292,12 +244,12 @@ body {
   align-content: flex-start;
   overflow-x: scroll;
 }
-/* line 292, style.scss */
+/* line 243, style.scss */
 .game-end-word-list li {
   margin: 5px 40px 5px 0;
 }
 
-/* line 297, style.scss */
+/* line 248, style.scss */
 .help {
   position: absolute;
   top: 50px;
@@ -311,14 +263,14 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 310, style.scss */
+/* line 261, style.scss */
 .help:after {
   content: "?";
   display: block;
   margin-top: 5px;
 }
 
-/* line 317, style.scss */
+/* line 268, style.scss */
 .instructions {
   display: none;
   position: absolute;
@@ -332,20 +284,20 @@ body {
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
 }
-/* line 330, style.scss */
+/* line 281, style.scss */
 .instructions h2 {
   margin-top: 0;
   font-size: 25px;
 }
-/* line 335, style.scss */
+/* line 286, style.scss */
 .instructions strong {
   color: #FFFFFF;
 }
-/* line 339, style.scss */
+/* line 290, style.scss */
 .instructions strong.purple {
   color: #30B873;
 }
-/* line 343, style.scss */
+/* line 294, style.scss */
 .instructions p {
   color: black;
   font-size: 16px;
@@ -353,7 +305,7 @@ body {
   max-width: 20em;
 }
 
-/* line 351, style.scss */
+/* line 302, style.scss */
 #mobile-keyboard {
   display: none;
 }
@@ -503,4 +455,283 @@ body.mobile #mobile-keyboard .keypress-indicator {
   background-color: #E4EAEF;
   border: 1px solid #c4d1dc;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* line 38, _themes.scss */
+html.mint {
+  background: #222;
+}
+/* line 41, _themes.scss */
+html.mint body, html.mint .screen {
+  background: #222;
+  color: #777;
+}
+/* line 46, _themes.scss */
+html.mint .screen main a {
+  color: #fff;
+  border: 1px solid #fff;
+}
+/* line 50, _themes.scss */
+html.mint .screen main a:hover {
+  background: #fff;
+  color: #222;
+}
+/* line 56, _themes.scss */
+html.mint .board {
+  background: #2f2f2f;
+}
+/* line 60, _themes.scss */
+html.mint .tile {
+  color: #fff;
+  background: #222;
+}
+/* line 64, _themes.scss */
+html.mint .tile.empty {
+  background: transparent;
+  border: 1px solid #151515;
+}
+/* line 69, _themes.scss */
+html.mint .tile.selected {
+  color: #222;
+  background-color: #fff;
+}
+/* line 74, _themes.scss */
+html.mint .tile.highlighted {
+  border: 1px solid #fff;
+}
+/* line 78, _themes.scss */
+html.mint .tile.enter-buffer {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+/* line 85, _themes.scss */
+html.mint .tile.special {
+  color: #fff;
+  background-color: #30B873;
+}
+/* line 90, _themes.scss */
+html.mint .tile.special.enter-buffer {
+  background: transparent;
+  border: 1px solid #30B873;
+  color: #30B873;
+}
+/* line 96, _themes.scss */
+html.mint .tile.special.selected {
+  color: #fff;
+  background-color: #4bd08d;
+}
+/* line 101, _themes.scss */
+html.mint .tile.loading {
+  color: #3c3c3c;
+}
+/* line 106, _themes.scss */
+html.mint .bonus-indicator {
+  background: linear-gradient(rgba(48, 35, 174, 0), #30B873);
+}
+/* line 110, _themes.scss */
+html.mint .uncollected-text {
+  color: #777;
+}
+/* line 113, _themes.scss */
+html.mint .uncollected-text .collected {
+  color: #30B873;
+}
+/* line 118, _themes.scss */
+html.mint .word-bank-text {
+  color: #777;
+}
+/* line 121, _themes.scss */
+html.mint .word-bank-text :not(.used):hover {
+  color: #dddddd;
+}
+/* line 125, _themes.scss */
+html.mint .word-bank-text .used {
+  color: #aaaaaa;
+}
+
+/* line 38, _themes.scss */
+html.times {
+  background: #D6DEE5;
+}
+/* line 41, _themes.scss */
+html.times body, html.times .screen {
+  background: #D6DEE5;
+  color: #3B3B3B;
+}
+/* line 46, _themes.scss */
+html.times .screen main a {
+  color: #4F85E5;
+  border: 1px solid #4F85E5;
+}
+/* line 50, _themes.scss */
+html.times .screen main a:hover {
+  background: #4F85E5;
+  color: #D6DEE5;
+}
+/* line 56, _themes.scss */
+html.times .board {
+  background: #eee;
+}
+/* line 60, _themes.scss */
+html.times .tile {
+  color: #4F85E5;
+  background: #fff;
+}
+/* line 64, _themes.scss */
+html.times .tile.empty {
+  background: transparent;
+  border: 1px solid #d5d5d5;
+}
+/* line 69, _themes.scss */
+html.times .tile.selected {
+  color: #fff;
+  background-color: #4F85E5;
+}
+/* line 74, _themes.scss */
+html.times .tile.highlighted {
+  border: 1px solid #4F85E5;
+}
+/* line 78, _themes.scss */
+html.times .tile.enter-buffer {
+  background: transparent;
+  border: 1px solid #92AFD0;
+  color: #92AFD0;
+}
+/* line 85, _themes.scss */
+html.times .tile.special {
+  color: #000;
+  background-color: #FFDA00;
+}
+/* line 90, _themes.scss */
+html.times .tile.special.enter-buffer {
+  background: transparent;
+  border: 1px solid #FFDA00;
+  color: #FFDA00;
+}
+/* line 96, _themes.scss */
+html.times .tile.special.selected {
+  color: #000;
+  background-color: #ffe133;
+}
+/* line 101, _themes.scss */
+html.times .tile.loading {
+  color: white;
+}
+/* line 106, _themes.scss */
+html.times .bonus-indicator {
+  background: linear-gradient(rgba(48, 35, 174, 0), #FFDA00);
+}
+/* line 110, _themes.scss */
+html.times .uncollected-text {
+  color: #3B3B3B;
+}
+/* line 113, _themes.scss */
+html.times .uncollected-text .collected {
+  color: #FFDA00;
+}
+/* line 118, _themes.scss */
+html.times .word-bank-text {
+  color: #3B3B3B;
+}
+/* line 121, _themes.scss */
+html.times .word-bank-text :not(.used):hover {
+  color: #a1a1a1;
+}
+/* line 125, _themes.scss */
+html.times .word-bank-text .used {
+  color: #6e6e6e;
+}
+
+/* line 38, _themes.scss */
+html.threes {
+  background: #F9F9F9;
+}
+/* line 41, _themes.scss */
+html.threes body, html.threes .screen {
+  background: #F9F9F9;
+  color: #454248;
+}
+/* line 46, _themes.scss */
+html.threes .screen main a {
+  color: #FCCC64;
+  border: 1px solid #FCCC64;
+}
+/* line 50, _themes.scss */
+html.threes .screen main a:hover {
+  background: #FCCC64;
+  color: #F9F9F9;
+}
+/* line 56, _themes.scss */
+html.threes .board {
+  background: #CFE6DE;
+}
+/* line 60, _themes.scss */
+html.threes .tile {
+  color: #FCCC64;
+  background: #fff;
+}
+/* line 64, _themes.scss */
+html.threes .tile.empty {
+  background: transparent;
+  border: 1px solid #add5c7;
+}
+/* line 69, _themes.scss */
+html.threes .tile.selected {
+  color: #fff;
+  background-color: #FCCC64;
+}
+/* line 74, _themes.scss */
+html.threes .tile.highlighted {
+  border: 1px solid #FCCC64;
+}
+/* line 78, _themes.scss */
+html.threes .tile.enter-buffer {
+  background: transparent;
+  border: 1px solid #66CBFF;
+  color: #66CBFF;
+}
+/* line 85, _themes.scss */
+html.threes .tile.special {
+  color: #fff;
+  background-color: #FF6780;
+}
+/* line 90, _themes.scss */
+html.threes .tile.special.enter-buffer {
+  background: transparent;
+  border: 1px solid #FF6780;
+  color: #FF6780;
+}
+/* line 96, _themes.scss */
+html.threes .tile.special.selected {
+  color: #fff;
+  background-color: #ff9aab;
+}
+/* line 101, _themes.scss */
+html.threes .tile.loading {
+  color: white;
+}
+/* line 106, _themes.scss */
+html.threes .bonus-indicator {
+  background: linear-gradient(rgba(48, 35, 174, 0), #FF6780);
+}
+/* line 110, _themes.scss */
+html.threes .uncollected-text {
+  color: #454248;
+}
+/* line 113, _themes.scss */
+html.threes .uncollected-text .collected {
+  color: #FF6780;
+}
+/* line 118, _themes.scss */
+html.threes .word-bank-text {
+  color: #454248;
+}
+/* line 121, _themes.scss */
+html.threes .word-bank-text :not(.used):hover {
+  color: #aba7af;
+}
+/* line 125, _themes.scss */
+html.threes .word-bank-text .used {
+  color: #78737d;
 }
