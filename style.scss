@@ -267,7 +267,6 @@ body {
   padding: 5px;
   text-align: center;
   font: normal bold 40px/1 'Helvetica Neue', sans-serif;
-  background: lighten($bg, 10);
   border-radius: 50%;
   cursor: pointer;
 
@@ -287,21 +286,12 @@ body {
   padding: 20px;
   top: 50px;
   right: 100px;
-  background-color: lighten($bg, 20);
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0,0,0,0.6);
 
   h2 {
     margin-top: 0;
     font-size: 25px;
-  }
-
-  strong {
-    color: $light-yellow;
-  }
-
-  strong.purple {
-    color: $special-color;
   }
 
   p {

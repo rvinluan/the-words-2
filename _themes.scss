@@ -127,5 +127,20 @@ $themes: (
       }
     }
 
+    .help {
+      background: lighten(map-get($map, body-bg), 10);
+    }
+
+    .instructions {
+      background-color: lighten(map-get($map, body-bg), 20);
+      strong {
+        color: map-get($map, tile-highlight);
+      }
+
+      strong.purple {
+        color: map-get($map, special-color);
+      }
+    }
+
   }//end theme
 }//end each loop

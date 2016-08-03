@@ -273,18 +273,17 @@ body {
   padding: 5px;
   text-align: center;
   font: normal bold 40px/1 'Helvetica Neue', sans-serif;
-  background: #3c3c3c;
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 274, style.scss */
+/* line 273, style.scss */
 .help:after {
   content: "?";
   display: block;
   margin-top: 5px;
 }
 
-/* line 281, style.scss */
+/* line 280, style.scss */
 .instructions {
   display: none;
   position: absolute;
@@ -294,24 +293,15 @@ body {
   padding: 20px;
   top: 50px;
   right: 100px;
-  background-color: #555555;
   border-radius: 5px;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
 }
-/* line 294, style.scss */
+/* line 292, style.scss */
 .instructions h2 {
   margin-top: 0;
   font-size: 25px;
 }
-/* line 299, style.scss */
-.instructions strong {
-  color: #FFFFFF;
-}
-/* line 303, style.scss */
-.instructions strong.purple {
-  color: #30B873;
-}
-/* line 307, style.scss */
+/* line 297, style.scss */
 .instructions p {
   color: black;
   font-size: 16px;
@@ -319,7 +309,7 @@ body {
   max-width: 20em;
 }
 
-/* line 315, style.scss */
+/* line 305, style.scss */
 #mobile-keyboard {
   display: none;
 }
@@ -564,6 +554,22 @@ body.mint .word-bank-text :not(.used):hover {
 body.mint .word-bank-text .used {
   color: #aaaaaa;
 }
+/* line 130, _themes.scss */
+body.mint .help {
+  background: #3c3c3c;
+}
+/* line 134, _themes.scss */
+body.mint .instructions {
+  background-color: #555555;
+}
+/* line 136, _themes.scss */
+body.mint .instructions strong {
+  color: #fff;
+}
+/* line 140, _themes.scss */
+body.mint .instructions strong.purple {
+  color: #30B873;
+}
 
 /* line 38, _themes.scss */
 body.times {
@@ -657,6 +663,22 @@ body.times .word-bank-text :not(.used):hover {
 body.times .word-bank-text .used {
   color: #6e6e6e;
 }
+/* line 130, _themes.scss */
+body.times .help {
+  background: #f5f7f9;
+}
+/* line 134, _themes.scss */
+body.times .instructions {
+  background-color: white;
+}
+/* line 136, _themes.scss */
+body.times .instructions strong {
+  color: #4F85E5;
+}
+/* line 140, _themes.scss */
+body.times .instructions strong.purple {
+  color: #FFDA00;
+}
 
 /* line 38, _themes.scss */
 body.tres {
@@ -749,4 +771,20 @@ body.tres .word-bank-text :not(.used):hover {
 /* line 125, _themes.scss */
 body.tres .word-bank-text .used {
   color: #78737d;
+}
+/* line 130, _themes.scss */
+body.tres .help {
+  background: white;
+}
+/* line 134, _themes.scss */
+body.tres .instructions {
+  background-color: white;
+}
+/* line 136, _themes.scss */
+body.tres .instructions strong {
+  color: #FCCC64;
+}
+/* line 140, _themes.scss */
+body.tres .instructions strong.purple {
+  color: #FF6780;
 }
