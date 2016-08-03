@@ -137,7 +137,7 @@ $themes: (
         color: map-get($map, tile-highlight);
       }
 
-      strong.purple {
+      strong.special {
         color: map-get($map, special-color);
       }
     }

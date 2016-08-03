@@ -567,7 +567,7 @@ body.mint .instructions strong {
   color: #fff;
 }
 /* line 140, _themes.scss */
-body.mint .instructions strong.purple {
+body.mint .instructions strong.special {
   color: #30B873;
 }
 
@@ -676,7 +676,7 @@ body.times .instructions strong {
   color: #4F85E5;
 }
 /* line 140, _themes.scss */
-body.times .instructions strong.purple {
+body.times .instructions strong.special {
   color: #FFDA00;
 }
 
@@ -785,6 +785,6 @@ body.tres .instructions strong {
   color: #FCCC64;
 }
 /* line 140, _themes.scss */
-body.tres .instructions strong.purple {
+body.tres .instructions strong.special {
   color: #FF6780;
 }
