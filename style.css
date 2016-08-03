@@ -387,10 +387,11 @@ body.mobile .screen main a {
 }
 /* line 30, _responsive.scss */
 body.mobile .screen main .mode-select.puzzle,
+body.mobile .screen main .mode-select.waterfall,
 body.mobile .screen main .mode-select.clear {
   display: none;
 }
-/* line 37, _responsive.scss */
+/* line 38, _responsive.scss */
 body.mobile .board,
 body.mobile .board-bg,
 body.mobile .board-fg {
@@ -401,12 +402,12 @@ body.mobile .board-fg {
   top: 0;
   margin: 0;
 }
-/* line 49, _responsive.scss */
+/* line 50, _responsive.scss */
 body.mobile .board {
   top: 40px;
   left: calc(50% - 110px);
 }
-/* line 55, _responsive.scss */
+/* line 56, _responsive.scss */
 body.mobile .tile {
   width: 44px;
   height: 44px;
@@ -414,55 +415,55 @@ body.mobile .tile {
   padding-top: 15px;
   font-size: 20px;
 }
-/* line 62, _responsive.scss */
+/* line 63, _responsive.scss */
 body.mobile .tile.selected {
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99), color 0s, background-color 0s;
 }
-/* line 66, _responsive.scss */
+/* line 67, _responsive.scss */
 body.mobile .tile.glow {
   transition: top 0.6s, opacity 0.2s, transform 0.2s cubic-bezier(0.19, 0.83, 0.48, 0.99), color 1s, background-color 1s;
 }
-/* line 71, _responsive.scss */
+/* line 72, _responsive.scss */
 body.mobile .reason {
   left: 0;
   right: 0;
   transition: all .3s;
 }
-/* line 76, _responsive.scss */
+/* line 77, _responsive.scss */
 body.mobile .reason.shown {
   opacity: 1;
   transition: all 0s;
 }
-/* line 81, _responsive.scss */
+/* line 82, _responsive.scss */
 body.mobile .reason span {
   padding: 8px 12px;
   border-radius: 2px;
   background-color: black;
 }
-/* line 88, _responsive.scss */
+/* line 89, _responsive.scss */
 body.mobile .bonus-indicator {
   width: 42px;
   height: 42px;
 }
-/* line 93, _responsive.scss */
+/* line 94, _responsive.scss */
 body.mobile .uncollected-text {
   top: 40px;
   width: 50px;
   font-size: 25px;
 }
-/* line 99, _responsive.scss */
+/* line 100, _responsive.scss */
 body.mobile .help {
   display: none;
 }
-/* line 103, _responsive.scss */
+/* line 104, _responsive.scss */
 body.mobile .game-end-word-list {
   max-height: 230px;
 }
-/* line 106, _responsive.scss */
+/* line 107, _responsive.scss */
 body.mobile .game-end-word-list li {
   font-size: 18px;
 }
-/* line 111, _responsive.scss */
+/* line 112, _responsive.scss */
 body.mobile #mobile-keyboard {
   box-sizing: border-box;
   width: 100%;
@@ -475,13 +476,13 @@ body.mobile #mobile-keyboard {
   flex-wrap: wrap;
   justify-content: center;
 }
-/* line 123, _responsive.scss */
+/* line 124, _responsive.scss */
 body.mobile #mobile-keyboard .row {
   display: flex;
   justify-content: center;
   margin-bottom: 3px;
 }
-/* line 129, _responsive.scss */
+/* line 130, _responsive.scss */
 body.mobile #mobile-keyboard .key,
 body.mobile #mobile-keyboard .keypress-indicator {
   box-sizing: border-box;
@@ -492,7 +493,7 @@ body.mobile #mobile-keyboard .keypress-indicator {
   min-height: 45px;
   text-align: center;
 }
-/* line 140, _responsive.scss */
+/* line 141, _responsive.scss */
 body.mobile #mobile-keyboard .keypress-indicator {
   display: none;
   position: absolute;

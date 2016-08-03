@@ -68,7 +68,7 @@ function init(md) {
   if(mode == "puzzle") {
     initWordBank();
     initCollection();
-  } else if(mode == "clear") {
+  } else if(mode == "clear" || mode == "waterfall") {
     initWordBank();
   } else {
     initCollection();
@@ -188,7 +188,7 @@ function bindEvents() {
       if(!$("#gameplay").hasClass("active")) {
         return;
       }
-      if(mode == "puzzle" || mode == "clear") {
+      if(mode == "puzzle" || mode == "clear" || mode == "waterfall") {
         return;
       }
       if( e.which == 48 ) {
@@ -386,7 +386,7 @@ function clearTile(tileElement, initiator) {
     $(tileElement).on("transitionend", function(){
       $(this).remove();
       //win check for clear mode
-      if(mode == "clear" && $(".board-fg").children().length == 0) {
+      if((mode == "clear" || mode == "waterfall") && $(".board-fg").children().length == 0) {
         winGame();
       }
     })
@@ -445,7 +445,7 @@ function collect(tile) {
     var u = $('.uncollected-text').find(".collected_"+t).not(".collected");
     u.first().addClass("collected");
   }
-  if(mode !== "clear" && board.uncollected.length == 0) {
+  if((mode !== "clear" && mode !== "waterfall") && board.uncollected.length == 0) {
     winGame();
   }
 }
@@ -560,8 +560,8 @@ function updateEntryTiles() {
   var startingY = lastFullRow();
   $('.enter-buffer').remove();
   for(var i = 0; i < entryBuffer.length; i++) {
-    var x = i % boardWidth;
-    var y = startingY + Math.floor(i / boardWidth);
+    var x = (i + board.bonusColumn) % boardWidth;
+    var y = startingY + Math.floor((i + board.bonusColumn) / boardWidth);
     var newSpan = $("<span>").addClass("tile enter-buffer");
     if(x == board.bonusColumn) {
       newSpan.addClass("special");
