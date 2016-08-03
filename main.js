@@ -560,8 +560,14 @@ function updateEntryTiles() {
   var startingY = lastFullRow();
   $('.enter-buffer').remove();
   for(var i = 0; i < entryBuffer.length; i++) {
-    var x = (i + board.bonusColumn) % boardWidth;
-    var y = startingY + Math.floor((i + board.bonusColumn) / boardWidth);
+    var x, y;
+    if(mode == "waterfall") {
+      x = (i + board.bonusColumn) % boardWidth;
+      y = startingY + Math.floor((i + board.bonusColumn) / boardWidth);
+    } else {
+      x = i % boardWidth;
+      y = startingY + Math.floor(i / boardWidth);
+    }
     var newSpan = $("<span>").addClass("tile enter-buffer");
     if(x == board.bonusColumn) {
       newSpan.addClass("special");
