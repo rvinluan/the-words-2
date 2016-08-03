@@ -21,7 +21,7 @@ $themes: (
     special-color-text: #000,
     entering-color: #92AFD0
   ),
-  threes: (
+  tres: (
     isLight: true,
     body-bg: #F9F9F9,
     board-bg: #CFE6DE,
@@ -35,10 +35,10 @@ $themes: (
 );
 
 @each $theme, $map in $themes {
-  html.#{$theme} {
+  body.#{$theme} {
     background: map-get($map, body-bg);
 
-    body, .screen {
+    &, .screen {
       background: map-get($map, body-bg);
       color: map-get($map, text-color);
     }
@@ -89,8 +89,8 @@ $themes: (
 
       &.special.enter-buffer {
         background: transparent;
-        border: 1px solid map-get($map, special-color);
-        color: map-get($map, special-color);
+        border: 1px solid darken(map-get($map, special-color), 10);
+        color: darken(map-get($map, special-color), 10);
       }
 
       &.special.selected {

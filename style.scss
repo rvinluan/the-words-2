@@ -35,7 +35,20 @@ body {
 
   main {
     max-width: 900px;
-    margin: 150px auto;
+    margin: 100px auto;
+
+    .theme-select {
+      list-style-type: none;
+      margin: 0; padding: 0;
+      margin-bottom: 1em;
+
+      li {
+        font-size: 14px;
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
 
     h1, h2 {
       font-size: 65px;

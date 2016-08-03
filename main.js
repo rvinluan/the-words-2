@@ -239,6 +239,9 @@ function bindEvents() {
       manuallyDropWord($(this).text());
     });
   }
+  $("#menu .theme-select").on('click', 'li', function (e) {
+    $(document.body).removeClass().addClass($(this).text());
+  })
   $("#menu .mode-select").on('click', function (e) {
     var d = $(this).text();
     e.preventDefault();
