@@ -26,5 +26,12 @@ var modesData = {
     "startingWords": ["tarot"],
     "wordBank": ["tatt","at","tar","taro","roo", "or"],
     "uncollected": ""
+  },
+  "waterfall": {
+    "boardHeight": 8,
+    "numStartingWords": 0,
+    "startingWords": [],
+    "wordBank": ["met", "meat", "meal", "teal", "let"],
+    "uncollected": ""
   }
 }
