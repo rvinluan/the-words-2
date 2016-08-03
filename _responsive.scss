@@ -26,6 +26,11 @@ body.mobile {
     a {
       margin: 10px auto;
     }
+
+    .mode-select.puzzle,
+    .mode-select.clear {
+      display: none;
+    }
   }
 }
 
