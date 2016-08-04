@@ -238,19 +238,19 @@ function bindEvents() {
       wordBank.splice(wordBank.indexOf($(this).text()), 1);
       manuallyDropWord($(this).text());
     });
+    $("#menu .mode-select")
+      .on('mouseover', function (e) {
+        var t = $(this).attr("data-explanation");
+        $(".explanation").text(t).show();
+      })
+      .on('mouseleave', function (e) {
+        $(".explanation").text("Thanks for playtesting! Select a mode to start.");
+      })
   }
   $("#menu .theme-select").on('click', 'li', function (e) {
     $(document.body).removeClass("tres mint times").addClass($(this).text());
   })
-  $("#menu .mode-select")
-    .on('mouseover', function (e) {
-      var t = $(this).attr("data-explanation");
-      $(".explanation").text(t).show();
-    })
-    .on('mouseleave', function (e) {
-      $(".explanation").text("Thanks for playtesting! Select a mode to start.");
-    })
-    .on('click', function (e) {
+  $("#menu .mode-select").on('click', function (e) {
       var d = $(this).text();
       e.preventDefault();
       $(this).blur();

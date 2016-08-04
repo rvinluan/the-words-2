@@ -27,6 +27,12 @@ body.mobile {
       margin: 10px auto;
     }
 
+    .mode-selectors {
+      display: block;
+      position: static;
+      width: 100%;
+    }
+
     .mode-select.puzzle,
     .mode-select.waterfall,
     .mode-select.clear {
