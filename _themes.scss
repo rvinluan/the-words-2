@@ -95,7 +95,12 @@ $themes: (
 
       &.special.selected {
         color: map-get($map, special-color-text);
-        background-color: lighten(map-get($map, special-color), 10);
+        @if map-get($map, isLight) {
+          background-color: darken(map-get($map, special-color), 10);
+        }
+        @else {
+          background-color: lighten(map-get($map, special-color), 10);
+        }
       }
 
       &.loading {
@@ -123,7 +128,12 @@ $themes: (
       }
 
       .used {
-        color: lighten(map-get($map, text-color), 20);
+        @if map-get($map, isLight) {
+          color: darken(map-get($map, body-bg), 10);
+        }
+        @else {
+          color: lighten(map-get($map, body-bg), 10);
+        }
       }
     }
 

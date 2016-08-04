@@ -543,47 +543,47 @@ body.mint .tile.special.selected {
   color: #fff;
   background-color: #4bd08d;
 }
-/* line 101, _themes.scss */
+/* line 106, _themes.scss */
 body.mint .tile.loading {
   color: #3c3c3c;
 }
-/* line 106, _themes.scss */
+/* line 111, _themes.scss */
 body.mint .bonus-indicator {
   background: linear-gradient(rgba(48, 35, 174, 0), #30B873);
 }
-/* line 110, _themes.scss */
+/* line 115, _themes.scss */
 body.mint .uncollected-text {
   color: #777;
 }
-/* line 113, _themes.scss */
+/* line 118, _themes.scss */
 body.mint .uncollected-text .collected {
   color: #30B873;
 }
-/* line 118, _themes.scss */
+/* line 123, _themes.scss */
 body.mint .word-bank-text {
   color: #777;
 }
-/* line 121, _themes.scss */
+/* line 126, _themes.scss */
 body.mint .word-bank-text :not(.used):hover {
   color: #dddddd;
 }
-/* line 125, _themes.scss */
-body.mint .word-bank-text .used {
-  color: #aaaaaa;
-}
 /* line 130, _themes.scss */
+body.mint .word-bank-text .used {
+  color: #3c3c3c;
+}
+/* line 140, _themes.scss */
 body.mint .help {
   background: #3c3c3c;
 }
-/* line 134, _themes.scss */
+/* line 144, _themes.scss */
 body.mint .instructions {
   background-color: #555555;
 }
-/* line 136, _themes.scss */
+/* line 146, _themes.scss */
 body.mint .instructions strong {
   color: #fff;
 }
-/* line 140, _themes.scss */
+/* line 150, _themes.scss */
 body.mint .instructions strong.special {
   color: #30B873;
 }
@@ -650,49 +650,49 @@ body.times .tile.special.enter-buffer {
 /* line 96, _themes.scss */
 body.times .tile.special.selected {
   color: #000;
-  background-color: #ffe133;
+  background-color: #ccae00;
 }
-/* line 101, _themes.scss */
+/* line 106, _themes.scss */
 body.times .tile.loading {
   color: white;
 }
-/* line 106, _themes.scss */
+/* line 111, _themes.scss */
 body.times .bonus-indicator {
   background: linear-gradient(rgba(48, 35, 174, 0), #FFDA00);
 }
-/* line 110, _themes.scss */
+/* line 115, _themes.scss */
 body.times .uncollected-text {
   color: #3B3B3B;
 }
-/* line 113, _themes.scss */
+/* line 118, _themes.scss */
 body.times .uncollected-text .collected {
   color: #FFDA00;
 }
-/* line 118, _themes.scss */
+/* line 123, _themes.scss */
 body.times .word-bank-text {
   color: #3B3B3B;
 }
-/* line 121, _themes.scss */
+/* line 126, _themes.scss */
 body.times .word-bank-text :not(.used):hover {
   color: #a1a1a1;
 }
-/* line 125, _themes.scss */
-body.times .word-bank-text .used {
-  color: #6e6e6e;
-}
 /* line 130, _themes.scss */
+body.times .word-bank-text .used {
+  color: #b7c5d1;
+}
+/* line 140, _themes.scss */
 body.times .help {
   background: #f5f7f9;
 }
-/* line 134, _themes.scss */
+/* line 144, _themes.scss */
 body.times .instructions {
   background-color: white;
 }
-/* line 136, _themes.scss */
+/* line 146, _themes.scss */
 body.times .instructions strong {
   color: #4F85E5;
 }
-/* line 140, _themes.scss */
+/* line 150, _themes.scss */
 body.times .instructions strong.special {
   color: #FFDA00;
 }
@@ -759,49 +759,49 @@ body.tres .tile.special.enter-buffer {
 /* line 96, _themes.scss */
 body.tres .tile.special.selected {
   color: #fff;
-  background-color: #ff9aab;
+  background-color: #ff3455;
 }
-/* line 101, _themes.scss */
+/* line 106, _themes.scss */
 body.tres .tile.loading {
   color: white;
 }
-/* line 106, _themes.scss */
+/* line 111, _themes.scss */
 body.tres .bonus-indicator {
   background: linear-gradient(rgba(48, 35, 174, 0), #FF6780);
 }
-/* line 110, _themes.scss */
+/* line 115, _themes.scss */
 body.tres .uncollected-text {
   color: #454248;
 }
-/* line 113, _themes.scss */
+/* line 118, _themes.scss */
 body.tres .uncollected-text .collected {
   color: #FF6780;
 }
-/* line 118, _themes.scss */
+/* line 123, _themes.scss */
 body.tres .word-bank-text {
   color: #454248;
 }
-/* line 121, _themes.scss */
+/* line 126, _themes.scss */
 body.tres .word-bank-text :not(.used):hover {
   color: #aba7af;
 }
-/* line 125, _themes.scss */
-body.tres .word-bank-text .used {
-  color: #78737d;
-}
 /* line 130, _themes.scss */
+body.tres .word-bank-text .used {
+  color: #e0e0e0;
+}
+/* line 140, _themes.scss */
 body.tres .help {
   background: white;
 }
-/* line 134, _themes.scss */
+/* line 144, _themes.scss */
 body.tres .instructions {
   background-color: white;
 }
-/* line 136, _themes.scss */
+/* line 146, _themes.scss */
 body.tres .instructions strong {
   color: #FCCC64;
 }
-/* line 140, _themes.scss */
+/* line 150, _themes.scss */
 body.tres .instructions strong.special {
   color: #FF6780;
 }
