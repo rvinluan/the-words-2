@@ -137,6 +137,22 @@ $themes: (
       }
     }
 
+    .reset {
+      border: 1px solid map-get($map, tile-highlight);
+      color: map-get($map, tile-highlight);
+
+      &:hover {
+        background: map-get($map, tile-highlight);
+        color:  map-get($map, tile-body);
+      }
+
+      &:active {
+        background: map-get($map, special-color);
+        color:  map-get($map, special-color-text);
+        border: 1px solid map-get($map, special-color);
+      }
+    }
+
     .help {
       background: lighten(map-get($map, body-bg), 10);
     }

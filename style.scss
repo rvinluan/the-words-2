@@ -254,6 +254,21 @@ body {
   }
 }
 
+.reset {
+  position: absolute;
+  $bg: ($tile-size + $margin*2)*$board-height;
+  top: ($bg + 100);
+  left: 50%;
+  transform: translatex(-50%);
+
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
 .game-end-word-list {
   list-style-type: none;
   padding: 0;

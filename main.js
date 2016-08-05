@@ -62,6 +62,15 @@ function init(md) {
     //does not match the linear order of the tiles
     $(e).removeClass('loading').text(allLetters[i].toUpperCase());
   })
+  //reset button
+  if(mode == "puzzle" || mode == "clear" || mode == "waterfall") {
+    var rb = $("<span>").addClass("reset").text("RESET")
+    $(".word-bank-text").after( rb );
+    rb.on('click', function (e) {
+      restart();
+    })
+  }
+  //word bank and letter collection
   if(mode == "puzzle") {
     initWordBank();
     initCollection();
