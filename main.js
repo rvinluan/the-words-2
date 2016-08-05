@@ -74,8 +74,10 @@ function init(md) {
   if(mode == "puzzle") {
     initWordBank();
     initCollection();
+    $("#mobile-keyboard").hide();
   } else if(mode == "clear" || mode == "waterfall") {
     initWordBank();
+    $("#mobile-keyboard").hide();
   } else {
     initCollection();
   }
@@ -182,12 +184,9 @@ function bindEvents() {
       if(!$("#gameplay").hasClass("active")) {
         return;
       }
-      if(mode == "puzzle" || mode == "clear" || mode == "waterfall") {
-        return;
-      }
       if( e.which == 48 ) {
         //0, test key
-        newRowFromBottom();
+        //newRowFromBottom();
       }
       if( e.which == 27 ) {
         //Esc
@@ -206,6 +205,9 @@ function bindEvents() {
         }
       } else if( e.which >= 65 && e.which <= 90 ) {
         //no modifiers
+        if(mode == "puzzle" || mode == "clear" || mode == "waterfall") {
+          return;
+        }
         if(e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
           return;
         }
@@ -224,14 +226,6 @@ function bindEvents() {
       .on('click', '.tile:not(.empty)', function (e) {
         clearTile(this, true);
       });
-    $(".word-bank-text").on('click', 'span', function (e) {
-      if($(this).hasClass("used")) {
-        return;
-      }
-      $(this).removeClass("unused").addClass("used");
-      wordBank.splice(wordBank.indexOf($(this).text()), 1);
-      manuallyDropWord($(this).text());
-    });
     $("#menu .mode-select")
       .on('mouseover', function (e) {
         var t = $(this).attr("data-explanation");
@@ -241,6 +235,14 @@ function bindEvents() {
         $(".explanation").text("Thanks for playtesting! Select a mode to start.");
       })
   }
+  $(".word-bank-text").on('click', 'span', function (e) {
+    if($(this).hasClass("used")) {
+      return;
+    }
+    $(this).removeClass("unused").addClass("used");
+    wordBank.splice(wordBank.indexOf($(this).text()), 1);
+    manuallyDropWord($(this).text());
+  });
   $("#menu .theme-select").on('click', 'li', function (e) {
     $(document.body).attr("data-theme", $(this).text());
   })

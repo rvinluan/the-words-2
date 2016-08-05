@@ -16,6 +16,7 @@ body.mobile {
 
   main {
     text-align: center;
+    margin-top: 20px;
 
     h1, h2 {
       font-size: 29px;
@@ -33,8 +34,6 @@ body.mobile {
       width: 100%;
     }
 
-    .mode-select.puzzle,
-    .mode-select.waterfall,
     .mode-select.clear {
       display: none;
     }
@@ -103,6 +102,22 @@ body.mobile {
   font-size: 25px;
 }
 
+.word-bank-text {
+  left: 0;
+  bottom: 70px;
+  width: 100%;
+  top: auto;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+
+  span {
+    margin: 0 15px;
+  }
+}
+
 .help {
   display: none;
 }
@@ -113,6 +128,11 @@ body.mobile {
   li {
     font-size: 18px;
   }
+}
+
+.reset {
+  top: auto;
+  bottom: 20px;
 }
 
 #mobile-keyboard {
