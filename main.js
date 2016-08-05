@@ -112,7 +112,7 @@ function changeModeSettings(md) {
 
 function resizeBoard() {
   //for different screens
-  tileSize = (($(window).height() - 40 - $("#mobile-keyboard").height()) / boardHeight) - 2;
+  tileSize = (($(window).height() - 20 - $("#mobile-keyboard").height()) / boardHeight) - 2;
   if(tileSize > 60) { tileSize = 60; }
   fullTileSize = tileSize + margin*2;
   $(".board, .board-bg, .board-fg").css( {
@@ -242,7 +242,7 @@ function bindEvents() {
       })
   }
   $("#menu .theme-select").on('click', 'li', function (e) {
-    $(document.body).removeClass("tres mint times").addClass($(this).text());
+    $(document.body).attr("data-theme", $(this).text());
   })
   $("#menu .mode-select").on('click', function (e) {
       var d = $(this).text();

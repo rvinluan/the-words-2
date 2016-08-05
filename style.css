@@ -130,7 +130,7 @@ body {
 /* line 113, style.scss */
 .board {
   position: relative;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 /* line 118, style.scss */
@@ -391,7 +391,7 @@ body.mobile .board-fg {
 }
 /* line 56, _responsive.scss */
 body.mobile .board {
-  top: 40px;
+  top: 20px;
   left: calc(50% - 110px);
 }
 /* line 62, _responsive.scss */
@@ -493,377 +493,627 @@ body.mobile #mobile-keyboard .keypress-indicator {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* line 38, _themes.scss */
-body.mint {
+/* line 60, _themes.scss */
+body[data-theme="mint"] {
   background: #222;
 }
-/* line 41, _themes.scss */
-body.mint, body.mint .screen {
+/* line 63, _themes.scss */
+body[data-theme="mint"], body[data-theme="mint"] .screen {
   background: #222;
   color: #777;
 }
-/* line 46, _themes.scss */
-body.mint .screen main a {
+/* line 68, _themes.scss */
+body[data-theme="mint"] .screen main a {
   color: #fff;
   border: 1px solid #fff;
 }
-/* line 50, _themes.scss */
-body.mint .screen main a:hover {
+/* line 72, _themes.scss */
+body[data-theme="mint"] .screen main a:hover {
   background: #fff;
   color: #222;
 }
-/* line 56, _themes.scss */
-body.mint .board {
+/* line 78, _themes.scss */
+body[data-theme="mint"] .board {
   background: #2f2f2f;
 }
-/* line 60, _themes.scss */
-body.mint .tile {
+/* line 82, _themes.scss */
+body[data-theme="mint"] .tile {
   color: #fff;
   background: #222;
 }
-/* line 64, _themes.scss */
-body.mint .tile.empty {
+/* line 86, _themes.scss */
+body[data-theme="mint"] .tile.empty {
   background: transparent;
   border: 1px solid #151515;
 }
-/* line 69, _themes.scss */
-body.mint .tile.selected {
+/* line 91, _themes.scss */
+body[data-theme="mint"] .tile.selected {
   color: #222;
   background-color: #fff;
 }
-/* line 74, _themes.scss */
-body.mint .tile.highlighted {
+/* line 96, _themes.scss */
+body[data-theme="mint"] .tile.highlighted {
   border: 1px solid #fff;
 }
-/* line 78, _themes.scss */
-body.mint .tile.enter-buffer {
+/* line 100, _themes.scss */
+body[data-theme="mint"] .tile.enter-buffer {
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
 }
-/* line 85, _themes.scss */
-body.mint .tile.special {
+/* line 107, _themes.scss */
+body[data-theme="mint"] .tile.special {
   color: #fff;
   background-color: #30B873;
 }
-/* line 90, _themes.scss */
-body.mint .tile.special.enter-buffer {
+/* line 112, _themes.scss */
+body[data-theme="mint"] .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid #25905a;
   color: #25905a;
 }
-/* line 96, _themes.scss */
-body.mint .tile.special.selected {
+/* line 118, _themes.scss */
+body[data-theme="mint"] .tile.special.selected {
   color: #fff;
-  background-color: #4bd08d;
+  background-color: #88e0b3;
 }
-/* line 106, _themes.scss */
-body.mint .tile.loading {
+/* line 128, _themes.scss */
+body[data-theme="mint"] .tile.loading {
   color: #3c3c3c;
 }
-/* line 111, _themes.scss */
-body.mint .bonus-indicator {
+/* line 133, _themes.scss */
+body[data-theme="mint"] .bonus-indicator {
   background: linear-gradient(rgba(48, 35, 174, 0), #30B873);
 }
-/* line 115, _themes.scss */
-body.mint .uncollected-text {
+/* line 137, _themes.scss */
+body[data-theme="mint"] .uncollected-text {
   color: #777;
-}
-/* line 118, _themes.scss */
-body.mint .uncollected-text .collected {
-  color: #30B873;
-}
-/* line 123, _themes.scss */
-body.mint .word-bank-text {
-  color: #777;
-}
-/* line 126, _themes.scss */
-body.mint .word-bank-text :not(.used):hover {
-  color: #dddddd;
-}
-/* line 130, _themes.scss */
-body.mint .word-bank-text .used {
-  color: #3c3c3c;
 }
 /* line 140, _themes.scss */
-body.mint .reset {
+body[data-theme="mint"] .uncollected-text .collected {
+  color: #30B873;
+}
+/* line 145, _themes.scss */
+body[data-theme="mint"] .word-bank-text {
+  color: #777;
+}
+/* line 148, _themes.scss */
+body[data-theme="mint"] .word-bank-text :not(.used):hover {
+  color: #dddddd;
+}
+/* line 152, _themes.scss */
+body[data-theme="mint"] .word-bank-text .used {
+  color: #3c3c3c;
+}
+/* line 162, _themes.scss */
+body[data-theme="mint"] .reset {
   border: 1px solid #fff;
   color: #fff;
 }
-/* line 144, _themes.scss */
-body.mint .reset:hover {
+/* line 166, _themes.scss */
+body[data-theme="mint"] .reset:hover {
   background: #fff;
   color: #222;
 }
-/* line 149, _themes.scss */
-body.mint .reset:active {
+/* line 171, _themes.scss */
+body[data-theme="mint"] .reset:active {
   background: #30B873;
   color: #fff;
   border: 1px solid #30B873;
 }
-/* line 156, _themes.scss */
-body.mint .help {
+/* line 178, _themes.scss */
+body[data-theme="mint"] .help {
   background: #3c3c3c;
 }
-/* line 160, _themes.scss */
-body.mint .instructions {
+/* line 182, _themes.scss */
+body[data-theme="mint"] .instructions {
   background-color: #555555;
 }
-/* line 162, _themes.scss */
-body.mint .instructions strong {
+/* line 184, _themes.scss */
+body[data-theme="mint"] .instructions strong {
   color: #fff;
 }
-/* line 166, _themes.scss */
-body.mint .instructions strong.special {
+/* line 188, _themes.scss */
+body[data-theme="mint"] .instructions strong.special {
   color: #30B873;
 }
 
-/* line 38, _themes.scss */
-body.times {
+/* line 60, _themes.scss */
+body[data-theme="times"] {
   background: #eee;
 }
-/* line 41, _themes.scss */
-body.times, body.times .screen {
+/* line 63, _themes.scss */
+body[data-theme="times"], body[data-theme="times"] .screen {
   background: #eee;
   color: #333;
 }
-/* line 46, _themes.scss */
-body.times .screen main a {
+/* line 68, _themes.scss */
+body[data-theme="times"] .screen main a {
   color: #4F85E5;
   border: 1px solid #4F85E5;
 }
-/* line 50, _themes.scss */
-body.times .screen main a:hover {
+/* line 72, _themes.scss */
+body[data-theme="times"] .screen main a:hover {
   background: #4F85E5;
   color: #eee;
 }
-/* line 56, _themes.scss */
-body.times .board {
+/* line 78, _themes.scss */
+body[data-theme="times"] .board {
   background: #D6DEE5;
 }
-/* line 60, _themes.scss */
-body.times .tile {
+/* line 82, _themes.scss */
+body[data-theme="times"] .tile {
   color: #4F85E5;
   background: #fff;
 }
-/* line 64, _themes.scss */
-body.times .tile.empty {
+/* line 86, _themes.scss */
+body[data-theme="times"] .tile.empty {
   background: transparent;
   border: 1px solid #b7c5d1;
 }
-/* line 69, _themes.scss */
-body.times .tile.selected {
+/* line 91, _themes.scss */
+body[data-theme="times"] .tile.selected {
   color: #fff;
   background-color: #4F85E5;
 }
-/* line 74, _themes.scss */
-body.times .tile.highlighted {
+/* line 96, _themes.scss */
+body[data-theme="times"] .tile.highlighted {
   border: 1px solid #4F85E5;
 }
-/* line 78, _themes.scss */
-body.times .tile.enter-buffer {
+/* line 100, _themes.scss */
+body[data-theme="times"] .tile.enter-buffer {
   background: transparent;
   border: 1px solid #4F85E5;
   color: #4F85E5;
 }
-/* line 85, _themes.scss */
-body.times .tile.special {
+/* line 107, _themes.scss */
+body[data-theme="times"] .tile.special {
   color: #000;
   background-color: #FFDA00;
 }
-/* line 90, _themes.scss */
-body.times .tile.special.enter-buffer {
+/* line 112, _themes.scss */
+body[data-theme="times"] .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid #ccae00;
   color: #ccae00;
 }
-/* line 96, _themes.scss */
-body.times .tile.special.selected {
+/* line 118, _themes.scss */
+body[data-theme="times"] .tile.special.selected {
   color: #000;
-  background-color: #ccae00;
+  background-color: #806d00;
 }
-/* line 106, _themes.scss */
-body.times .tile.loading {
+/* line 128, _themes.scss */
+body[data-theme="times"] .tile.loading {
   color: white;
 }
-/* line 111, _themes.scss */
-body.times .bonus-indicator {
+/* line 133, _themes.scss */
+body[data-theme="times"] .bonus-indicator {
   background: linear-gradient(rgba(48, 35, 174, 0), #FFDA00);
 }
-/* line 115, _themes.scss */
-body.times .uncollected-text {
+/* line 137, _themes.scss */
+body[data-theme="times"] .uncollected-text {
   color: #333;
-}
-/* line 118, _themes.scss */
-body.times .uncollected-text .collected {
-  color: #FFDA00;
-}
-/* line 123, _themes.scss */
-body.times .word-bank-text {
-  color: #333;
-}
-/* line 126, _themes.scss */
-body.times .word-bank-text :not(.used):hover {
-  color: #999999;
-}
-/* line 130, _themes.scss */
-body.times .word-bank-text .used {
-  color: #d5d5d5;
 }
 /* line 140, _themes.scss */
-body.times .reset {
+body[data-theme="times"] .uncollected-text .collected {
+  color: #FFDA00;
+}
+/* line 145, _themes.scss */
+body[data-theme="times"] .word-bank-text {
+  color: #333;
+}
+/* line 148, _themes.scss */
+body[data-theme="times"] .word-bank-text :not(.used):hover {
+  color: #999999;
+}
+/* line 152, _themes.scss */
+body[data-theme="times"] .word-bank-text .used {
+  color: #d5d5d5;
+}
+/* line 162, _themes.scss */
+body[data-theme="times"] .reset {
   border: 1px solid #4F85E5;
   color: #4F85E5;
 }
-/* line 144, _themes.scss */
-body.times .reset:hover {
+/* line 166, _themes.scss */
+body[data-theme="times"] .reset:hover {
   background: #4F85E5;
   color: #fff;
 }
-/* line 149, _themes.scss */
-body.times .reset:active {
+/* line 171, _themes.scss */
+body[data-theme="times"] .reset:active {
   background: #FFDA00;
   color: #000;
   border: 1px solid #FFDA00;
 }
-/* line 156, _themes.scss */
-body.times .help {
+/* line 178, _themes.scss */
+body[data-theme="times"] .help {
   background: white;
 }
-/* line 160, _themes.scss */
-body.times .instructions {
+/* line 182, _themes.scss */
+body[data-theme="times"] .instructions {
   background-color: white;
 }
-/* line 162, _themes.scss */
-body.times .instructions strong {
+/* line 184, _themes.scss */
+body[data-theme="times"] .instructions strong {
   color: #4F85E5;
 }
-/* line 166, _themes.scss */
-body.times .instructions strong.special {
+/* line 188, _themes.scss */
+body[data-theme="times"] .instructions strong.special {
   color: #FFDA00;
 }
 
-/* line 38, _themes.scss */
-body.tres {
+/* line 60, _themes.scss */
+body[data-theme="tres"] {
   background: #F9F9F9;
 }
-/* line 41, _themes.scss */
-body.tres, body.tres .screen {
+/* line 63, _themes.scss */
+body[data-theme="tres"], body[data-theme="tres"] .screen {
   background: #F9F9F9;
   color: #454248;
 }
-/* line 46, _themes.scss */
-body.tres .screen main a {
+/* line 68, _themes.scss */
+body[data-theme="tres"] .screen main a {
   color: #FCCC64;
   border: 1px solid #FCCC64;
 }
-/* line 50, _themes.scss */
-body.tres .screen main a:hover {
+/* line 72, _themes.scss */
+body[data-theme="tres"] .screen main a:hover {
   background: #FCCC64;
   color: #F9F9F9;
 }
-/* line 56, _themes.scss */
-body.tres .board {
+/* line 78, _themes.scss */
+body[data-theme="tres"] .board {
   background: #CFE6DE;
 }
-/* line 60, _themes.scss */
-body.tres .tile {
+/* line 82, _themes.scss */
+body[data-theme="tres"] .tile {
   color: #FCCC64;
   background: #fff;
 }
-/* line 64, _themes.scss */
-body.tres .tile.empty {
+/* line 86, _themes.scss */
+body[data-theme="tres"] .tile.empty {
   background: transparent;
   border: 1px solid #add5c7;
 }
-/* line 69, _themes.scss */
-body.tres .tile.selected {
+/* line 91, _themes.scss */
+body[data-theme="tres"] .tile.selected {
   color: #fff;
   background-color: #FCCC64;
 }
-/* line 74, _themes.scss */
-body.tres .tile.highlighted {
+/* line 96, _themes.scss */
+body[data-theme="tres"] .tile.highlighted {
   border: 1px solid #FCCC64;
 }
-/* line 78, _themes.scss */
-body.tres .tile.enter-buffer {
+/* line 100, _themes.scss */
+body[data-theme="tres"] .tile.enter-buffer {
   background: transparent;
   border: 1px solid #66CBFF;
   color: #66CBFF;
 }
-/* line 85, _themes.scss */
-body.tres .tile.special {
+/* line 107, _themes.scss */
+body[data-theme="tres"] .tile.special {
   color: #fff;
   background-color: #FF6780;
 }
-/* line 90, _themes.scss */
-body.tres .tile.special.enter-buffer {
+/* line 112, _themes.scss */
+body[data-theme="tres"] .tile.special.enter-buffer {
   background: transparent;
   border: 1px solid #ff3455;
   color: #ff3455;
 }
-/* line 96, _themes.scss */
-body.tres .tile.special.selected {
+/* line 118, _themes.scss */
+body[data-theme="tres"] .tile.special.selected {
   color: #fff;
-  background-color: #ff3455;
+  background-color: #e70026;
 }
-/* line 106, _themes.scss */
-body.tres .tile.loading {
+/* line 128, _themes.scss */
+body[data-theme="tres"] .tile.loading {
   color: white;
 }
-/* line 111, _themes.scss */
-body.tres .bonus-indicator {
+/* line 133, _themes.scss */
+body[data-theme="tres"] .bonus-indicator {
   background: linear-gradient(rgba(48, 35, 174, 0), #FF6780);
 }
-/* line 115, _themes.scss */
-body.tres .uncollected-text {
+/* line 137, _themes.scss */
+body[data-theme="tres"] .uncollected-text {
   color: #454248;
-}
-/* line 118, _themes.scss */
-body.tres .uncollected-text .collected {
-  color: #FF6780;
-}
-/* line 123, _themes.scss */
-body.tres .word-bank-text {
-  color: #454248;
-}
-/* line 126, _themes.scss */
-body.tres .word-bank-text :not(.used):hover {
-  color: #aba7af;
-}
-/* line 130, _themes.scss */
-body.tres .word-bank-text .used {
-  color: #e0e0e0;
 }
 /* line 140, _themes.scss */
-body.tres .reset {
+body[data-theme="tres"] .uncollected-text .collected {
+  color: #FF6780;
+}
+/* line 145, _themes.scss */
+body[data-theme="tres"] .word-bank-text {
+  color: #454248;
+}
+/* line 148, _themes.scss */
+body[data-theme="tres"] .word-bank-text :not(.used):hover {
+  color: #aba7af;
+}
+/* line 152, _themes.scss */
+body[data-theme="tres"] .word-bank-text .used {
+  color: #e0e0e0;
+}
+/* line 162, _themes.scss */
+body[data-theme="tres"] .reset {
   border: 1px solid #FCCC64;
   color: #FCCC64;
 }
-/* line 144, _themes.scss */
-body.tres .reset:hover {
+/* line 166, _themes.scss */
+body[data-theme="tres"] .reset:hover {
   background: #FCCC64;
   color: #fff;
 }
-/* line 149, _themes.scss */
-body.tres .reset:active {
+/* line 171, _themes.scss */
+body[data-theme="tres"] .reset:active {
   background: #FF6780;
   color: #fff;
   border: 1px solid #FF6780;
 }
-/* line 156, _themes.scss */
-body.tres .help {
+/* line 178, _themes.scss */
+body[data-theme="tres"] .help {
   background: white;
 }
-/* line 160, _themes.scss */
-body.tres .instructions {
+/* line 182, _themes.scss */
+body[data-theme="tres"] .instructions {
   background-color: white;
 }
-/* line 162, _themes.scss */
-body.tres .instructions strong {
+/* line 184, _themes.scss */
+body[data-theme="tres"] .instructions strong {
   color: #FCCC64;
 }
-/* line 166, _themes.scss */
-body.tres .instructions strong.special {
+/* line 188, _themes.scss */
+body[data-theme="tres"] .instructions strong.special {
   color: #FF6780;
+}
+
+/* line 60, _themes.scss */
+body[data-theme="witch"] {
+  background: #FCA5B9;
+}
+/* line 63, _themes.scss */
+body[data-theme="witch"], body[data-theme="witch"] .screen {
+  background: #FCA5B9;
+  color: #722FAD;
+}
+/* line 68, _themes.scss */
+body[data-theme="witch"] .screen main a {
+  color: #FF698C;
+  border: 1px solid #FF698C;
+}
+/* line 72, _themes.scss */
+body[data-theme="witch"] .screen main a:hover {
+  background: #FF698C;
+  color: #FCA5B9;
+}
+/* line 78, _themes.scss */
+body[data-theme="witch"] .board {
+  background: #723EDD;
+}
+/* line 82, _themes.scss */
+body[data-theme="witch"] .tile {
+  color: #FF698C;
+  background: #FFD5CE;
+}
+/* line 86, _themes.scss */
+body[data-theme="witch"] .tile.empty {
+  background: transparent;
+  border: 1px solid #5823c5;
+}
+/* line 91, _themes.scss */
+body[data-theme="witch"] .tile.selected {
+  color: #FFD5CE;
+  background-color: #FF698C;
+}
+/* line 96, _themes.scss */
+body[data-theme="witch"] .tile.highlighted {
+  border: 1px solid #FF698C;
+}
+/* line 100, _themes.scss */
+body[data-theme="witch"] .tile.enter-buffer {
+  background: transparent;
+  border: 1px solid #FFD5CE;
+  color: #FFD5CE;
+}
+/* line 107, _themes.scss */
+body[data-theme="witch"] .tile.special {
+  color: #33CB87;
+  background-color: #77FFCC;
+}
+/* line 112, _themes.scss */
+body[data-theme="witch"] .tile.special.enter-buffer {
+  background: transparent;
+  border: 1px solid #44ffb9;
+  color: #44ffb9;
+}
+/* line 118, _themes.scss */
+body[data-theme="witch"] .tile.special.selected {
+  color: #33CB87;
+  background-color: #00f79a;
+}
+/* line 128, _themes.scss */
+body[data-theme="witch"] .tile.loading {
+  color: white;
+}
+/* line 133, _themes.scss */
+body[data-theme="witch"] .bonus-indicator {
+  background: linear-gradient(rgba(48, 35, 174, 0), #77FFCC);
+}
+/* line 137, _themes.scss */
+body[data-theme="witch"] .uncollected-text {
+  color: #722FAD;
+}
+/* line 140, _themes.scss */
+body[data-theme="witch"] .uncollected-text .collected {
+  color: #77FFCC;
+}
+/* line 145, _themes.scss */
+body[data-theme="witch"] .word-bank-text {
+  color: #722FAD;
+}
+/* line 148, _themes.scss */
+body[data-theme="witch"] .word-bank-text :not(.used):hover {
+  color: #d6bbed;
+}
+/* line 152, _themes.scss */
+body[data-theme="witch"] .word-bank-text .used {
+  color: #fa7493;
+}
+/* line 162, _themes.scss */
+body[data-theme="witch"] .reset {
+  border: 1px solid #FF698C;
+  color: #FF698C;
+}
+/* line 166, _themes.scss */
+body[data-theme="witch"] .reset:hover {
+  background: #FF698C;
+  color: #FFD5CE;
+}
+/* line 171, _themes.scss */
+body[data-theme="witch"] .reset:active {
+  background: #77FFCC;
+  color: #33CB87;
+  border: 1px solid #77FFCC;
+}
+/* line 178, _themes.scss */
+body[data-theme="witch"] .help {
+  background: #fed6df;
+}
+/* line 182, _themes.scss */
+body[data-theme="witch"] .instructions {
+  background-color: white;
+}
+/* line 184, _themes.scss */
+body[data-theme="witch"] .instructions strong {
+  color: #FF698C;
+}
+/* line 188, _themes.scss */
+body[data-theme="witch"] .instructions strong.special {
+  color: #77FFCC;
+}
+
+/* line 60, _themes.scss */
+body[data-theme="wopr8"] {
+  background: #06220B;
+}
+/* line 63, _themes.scss */
+body[data-theme="wopr8"], body[data-theme="wopr8"] .screen {
+  background: #06220B;
+  color: #33C338;
+}
+/* line 68, _themes.scss */
+body[data-theme="wopr8"] .screen main a {
+  color: #33C338;
+  border: 1px solid #33C338;
+}
+/* line 72, _themes.scss */
+body[data-theme="wopr8"] .screen main a:hover {
+  background: #33C338;
+  color: #06220B;
+}
+/* line 78, _themes.scss */
+body[data-theme="wopr8"] .board {
+  background: #000;
+}
+/* line 82, _themes.scss */
+body[data-theme="wopr8"] .tile {
+  color: #33C338;
+  background: #093309;
+}
+/* line 86, _themes.scss */
+body[data-theme="wopr8"] .tile.empty {
+  background: transparent;
+  border: 1px solid black;
+}
+/* line 91, _themes.scss */
+body[data-theme="wopr8"] .tile.selected {
+  color: #093309;
+  background-color: #33C338;
+}
+/* line 96, _themes.scss */
+body[data-theme="wopr8"] .tile.highlighted {
+  border: 1px solid #33C338;
+}
+/* line 100, _themes.scss */
+body[data-theme="wopr8"] .tile.enter-buffer {
+  background: transparent;
+  border: 1px solid #A537F8;
+  color: #A537F8;
+}
+/* line 107, _themes.scss */
+body[data-theme="wopr8"] .tile.special {
+  color: #093309;
+  background-color: #E0FE10;
+}
+/* line 112, _themes.scss */
+body[data-theme="wopr8"] .tile.special.enter-buffer {
+  background: transparent;
+  border: 1px solid #bfda01;
+  color: #bfda01;
+}
+/* line 118, _themes.scss */
+body[data-theme="wopr8"] .tile.special.selected {
+  color: #093309;
+  background-color: #f0ff8f;
+}
+/* line 128, _themes.scss */
+body[data-theme="wopr8"] .tile.loading {
+  color: #115e11;
+}
+/* line 133, _themes.scss */
+body[data-theme="wopr8"] .bonus-indicator {
+  background: linear-gradient(rgba(48, 35, 174, 0), #E0FE10);
+}
+/* line 137, _themes.scss */
+body[data-theme="wopr8"] .uncollected-text {
+  color: #33C338;
+}
+/* line 140, _themes.scss */
+body[data-theme="wopr8"] .uncollected-text .collected {
+  color: #E0FE10;
+}
+/* line 145, _themes.scss */
+body[data-theme="wopr8"] .word-bank-text {
+  color: #33C338;
+}
+/* line 148, _themes.scss */
+body[data-theme="wopr8"] .word-bank-text :not(.used):hover {
+  color: #cff3d1;
+}
+/* line 152, _themes.scss */
+body[data-theme="wopr8"] .word-bank-text .used {
+  color: #0e4d19;
+}
+/* line 162, _themes.scss */
+body[data-theme="wopr8"] .reset {
+  border: 1px solid #33C338;
+  color: #33C338;
+}
+/* line 166, _themes.scss */
+body[data-theme="wopr8"] .reset:hover {
+  background: #33C338;
+  color: #093309;
+}
+/* line 171, _themes.scss */
+body[data-theme="wopr8"] .reset:active {
+  background: #E0FE10;
+  color: #093309;
+  border: 1px solid #E0FE10;
+}
+/* line 178, _themes.scss */
+body[data-theme="wopr8"] .help {
+  background: #0e4d19;
+}
+/* line 182, _themes.scss */
+body[data-theme="wopr8"] .instructions {
+  background-color: #157927;
+}
+/* line 184, _themes.scss */
+body[data-theme="wopr8"] .instructions strong {
+  color: #33C338;
+}
+/* line 188, _themes.scss */
+body[data-theme="wopr8"] .instructions strong.special {
+  color: #E0FE10;
 }

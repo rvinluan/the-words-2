@@ -31,11 +31,33 @@ $themes: (
     special-color: #FF6780,
     special-color-text: #fff,
     entering-color: #66CBFF
+  ),
+  witch: (
+    isLight: true,
+    body-bg: #FCA5B9,
+    board-bg: #723EDD,
+    text-color: #722FAD,
+    tile-body: #FFD5CE,
+    tile-highlight: #FF698C,
+    special-color: #77FFCC,
+    special-color-text: #33CB87,
+    entering-color: #FFD5CE
+  ),
+  wopr8: (
+    isLight: false,
+    body-bg: #06220B,
+    board-bg: #000,
+    text-color: #33C338,
+    tile-body: #093309,
+    tile-highlight: #33C338,
+    special-color: #E0FE10,
+    special-color-text: #093309,
+    entering-color: #A537F8
   )
 );
 
 @each $theme, $map in $themes {
-  body.#{$theme} {
+  body[data-theme="#{$theme}"] {
     background: map-get($map, body-bg);
 
     &, .screen {
@@ -96,10 +118,10 @@ $themes: (
       &.special.selected {
         color: map-get($map, special-color-text);
         @if map-get($map, isLight) {
-          background-color: darken(map-get($map, special-color), 10);
+          background-color: darken(map-get($map, special-color), 25);
         }
         @else {
-          background-color: lighten(map-get($map, special-color), 10);
+          background-color: lighten(map-get($map, special-color), 25);
         }
       }
 

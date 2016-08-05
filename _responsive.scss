@@ -54,7 +54,7 @@ body.mobile {
 }
 
 .board {
-  top: 40px;
+  top: 20px;
   $bw: ($tile-size + $margin-resp*2)*$board-width;
   left: calc(50% - #{ $bw/2 });
 }
