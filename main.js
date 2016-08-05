@@ -149,22 +149,6 @@ function changeScreens(screenID) {
   $("#" + screenID).addClass("active");
 }
 
-// function newSpanFromRandom(template, i, j) {
-//   var ltr = randomIn("abcdefghijklmnopqrstuvwxyz".split("")).toUpperCase();
-//   template.removeClass("empty").text( ltr );
-//   reposition(template, i, j);
-//   board.grid[i][j] = template[0];
-//   board.element.append( template );
-// }
-
-// function newSpanFromStartingWords(template, i, j) {
-//   template.removeClass("empty").addClass("loading");
-//   template.text("•");
-//   reposition(template, i, j);
-//   board.grid[i][j] = template[0];
-//   board.element.append( template );
-// }
-
 function initTiles() {
   var allLetters = startingWords.reduce(function (p, c) {
     return p += c.toUpperCase();
@@ -626,24 +610,6 @@ function loadDictionary() {
     dataType: 'text',
     success: function(data) {
       dictionary = data.split('\n');
-      //make starting words
-      eligibleWords = dictionary.filter(function (e) {
-        return e.length == boardWidth;
-      });
-      for(var i = 0; i < numStartingWords; i++) {
-        var m = Math.floor(Math.random() * eligibleWords.length);
-        // startingWords.push(eligibleWords[m]);
-        // board.words.push(eligibleWords[m]);
-      }
-      $('.tile.loading').each(function (i, e) {
-        var allLetters = startingWords.reduce(function (p, c) {
-          return p += c;
-        }, "")
-        //reconcile the fact that the linear order of the letters
-        //does not match the linear order of the tiles
-        var pos = ((i % numStartingWords) * boardWidth) + Math.floor(i / numStartingWords);
-        $(e).removeClass('loading').text(allLetters[pos].toUpperCase());
-      })
     }
   })
 }
