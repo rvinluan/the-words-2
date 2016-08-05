@@ -46,17 +46,14 @@ function init(md) {
       "width": (tileSize + margin*2) * boardWidth,
     });
   }
+  //background
   for(var i = 0; i < boardWidth; i++) {
-    board.grid[i] = [];
     for(var j = 0; j < boardHeight; j++) {
-      var newSpan = $("<span>").addClass("tile empty");
-      board.background.append( newSpan.clone() );
-      if(j < numStartingWords) {
-        // newSpanFromRandom(newSpan, i, j);
-        newSpanFromStartingWords(newSpan, i, j);
-      }
+      board.background.append( $("<span>").addClass("tile empty") );
     }
   }
+  //foreground
+  initTiles();
   $('.tile.loading').each(function (i, e) {
     var allLetters = startingWords.reduce(function (p, c) {
       return p += c;
@@ -135,21 +132,7 @@ function restart() {
   $('.uncollected-text span').removeClass("collected");
   $('.word-bank-text span').removeClass("used");
   board.bonusColumn = 0;
-  for(var i = 0; i < boardWidth; i++) {
-    board.grid[i] = [];
-    for(var j = 0; j < boardHeight; j++) {
-      var newSpan = $("<span>").addClass("tile empty");
-      if(j < numStartingWords) {
-        newSpanFromStartingWords(newSpan, i, j);
-      }
-    }
-  }
-  $('.tile.loading').each(function (i, e) {
-    var allLetters = startingWords.reduce(function (p, c) {
-      return p += c;
-    }, "")
-    $(e).removeClass('loading').text(allLetters[i].toUpperCase());
-  })
+  initTiles();
   if(mode == "puzzle") {
     initWordBank();
     initCollection();
@@ -166,20 +149,38 @@ function changeScreens(screenID) {
   $("#" + screenID).addClass("active");
 }
 
-function newSpanFromRandom(template, i, j) {
-  var ltr = randomIn("abcdefghijklmnopqrstuvwxyz".split("")).toUpperCase();
-  template.removeClass("empty").text( ltr );
-  reposition(template, i, j);
-  board.grid[i][j] = template[0];
-  board.element.append( template );
-}
+// function newSpanFromRandom(template, i, j) {
+//   var ltr = randomIn("abcdefghijklmnopqrstuvwxyz".split("")).toUpperCase();
+//   template.removeClass("empty").text( ltr );
+//   reposition(template, i, j);
+//   board.grid[i][j] = template[0];
+//   board.element.append( template );
+// }
 
-function newSpanFromStartingWords(template, i, j) {
-  template.removeClass("empty").addClass("loading");
-  template.text("•");
-  reposition(template, i, j);
-  board.grid[i][j] = template[0];
-  board.element.append( template );
+// function newSpanFromStartingWords(template, i, j) {
+//   template.removeClass("empty").addClass("loading");
+//   template.text("•");
+//   reposition(template, i, j);
+//   board.grid[i][j] = template[0];
+//   board.element.append( template );
+// }
+
+function initTiles() {
+  var allLetters = startingWords.reduce(function (p, c) {
+    return p += c.toUpperCase();
+  }, "")
+  for(var i = 0; i < boardWidth; i++) {
+    board.grid[i] = [];
+    for(var j = 0; j < boardHeight; j++) {
+      if(j < numStartingWords) {
+        var newSpan = $("<span>").addClass("tile");
+        newSpan.text( allLetters[ boardWidth*j + i ] )
+        reposition(newSpan, i, j);
+        board.grid[i][j] = newSpan[0];
+        board.element.append( newSpan );
+      }
+    }
+  }
 }
 
 function bindEvents() {
@@ -604,6 +605,7 @@ function manuallyDropWord(word) {
 
 function initCollection() {
   var parent = $(".uncollected-text");
+  parent.empty();
   for(var i = 0; i < board.uncollected.length; i++) {
     var ltr = board.uncollected[i];
     var span = $("<span>").text(ltr).addClass("collected_"+ltr);

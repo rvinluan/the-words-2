@@ -16,7 +16,7 @@ var modesData = {
   "puzzle": {
     "boardHeight": 8,
     "numStartingWords": 3,
-    "startingWords": ["iimic", "mckck", "kohee"],
+    "startingWords": ["iickh", "ickke", "mmcoe"],
     "wordBank": ["milk", "tilt", "school", "latch", "slide"],
     "uncollected": "mic"
   },

@@ -590,12 +590,12 @@ body.mint .instructions strong.special {
 
 /* line 38, _themes.scss */
 body.times {
-  background: #D6DEE5;
+  background: #eee;
 }
 /* line 41, _themes.scss */
 body.times, body.times .screen {
-  background: #D6DEE5;
-  color: #3B3B3B;
+  background: #eee;
+  color: #333;
 }
 /* line 46, _themes.scss */
 body.times .screen main a {
@@ -605,11 +605,11 @@ body.times .screen main a {
 /* line 50, _themes.scss */
 body.times .screen main a:hover {
   background: #4F85E5;
-  color: #D6DEE5;
+  color: #eee;
 }
 /* line 56, _themes.scss */
 body.times .board {
-  background: #eee;
+  background: #D6DEE5;
 }
 /* line 60, _themes.scss */
 body.times .tile {
@@ -619,7 +619,7 @@ body.times .tile {
 /* line 64, _themes.scss */
 body.times .tile.empty {
   background: transparent;
-  border: 1px solid #d5d5d5;
+  border: 1px solid #b7c5d1;
 }
 /* line 69, _themes.scss */
 body.times .tile.selected {
@@ -633,8 +633,8 @@ body.times .tile.highlighted {
 /* line 78, _themes.scss */
 body.times .tile.enter-buffer {
   background: transparent;
-  border: 1px solid #92AFD0;
-  color: #92AFD0;
+  border: 1px solid #4F85E5;
+  color: #4F85E5;
 }
 /* line 85, _themes.scss */
 body.times .tile.special {
@@ -662,7 +662,7 @@ body.times .bonus-indicator {
 }
 /* line 115, _themes.scss */
 body.times .uncollected-text {
-  color: #3B3B3B;
+  color: #333;
 }
 /* line 118, _themes.scss */
 body.times .uncollected-text .collected {
@@ -670,19 +670,19 @@ body.times .uncollected-text .collected {
 }
 /* line 123, _themes.scss */
 body.times .word-bank-text {
-  color: #3B3B3B;
+  color: #333;
 }
 /* line 126, _themes.scss */
 body.times .word-bank-text :not(.used):hover {
-  color: #a1a1a1;
+  color: #999999;
 }
 /* line 130, _themes.scss */
 body.times .word-bank-text .used {
-  color: #b7c5d1;
+  color: #d5d5d5;
 }
 /* line 140, _themes.scss */
 body.times .help {
-  background: #f5f7f9;
+  background: white;
 }
 /* line 144, _themes.scss */
 body.times .instructions {
