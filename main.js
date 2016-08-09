@@ -156,8 +156,15 @@ function restart() {
 }
 
 function changeScreens(screenID) {
-  $('section.screen').removeClass("active");
-  $("#" + screenID).addClass("active");
+  var targetScreen = $("#" + screenID);
+  $('.screen').removeClass("active");
+  if(targetScreen.is(".subscreen")) {
+    targetScreen.parent(".screen").addClass("active");
+    targetScreen.addClass("active");
+  } else {
+    targetScreen.children(".subscreen").removeClass("active");
+    targetScreen.addClass("active");
+  }
 }
 
 function initTiles() {
@@ -248,12 +255,24 @@ function bindEvents() {
   })
   $("#menu .mode-select").on('click', function (e) {
       var d = $(this).text();
+      var isPuzzle = $(this).is('[puzzle-mode]');
       e.preventDefault();
       $(this).blur();
-      changeScreens("gameplay");
-      gameState = "playing";
-      init(d);
-    })
+      if(isPuzzle) {
+        changeScreens("puzzle-select");
+        $(".puzzle-list").attr("data-mode", d);
+      } else {
+        changeScreens("gameplay");
+        gameState = "playing";
+        init(d);
+      }
+    });
+  $("#puzzle-select .puzzle-list").on('click', 'li', function (e) {
+    var puzzleName = $(this).text();
+    changeScreens("gameplay");
+    gameState = "playing";
+    init($(this).parent(".puzzle-list").attr("data-mode"), puzzleName);
+  });
   $("#gameplay .help").on('click', function (e) {
     $(".instructions#"+mode).toggle();
   })

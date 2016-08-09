@@ -33,7 +33,7 @@ body {
     left: 0;
   }
 
-  main {
+  section {
     max-width: 900px;
     margin: 100px auto;
     position: relative;
@@ -92,6 +92,21 @@ body {
   }
 }
 
+.subscreen {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 100vh;
+  transition: top .3s;
+
+  section {
+    max-width: 900px;
+    margin: 100px auto;
+    position: relative;
+  }
+}
+
+#puzzle-select.active { top: 0; }
 #gameplay.active ~ #menu { left: -100vw; }
 #gameover.active ~ #menu { left: -200vw; }
 #menu.active ~ #gameplay { left: 100vw; }

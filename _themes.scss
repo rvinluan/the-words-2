@@ -65,7 +65,11 @@ $themes: (
       color: map-get($map, text-color);
     }
 
-    .screen main a {
+    .subscreen {
+      background: map-get($map, tile-highlight);
+    }
+
+    .screen section a {
       color: map-get($map, tile-highlight);
       border: 1px solid map-get($map, tile-highlight);
 

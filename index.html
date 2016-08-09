@@ -18,7 +18,7 @@
     </head>
     <body class="times" data-theme="times">
         <section id="menu" class="screen active">
-            <main>
+            <section>
                 <ul class="theme-select">
                     <li>times</li>
                     <li>tres</li>
@@ -31,11 +31,21 @@
                 <div class="mode-selectors">
                     <a href="" data-explanation="Get all 26 special letters." class="mode-select normal">normal</a>
                     <a href="" data-explanation="Like normal mode, but letters have to be in a contiguous chunk to clear them." class="mode-select hard">hard</a>
-                    <a href="" data-explanation="Get all the letters with a predefined set of words." class="mode-select puzzle">puzzle</a>
-                    <a href="" data-explanation="Clear the board with a predefined set of words." class="mode-select clear">clear</a>
-                    <a href="" data-explanation="Clear the board by playing all the words (with a twist)." class="mode-select waterfall">waterfall</a>
+                    <a href="" puzzle-mode data-explanation="Get all the letters with a predefined set of words." class="mode-select puzzle">puzzle</a>
+                    <a href="" puzzle-mode data-explanation="Clear the board with a predefined set of words." class="mode-select clear">clear</a>
+                    <a href="" puzzle-mode data-explanation="Clear the board by playing all the words (with a twist)." class="mode-select waterfall">waterfall</a>
                 </div>
-            </main>
+            </section>
+            <div id="puzzle-select" class="subscreen">
+                <section>
+                    <h1>Select A Puzzle</h1>
+                    <ul class="puzzle-list">
+                        <li>dummy</li>
+                        <li>dummy</li>
+                        <li>dummy</li>
+                    </ul>
+                </section>
+            </div>
         </section>
         <section id="gameplay" class="screen">
             <div class="board">
@@ -85,13 +95,13 @@
             </div>
         </section>
         <section id="gameover" class="screen">
-            <main>
+            <section>
                 <h2>so close.</h2>
                 <p>your words:</p>
                 <ul class="game-end-word-list"></ul>
 
                 <a href="" class="restart">Try Again</a>
-            </main>
+            </section>
         </section>
         <script src="modes.js"></script>
         <script src="mobile.js"></script>
