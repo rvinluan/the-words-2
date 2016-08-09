@@ -63,7 +63,7 @@ function init(md) {
     $(e).removeClass('loading').text(allLetters[i].toUpperCase());
   })
   //reset button
-  if(mode == "puzzle" || mode == "clear" || mode == "waterfall") {
+  if(mode == "puzzle" || mode == "waterfall") {
     var rb = $("<span>").addClass("reset").text("RESET")
     $(".word-bank-text").after( rb );
     rb.on('click', function (e) {
@@ -75,7 +75,7 @@ function init(md) {
     initWordBank();
     initCollection();
     $("#mobile-keyboard").hide();
-  } else if(mode == "clear" || mode == "waterfall") {
+  } else if(mode == "waterfall") {
     initWordBank();
     $("#mobile-keyboard").hide();
   } else {
@@ -147,7 +147,7 @@ function restart() {
   if(mode == "puzzle") {
     initWordBank();
     initCollection();
-  } else if(mode == "clear") {
+  } else if(mode == "waterfall") {
     initWordBank();
   } else {
     initCollection();
@@ -212,7 +212,7 @@ function bindEvents() {
         }
       } else if( e.which >= 65 && e.which <= 90 ) {
         //no modifiers
-        if(mode == "puzzle" || mode == "clear" || mode == "waterfall") {
+        if(mode == "puzzle" || mode == "waterfall") {
           return;
         }
         if(e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
@@ -412,7 +412,7 @@ function clearTile(tileElement, initiator) {
     $(tileElement).on("transitionend", function(){
       $(this).remove();
       //win check for clear mode
-      if((mode == "clear" || mode == "waterfall") && $(".board-fg").children().length == 0) {
+      if((mode == "waterfall") && $(".board-fg").children().length == 0) {
         winGame();
       }
     })

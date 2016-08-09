@@ -20,13 +20,13 @@ var modesData = {
     "wordBank": ["milk", "tilt", "school", "latch", "slide"],
     "uncollected": "mic"
   },
-  "clear": {
-    "boardHeight": 8,
-    "numStartingWords": 1,
-    "startingWords": ["tarot"],
-    "wordBank": ["tatt","at","tar","taro","roo", "or"],
-    "uncollected": ""
-  },
+  // "clear": {
+  //   "boardHeight": 8,
+  //   "numStartingWords": 1,
+  //   "startingWords": ["tarot"],
+  //   "wordBank": ["tatt","at","tar","taro","roo", "or"],
+  //   "uncollected": ""
+  // },
   "waterfall": {
     "boardHeight": 8,
     "numStartingWords": 0,
