@@ -28,6 +28,10 @@ body.mobile {
       margin: 10px auto;
     }
 
+    p {
+      margin: 1em auto 2em auto;
+    }
+
     .mode-selectors {
       display: block;
       position: static;
@@ -36,6 +40,10 @@ body.mobile {
 
     .mode-select.clear {
       display: none;
+    }
+
+    .puzzle-list {
+      justify-content: center;
     }
   }
 }

@@ -1,5 +1,6 @@
 var modesData = {
   "normal": {
+    "isPuzzle": false,
     "boardHeight": 8,
     "numStartingWords": 3,
     "startingWords": [],
@@ -7,6 +8,7 @@ var modesData = {
     "uncollected": "abcdefghijklmnopqrstuvwxyz"
   },
   "hard": {
+    "isPuzzle": false,
     "boardHeight": 10,
     "numStartingWords": 3,
     "startingWords": [],
@@ -14,24 +16,37 @@ var modesData = {
     "uncollected": "abcdefghijklmnopqrstuvwxyz"
   },
   "puzzle": {
+    "isPuzzle": true,
     "boardHeight": 8,
     "numStartingWords": 3,
-    "startingWords": ["iickh", "ickke", "mmcoe"],
-    "wordBank": ["milk", "tilt", "school", "latch", "slide"],
-    "uncollected": "mic"
+    "startingWords": [],
+    "wordBank": [],
+    "uncollected": "",
+    "puzzles": [
+      {
+        "startingWords": ["iickh", "ickke", "mmcoe"],
+        "wordBank": ["milk", "tilt", "school", "latch", "slide"],
+        "uncollected": "mic"
+      }
+    ]
   },
-  // "clear": {
-  //   "boardHeight": 8,
-  //   "numStartingWords": 1,
-  //   "startingWords": ["tarot"],
-  //   "wordBank": ["tatt","at","tar","taro","roo", "or"],
-  //   "uncollected": ""
-  // },
   "waterfall": {
+    "isPuzzle": true,
     "boardHeight": 8,
     "numStartingWords": 0,
     "startingWords": [],
-    "wordBank": ["met", "meat", "meal", "teal", "let"],
-    "uncollected": ""
+    "wordBank": [],
+    "uncollected": "",
+    "puzzles": [
+      {
+        "wordBank": ["met", "meat", "meal", "teal", "let"]
+      },
+      {
+        "wordBank": ["tom", "mot", "moot", "toll", "lot"]
+      },
+      {
+        "wordBank": ["nit", "tin", "nil", "lit", "tint", "lint", "til"]
+      }
+    ]
   }
 }

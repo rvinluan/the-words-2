@@ -79,6 +79,17 @@ $themes: (
       }
     }
 
+    .puzzle-list li {
+      border-color: map-get($map, tile-body);
+      color: map-get($map, tile-body);
+
+      &:hover {
+        background: map-get($map, tile-body);
+        color: map-get($map, tile-highlight);
+        border-color: map-get($map, tile-body);
+      }
+    }
+
     .board {
       background: map-get($map, board-bg);
     }

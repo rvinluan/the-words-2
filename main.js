@@ -34,10 +34,10 @@ var entryBuffer = [];
 var gameState = "";
 var mode = "";
 
-function init(md) {
+function init(md, puz) {
   loadDictionary();
   mode = md;
-  changeModeSettings(mode);
+  changeModeSettings(mode, puz);
   if(browserIsMobile) {
     resizeBoard();
   } else {
@@ -84,12 +84,16 @@ function init(md) {
   moveAddUI();
 }
 
-function changeModeSettings(md) {
+function changeModeSettings(md, puz) {
   var settings = modesData[md];
 
   boardHeight = settings.boardHeight;
   numStartingWords = settings.numStartingWords;
-  wordBank = settings.wordBank;
+  if(settings.isPuzzle && puz !== undefined && settings.puzzles[puz].wordBank)
+    wordBank = settings.puzzles[puz].wordBank;
+  else {
+    wordBank = settings.wordBank;
+  }
 
   if(settings.startingWords.length == 0) {
     for(var i = 0; i < numStartingWords; i++) {
@@ -261,6 +265,7 @@ function bindEvents() {
       if(isPuzzle) {
         changeScreens("puzzle-select");
         $(".puzzle-list").attr("data-mode", d);
+        loadAvailablePuzzles(d);
       } else {
         changeScreens("gameplay");
         gameState = "playing";
@@ -268,7 +273,7 @@ function bindEvents() {
       }
     });
   $("#puzzle-select .puzzle-list").on('click', 'li', function (e) {
-    var puzzleName = $(this).text();
+    var puzzleName = $(this).attr("data-puzzle-id");
     changeScreens("gameplay");
     gameState = "playing";
     init($(this).parent(".puzzle-list").attr("data-mode"), puzzleName);
@@ -642,6 +647,13 @@ function loadDictionary() {
       dictionary = data.split('\n');
     }
   })
+}
+
+function loadAvailablePuzzles(mode) {
+  var settings = modesData[mode];
+  for(var p in settings.puzzles) {
+    $(".puzzle-list").append( $("<li>").text(parseInt(p,10)+1).attr("data-puzzle-id", p) );
+  }
 }
 
 function isValidWord(word) {
