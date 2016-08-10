@@ -96,7 +96,7 @@ function changeModeSettings(md, puz) {
     wordBank = settings.wordBank;
   }
 
-  if(settings.startingWords.length == 0) {
+  if(settings.startingWords.length == 0 && md != "puzzle") {
     for(var i = 0; i < numStartingWords; i++) {
       startingWords.push("");
       for(var j = 0; j < boardWidth; j++) {
@@ -105,7 +105,11 @@ function changeModeSettings(md, puz) {
       }
     }
   } else {
-    startingWords = settings.startingWords;
+    if(md == "puzzle") {
+      startingWords = settings.puzzles[puz].startingWords;
+    } else {
+      startingWords = settings.startingWords;
+    }
   }
 
   if(location.search.length > 0) {
@@ -113,7 +117,11 @@ function changeModeSettings(md, puz) {
     var newSearch = location.search.replace(/[^a-zA-Z]/g, "");
     board.uncollected = newSearch.toLowerCase().split("");
   } else {
-    board.uncollected = settings.uncollected.split("");
+    if(settings.isPuzzle && puz !== undefined && settings.puzzles[puz].uncollected) {
+      board.uncollected = settings.puzzles[puz].uncollected.split("");
+    } else {
+      board.uncollected = settings.uncollected.split("");
+    }
   }
 }
 
