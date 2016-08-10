@@ -600,7 +600,7 @@ function updateEntryTiles() {
       y = startingY + Math.floor(i / boardWidth);
     }
     var newSpan = $("<span>").addClass("tile enter-buffer");
-    if(x == board.bonusColumn) {
+    if(x == board.bonusColumn && mode !== "waterfall") {
       newSpan.addClass("special");
     }
     newSpan.attr("data-x", x);
