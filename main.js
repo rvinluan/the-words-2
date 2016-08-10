@@ -47,6 +47,7 @@ function init(md, puz) {
     });
   }
   //background
+  board.background.empty();
   for(var i = 0; i < boardWidth; i++) {
     for(var j = 0; j < boardHeight; j++) {
       board.background.append( $("<span>").addClass("tile empty") );
@@ -284,8 +285,8 @@ function bindEvents() {
   $("#gameover .restart").on('click', function (e) {
     e.preventDefault();
     $(this).blur();
-    changeScreens("gameplay");
     restart();
+    changeScreens("menu");
   })
 }
 
