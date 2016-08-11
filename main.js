@@ -33,10 +33,12 @@ var entryBuffer = [];
 
 var gameState = "";
 var mode = "";
+var currentPuzzle;
 
 function init(md, puz) {
   loadDictionary();
   mode = md;
+  currentPuzzle = puz;
   changeModeSettings(mode, puz);
   if(browserIsMobile) {
     resizeBoard();
@@ -145,7 +147,7 @@ function resizeBoard() {
 }
 
 function restart() {
-  changeModeSettings(mode);
+  changeModeSettings(mode, currentPuzzle);
   gameState = "playing";
   board.grid = [];
   board.words = [];
