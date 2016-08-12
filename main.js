@@ -92,9 +92,9 @@ function changeModeSettings(md, puz) {
 
   boardHeight = settings.boardHeight;
   numStartingWords = settings.numStartingWords;
-  if(settings.isPuzzle && puz !== undefined && settings.puzzles[puz].wordBank)
-    wordBank = settings.puzzles[puz].wordBank;
-  else {
+  if(settings.isPuzzle && puz !== undefined && settings.puzzles[puz].wordBank) {
+    wordBank = settings.puzzles[puz].wordBank.slice(0);
+  } else {
     wordBank = settings.wordBank;
   }
 
@@ -147,6 +147,7 @@ function resizeBoard() {
 }
 
 function restart() {
+  wordBank = [];
   changeModeSettings(mode, currentPuzzle);
   gameState = "playing";
   board.grid = [];
@@ -154,7 +155,6 @@ function restart() {
   $("#gameover .game-end-word-list").empty();
   board.element.empty();
   board.collected = [];
-  wordBank = [];
   $('.uncollected-text span').removeClass("collected");
   $('.word-bank-text span').removeClass("used");
   board.bonusColumn = 0;
@@ -645,6 +645,7 @@ function initCollection() {
 
 function initWordBank() {
   var parent = $(".word-bank-text");
+  parent.empty();
   for(var i = 0; i < wordBank.length; i++) {
     var span = $("<span>").text(wordBank[i]);
     parent.append(span);
@@ -662,6 +663,7 @@ function loadDictionary() {
 
 function loadAvailablePuzzles(mode) {
   var settings = modesData[mode];
+  $(".puzzle-list").empty()
   for(var p in settings.puzzles) {
     $(".puzzle-list").append( $("<li>").text(parseInt(p,10)+1).attr("data-puzzle-id", p) );
   }

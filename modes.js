@@ -39,7 +39,7 @@ var modesData = {
     "uncollected": "",
     "puzzles": [
       {
-        "wordBank": ["at", "ta", "tat"]
+        "wordBank": ["at", "tat", "ta"]
       },
       {
         "wordBank": ["mess", "me", "see", "seem"]
