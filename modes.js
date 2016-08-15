@@ -24,6 +24,16 @@ var modesData = {
     "uncollected": "",
     "puzzles": [
       {
+        "startingWords": ["birch", "acorn", "aoako"],
+        "wordBank": ["able", "maple"],
+        "uncollected": "a"
+      },
+      {
+        "startingWords": ["mmcoe", "otbns", "txdws"],
+        "wordBank": ["boink", "other", "toe"],
+        "uncollected": "to"
+      },
+      {
         "startingWords": ["iickh", "ickke", "mmcoe"],
         "wordBank": ["milk", "tilt", "school", "latch", "slide"],
         "uncollected": "mic"

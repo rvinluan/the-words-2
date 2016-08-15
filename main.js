@@ -98,6 +98,7 @@ function changeModeSettings(md, puz) {
     wordBank = settings.wordBank;
   }
 
+  startingWords = [];
   if(settings.startingWords.length == 0 && md != "puzzle") {
     for(var i = 0; i < numStartingWords; i++) {
       startingWords.push("");
@@ -148,12 +149,14 @@ function resizeBoard() {
 
 function restart() {
   wordBank = [];
-  changeModeSettings(mode, currentPuzzle);
   gameState = "playing";
   board.grid = [];
   board.words = [];
   $("#gameover .game-end-word-list").empty();
-  board.element.empty();
+  $(board.element[0]).empty();
+  console.log("DOM===")
+  console.log(board.element[0]);
+  changeModeSettings(mode, currentPuzzle);
   board.collected = [];
   $('.uncollected-text span').removeClass("collected");
   $('.word-bank-text span').removeClass("used");
@@ -168,6 +171,8 @@ function restart() {
     initCollection();
   }
   moveAddUI();
+  console.log('FG====')
+  console.log(board.grid);
 }
 
 function changeScreens(screenID) {
